@@ -1,0 +1,36 @@
+@mixin category($width) {
+  width: $width;
+  height: 22px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: var(--dark-grey);
+}
+
+.navBar {
+  .men {
+    @include category(32px);
+  }
+
+  .ladies {
+    @include category(46px);
+  }
+
+  .girls {
+    @include category(32px);
+  }
+
+  .boys {
+    @include category(35px);
+  }
+
+  .arrow {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+}

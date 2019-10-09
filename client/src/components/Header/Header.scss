@@ -1,0 +1,77 @@
+.rectangle-2 {
+  width: 181px;
+  height: 35px;
+  border-radius: 17px;
+  border: solid 2px var(--greyish-two);
+
+  .search {
+    width: 48px;
+    height: 22px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--pinkish-grey);
+  }
+
+  .searchIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.6;
+  }
+}
+
+.logo {
+  width: 96px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.register {
+  width: 59px;
+  height: 22px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: var(--greyish-brown);
+}
+
+.login {
+  width: 120px;
+  height: 35px;
+  border-radius: 100px;
+  border: solid 1px var(--pale-orange);
+}
+
+.cart {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+
+  .oval {
+    width: 18px;
+    height: 18px;
+    background-color: var(--pale-orange);
+
+    :first-child {
+      width: 8px;
+      height: 22px;
+      font-family: Montserrat;
+      font-size: 12px;
+      font-weight: 500;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.83;
+      letter-spacing: normal;
+      color: var(--white);
+    }
+  }
+}

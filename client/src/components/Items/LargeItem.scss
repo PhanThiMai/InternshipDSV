@@ -1,0 +1,27 @@
+//   position: absolute;
+//   bottom: 8px;
+//   right: 16px;
+
+.balli {
+  width: 70%;
+  height: 30%;
+  margin-left: 5%;
+}
+
+.imgText {
+  position: absolute;
+  top: 30%;
+  right: 30%;
+  color: white;
+  font-weight: bold;
+}
+.shopNow {
+  width: 180px;
+  height: 49px;
+  box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+  background-color: var(--pale-orange);
+
+  position: absolute;
+  bottom: 30%;
+  right: 10%;
+}
