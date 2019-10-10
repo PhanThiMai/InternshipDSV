@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.scss'
+import { Badge } from 'reactstrap'
 
 
 const img = {
@@ -7,16 +8,18 @@ const img = {
     logo: './img/logo.png',
     search: './img/search.png'
 }
+var numOfProductInCart = 4;
 
 function Header() {
-
     return (
         <div className="d-flex justify-content-around">
-            <form className="rectangle-2  d-flex justify-content-start">
-                <p className="search">Search</p>
-                <img src={img.search}
-                    className="searchIcon ml-auto " alt="search" />
-            </form>
+
+            <div className="rectangle-2" >
+                <input type="text" className="search" placeholder="search" />
+                <div className="searchIcon">
+                    <img src={img.search} alt="search"></img>
+                </div>
+            </div>
 
             <img src={img.logo}
                 className="logo" alt="logo">
@@ -24,15 +27,17 @@ function Header() {
             </img>
 
             <div className="d-flex ">
-                <p className="register">Register</p>
+                <p className="register mr-2">Register</p>
                 <button className="login">Login</button>
+
 
                 <img src={img.cart} alt="cart"
                     className="cart">
-
                 </img>
-                <div className="oval">7</div>
+                <Badge color="warning" className="oval badge badge-pill badge-warning" >{numOfProductInCart}</Badge>
             </div>
+
+
 
 
 

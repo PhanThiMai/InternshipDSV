@@ -1,27 +1,40 @@
 //   position: absolute;
 //   bottom: 8px;
 //   right: 16px;
+$pale-orange: #ffa15f;
 
 .balli {
-  width: 70%;
-  height: 30%;
-  margin-left: 5%;
+  width: 1000px;
+  height: 513px;
+  margin: 10%;
+  margin-top: 2%;
 }
 
 .imgText {
   position: absolute;
-  top: 30%;
-  right: 30%;
+  top: 20%;
+  right: 15%;
   color: white;
+
+  width: 545px;
+  height: 45px;
+  font-size: 48px;
   font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.94;
+  letter-spacing: normal;
+  text-align: right;
+  color: white;
 }
+
 .shopNow {
   width: 180px;
   height: 49px;
   box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
-  background-color: var(--pale-orange);
-
+  background-color: $pale-orange;
+  border-color: $pale-orange;
   position: absolute;
   bottom: 30%;
-  right: 10%;
+  right: 30%;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from 'reactstrap'
+import { Card, CardImgOverlay } from 'reactstrap';
 import SmallItem from "./SmallItem"
 import './LargeItem.scss'
 
@@ -11,23 +11,26 @@ const categoryName = [
     "Boy"
 ]
 const imgOfCategory = {
-    large: "./img/bally.jpg",
+    large: "./img/bally1.jpg",
     small: "./img/smallItem.jpg"
 }
 
 const category = categoryName.map((item, index) =>
-    <SmallItem key={index} src={imgOfCategory.small} name={item} className="col-3"></SmallItem>
+    <SmallItem key={index} src={imgOfCategory.small} name={item} className="mx-2" ></SmallItem>
 );
 function LargeItem() {
 
 
     return (
         <div>
-            <img className="balli" src={imgOfCategory.large} alt="balli"></img>
-            <h1 className="imgText">OUT FIT OF WEEK</h1>
-            <Button color="warning" className="shopNow"> Shop Now</Button>
-
-            <div className="row">{category}</div>
+            <Card inverse>
+                <img className="balli" src={imgOfCategory.large} alt="balli" />
+                <CardImgOverlay>
+                    <h1 className="imgText">OUT FIT OF THE WEEK</h1>
+                    <button className="shopNow">Shop Now</button>
+                </CardImgOverlay>
+            </Card>
+            <div className=" d-flex justify-content-center ">{category}</div>
         </div>
     );
 }

@@ -1,27 +1,39 @@
+$greyish-brown: #4d4d4d;
+$pale-orange: #ffa15f;
+
 .rectangle-2 {
   width: 181px;
   height: 35px;
-  border-radius: 17px;
-  border: solid 2px var(--greyish-two);
+  border-radius: 40px;
+  border: solid 1px gray;
+  opacity: 0.6;
+  padding: 5px;
 
   .search {
-    width: 48px;
-    height: 22px;
-    font-family: Montserrat;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.57;
-    letter-spacing: normal;
-    color: var(--pinkish-grey);
-  }
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    line-height: 25px;
+    width: 145px;
+    color: gray;
 
-  .searchIcon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-    opacity: 0.6;
+    .searchIcon {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      opacity: 0.6;
+      float: right;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      :hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 
@@ -35,43 +47,47 @@
   width: 59px;
   height: 22px;
   font-family: Montserrat;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
-  line-height: 1.57;
+  line-height: 2.57;
   letter-spacing: normal;
-  color: var(--greyish-brown);
+  color: $greyish-brown;
 }
 
 .login {
   width: 120px;
   height: 35px;
   border-radius: 100px;
-  border: solid 1px var(--pale-orange);
+  border: solid 1px $pale-orange;
+  background: #ffff;
+  color: $pale-orange;
+  font-weight: bold;
 }
 
 .cart {
   width: 24px;
   height: 24px;
   object-fit: contain;
+}
 
-  .oval {
-    width: 18px;
-    height: 18px;
-    background-color: var(--pale-orange);
+.oval {
+  width: 18px;
+  height: 18px;
+  background-color: $pale-orange;
+  margin-left: -8px;
 
-    :first-child {
-      width: 8px;
-      height: 22px;
-      font-family: Montserrat;
-      font-size: 12px;
-      font-weight: 500;
-      font-style: normal;
-      font-stretch: normal;
-      line-height: 1.83;
-      letter-spacing: normal;
-      color: var(--white);
-    }
-  }
+  // :first-child {
+  //   width: 8px;
+  //   height: 22px;
+  //   font-family: Montserrat;
+  //   font-size: 12px;
+  //   font-weight: 500;
+  //   font-style: normal;
+  //   font-stretch: normal;
+  //   line-height: 1.83;
+  //   letter-spacing: normal;
+  //   color: var(--white);
+  // }
 }

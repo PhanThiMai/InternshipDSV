@@ -1,18 +1,22 @@
 import React from 'react'
-import { Button } from 'reactstrap'
-import './LargeItem.scss'
+import { Card } from 'reactstrap';
+import './SmallItem.scss'
 
 function SmallItem(props) {
     const { src, name, } = props;
     return (
-        <div class="card">
-            <img src={src} className="card-img-top" alt={name}>
 
-            </img>
-            <div class="card-body">
-                <h5 class="card-title">{name}</h5>
-                <Button color="warning" className="shopNow"> Shop Now</Button>
-            </div>
+        <div className="smallItem mx-3">
+            <Card inverse>
+                <img className="smallBalli" src={src} alt={name} />
+
+                <div className="subSmall">
+
+                    <h2 className="imgTextSmall">{name}</h2>
+                    <button className="shopNowSmall">Shop Now</button>
+                </div>
+
+            </Card>
         </div>
     );
 }

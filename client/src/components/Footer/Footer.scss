@@ -1,0 +1,22 @@
+$greyish-two: #b7b7b7;
+
+.inforItem {
+  width: 85px;
+  height: 22px;
+  opacity: 0.5;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  text-align: center;
+  color: $greyish-two;
+}
+
+.socialImgItem {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
