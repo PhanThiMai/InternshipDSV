@@ -1,3 +1,5 @@
+$dark-grey : #202124;
+
 @mixin category($width) {
   width: $width;
   height: 22px;
@@ -8,7 +10,7 @@
   font-stretch: normal;
   line-height: 1.57;
   letter-spacing: normal;
-  color: var(--dark-grey);
+  color: $dark-grey;
 }
 
 .navBar {
