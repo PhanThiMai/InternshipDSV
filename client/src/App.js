@@ -17,8 +17,8 @@ function App() {
       <hr></hr>
       <LargeItem></LargeItem>
       <Footer className="footer"></Footer> */}
-      <Register></Register>
-      {/* <Login></Login> */}
+      {/* <Register></Register> */}
+      <Login></Login>
     </div>
 
   )
