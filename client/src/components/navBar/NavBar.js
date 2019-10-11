@@ -3,7 +3,7 @@ import './NavBar.scss'
 
 function NavBar() {
     return (
-        <div className="d-flex justify-content-center navBar">
+        <div className="d-flex justify-content-center NavBar">
             <div className="category d-flex mr-4">
                 <p className="men">Men</p>
                 <img src="img/arrow.svg" alt="arrow"

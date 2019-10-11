@@ -1,0 +1,92 @@
+@import '../Helper/Color.scss';
+@import '../Helper/font.scss';
+
+@mixin label($width, $height) {
+    width: $width;
+    height: $height;
+    @include font(Montserrat, 12px, bolder, normal, normal, 1.5, normal);
+    font-weight: bold;
+    color: $dark-grey;
+}
+
+.registerModel {
+
+    @include heightAndWidth(703px, 555px);
+    box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.03);
+    background-color: $white;
+
+    .cross {
+        @include heightAndWidth(24px, 24px);
+        object-fit: contain;
+        margin-left: 85%;
+    }
+
+    .register {
+        @include heightAndWidth(42px, 141px);
+        @include font(Montserrat, 32px, bold, normal, normal, 1.31, normal);
+        text-align: center;
+        color: $dark-grey;
+        margin-left: 30%;
+    }
+
+    .activeR {
+        @include heightAndWidth(72px, 195px);
+        margin-left: 8%;
+        margin-top: 3%;
+
+
+        .fullNameLabel {
+            @include label(39px, 18px)
+        }
+
+        .emailLabel {
+            @include label(45px, 18px)
+        }
+
+        .passwordLabel {
+            @include label(76px, 18px)
+        }
+
+        input {
+            @include heightAndWidth(46px, 395px);
+            background-color: $white-two;
+
+            ::-webkit-input-placeholder {
+                @include heightAndWidth(22px, 129px);
+                opacity: 0.3;
+                @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+                color: $greyish-brown;
+            }
+        }
+    }
+
+    .subInfor {
+        @include heightAndWidth(44px, 282px);
+        @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+        text-align: center;
+        color: $dark-grey;
+        margin-top: 10%;
+
+        .privacy {
+            font-weight: bold;
+            color: $pumpkin-orange;
+        }
+    }
+
+    button {
+        @include heightAndWidth(49x, 395px);
+        background-color: $white-four;
+    }
+
+    .dontHaveAccount {
+        @include heightAndWidth(22px, 180px);
+        @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+        color: $greyish-brown;
+
+        .login {
+            @include heightAndWidth(22px, 46px);
+            @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+            color: $pumpkin-orange;
+        }
+    }
+}

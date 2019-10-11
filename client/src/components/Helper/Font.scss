@@ -1,0 +1,17 @@
+@mixin font($font-family, $font-size, $font-weight,
+    $font-style, $font-stretch,
+    $line-height, $letter-spacing) {
+
+    font-family: $font-family;
+    font-size: $font-size;
+    font-weight: $font-style;
+    font-style: $font-style;
+    font-stretch: $font-stretch;
+    line-height: $line-height;
+    letter-spacing: $letter-spacing;
+}
+
+@mixin heightAndWidth($height, $width) {
+    height: $height;
+    width: $width;
+}
