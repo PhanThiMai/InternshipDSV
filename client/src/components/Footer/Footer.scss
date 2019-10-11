@@ -1,22 +1,20 @@
-$greyish-two: #b7b7b7;
+@import '../Helper/Color.scss';
+@import '../Helper//Font.scss';
+
+
+
 
 .inforItem {
-  width: 85px;
-  height: 22px;
+
+  @include heightAndWidth(22px, 85px);
   opacity: 0.5;
-  font-family: Montserrat;
-  font-size: 12px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.57;
-  letter-spacing: normal;
+  @include font(Montserrat, 12px, normal, normal, normal, 1.57, normal);
   text-align: center;
   color: $greyish-two;
 }
 
 .socialImgItem {
-  width: 24px;
-  height: 24px;
+
+  @include heightAndWidth(24px, 24px);
   object-fit: contain;
 }
