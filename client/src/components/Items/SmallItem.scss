@@ -1,12 +1,13 @@
-$pale-orange: #ffa15f;
+@import '../Helper/Color.scss';
+@import '../Helper/Font.scss';
+
 
 .smallItem {
-  width: 280px;
-  height: 405px;
+  @include heightAndWidth(405px, 280px);
+
 
   .smallBalli {
-    width: 280px;
-    height: 405px;
+    @include heightAndWidth(405px, 280px);
   }
 
   .subSmall {
@@ -17,8 +18,8 @@ $pale-orange: #ffa15f;
     flex-direction: column;
 
     .imgTextSmall {
-      width: 103px;
-      height: 32px;
+
+      @include heightAndWidth(32px, 103px);
       font-family: Domine;
       font-size: 24px;
       font-weight: bold;
@@ -26,14 +27,17 @@ $pale-orange: #ffa15f;
       font-stretch: normal;
       line-height: 1.33;
       letter-spacing: normal;
+
+      @include font(Domine, 24px, bold, normal, normal, 1.33, normal);
       text-align: center;
-      color: white;
-      border-bottom: 2px solid white;
+
+      color: $white;
+      border-bottom: 2px solid $white;
     }
 
     .shopNowSmall {
-      width: 140px;
-      height: 40px;
+
+      @include heightAndWidth(40px, 40px);
       box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
       background-color: $pale-orange;
       border-color: $pale-orange;
