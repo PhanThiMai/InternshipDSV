@@ -8,22 +8,16 @@ class Register extends React.Component {
         this.state = {
             modal: true
         };
-
-        // this.toggle = this.toggle.bind(this);
     }
 
-    // toggle() {
-    //     this.setState(prevState => ({
-    //         modal: !prevState.modal
-    //     }));
-    // }
+
 
     render() {
         return (
             <div>
                 <Modal isOpen={this.state.modal} >
                     <div className="registerModel container container-fluid">
-                        <img src="img/cross.svg" alt="cross" className="cross" />
+                        <img src="img/cross.svg" alt="cross" className="cross mt-3" />
                         <div className="register" >Register</div>
 
                         <div className="activeR">
@@ -41,10 +35,17 @@ class Register extends React.Component {
                             <input type="password" name="password" id="password" placeholder="Enter your password..." />
                         </div>
 
-                        <div className="subInfor"> By creating an account you agree to the  </div>
-                        <div className="privacy">Term of Service <span> and <span className="privacy">Privacy Polity</span></span></div>>
+                        <div className="subInfor"> By creating an account you agree to the
 
-                        <button >Register</button>
+                             <div className="d-flex ml-5">
+                                <p className="privacy mr-1">Term of Service  </p>
+                                <p>and</p>
+                                <p className="privacy ml-1">Privacy Polity</p>
+                            </div>
+                        </div>
+
+
+                        <button className="registerButton"><div className="buttonText" >Register</div></button>
                         <hr></hr>
                         <div className="dontHaveAccount">Do you have an account? <a href="/" className="login">Login</a> </div>
 

@@ -1,9 +1,11 @@
-$greyish-brown: #4d4d4d;
-$pale-orange: #ffa15f;
+@import '../Helper/Color.scss';
+@import '../Helper//Font.scss';
+
+
 
 .rectangle-2 {
-  width: 181px;
-  height: 35px;
+
+  @include heightAndWidth(35px, 181px);
   border-radius: 40px;
   border: solid 1px gray;
   opacity: 0.6;
@@ -20,8 +22,7 @@ $pale-orange: #ffa15f;
     color: gray;
 
     .searchIcon {
-      width: 20px;
-      height: 20px;
+      @include heightAndWidth(20px, 20px);
       object-fit: contain;
       opacity: 0.6;
       float: right;
@@ -38,43 +39,35 @@ $pale-orange: #ffa15f;
 }
 
 .logo {
-  width: 96px;
-  height: 20px;
+  @include heightAndWidth(20px, 96px);
   object-fit: contain;
 }
 
 .register {
-  width: 59px;
-  height: 22px;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2.57;
-  letter-spacing: normal;
+  @include heightAndWidth(22px, 59px);
+  @include font(Montserrat, 16px, normal, normal, normal, 2.57, normal);
   color: $greyish-brown;
 }
 
 .login {
-  width: 120px;
-  height: 35px;
+
+  @include heightAndWidth(35px, 120px);
   border-radius: 100px;
   border: solid 1px $pale-orange;
-  background: #ffff;
+  background: $white;
   color: $pale-orange;
   font-weight: bold;
 }
 
 .cart {
-  width: 24px;
-  height: 24px;
+  @include heightAndWidth(24px, 24px);
   object-fit: contain;
 }
 
 .oval {
-  width: 18px;
-  height: 18px;
+
+  @include heightAndWidth(18px, 18px);
+
   background-color: $pale-orange;
   margin-left: -8px;
 

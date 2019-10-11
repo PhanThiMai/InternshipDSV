@@ -19,6 +19,7 @@
         @include heightAndWidth(24px, 24px);
         object-fit: contain;
         margin-left: 85%;
+
     }
 
     .register {
@@ -27,13 +28,13 @@
         text-align: center;
         color: $dark-grey;
         margin-left: 30%;
+
     }
 
     .activeR {
         @include heightAndWidth(72px, 195px);
         margin-left: 8%;
-        margin-top: 3%;
-
+        margin-top: 5%;
 
         .fullNameLabel {
             @include label(39px, 18px)
@@ -50,13 +51,16 @@
         input {
             @include heightAndWidth(46px, 395px);
             background-color: $white-two;
+            border: none;
 
-            ::-webkit-input-placeholder {
-                @include heightAndWidth(22px, 129px);
-                opacity: 0.3;
-                @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
-                color: $greyish-brown;
-            }
+        }
+
+        input ::-webkit-input-placeholder {
+            @include heightAndWidth(22px, 129px);
+            opacity: 0.3;
+            @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+            color: $greyish-brown;
+
         }
     }
 
@@ -65,23 +69,40 @@
         @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
         text-align: center;
         color: $dark-grey;
-        margin-top: 10%;
+        margin-top: 9%;
+        margin-left: 15%;
 
         .privacy {
             font-weight: bold;
             color: $pumpkin-orange;
+            border-bottom: solid 1px $pale-orange;
         }
     }
 
-    button {
-        @include heightAndWidth(49x, 395px);
+
+
+
+    .registerButton {
+        @include heightAndWidth(49px, 395px);
         background-color: $white-four;
+        margin-top: 7%;
+        margin-left: 8%;
+        margin-bottom: 10%;
+
+        .buttonText {
+            @include heightAndWidth(24px, 71px);
+            @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+            text-align: center;
+            color: $white;
+        }
     }
 
     .dontHaveAccount {
         @include heightAndWidth(22px, 180px);
         @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
         color: $greyish-brown;
+        margin-left: 24%;
+        margin-top: 3%;
 
         .login {
             @include heightAndWidth(22px, 46px);
