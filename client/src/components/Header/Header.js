@@ -1,6 +1,8 @@
 import React from 'react';
 import './Header.scss'
 import { Badge } from 'reactstrap'
+import Login from '../Login/Login'
+import Register from '../Register/Register'
 
 
 const img = {
@@ -8,7 +10,15 @@ const img = {
     logo: './img/logo.png',
     search: './img/search.png'
 }
-var numOfProductInCart = 4;
+const numOfProductInCart = 4;
+
+const showLoginModel = () => {
+    return <Login openModel={true} />
+}
+const showRegisterModel = () => {
+    return <Register openModel={true} />
+}
+
 
 function Header() {
     return (
@@ -27,18 +37,15 @@ function Header() {
             </img>
 
             <div className="d-flex ">
-                <p className="register mr-2">Register</p>
-                <button className="login">Login</button>
-
+                <p className="register mr-2" onClick={() => showRegisterModel}>Register</p>
+                <button className="login" onClick={() => showLoginModel}>Login</button>
 
                 <img src={img.cart} alt="cart"
                     className="cart">
                 </img>
+
                 <Badge color="warning" className="oval badge badge-pill badge-warning" >{numOfProductInCart}</Badge>
             </div>
-
-
-
 
 
         </div>
