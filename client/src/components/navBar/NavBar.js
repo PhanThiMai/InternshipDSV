@@ -30,14 +30,14 @@ class NavBar extends React.Component {
             <div className="category d-flex mr-4" key={index} onMouseLeave={this.handleLeave} >
                 <p className={`cate${item}`}
                 >{item}
-                    <div >
+                    {/* <div >
                         <ReactCSSTransitionGroup
                             transitionName="slide"
                             transitionEnterTimeout={300}
                             transitionLeaveTimeout={300}>
                             {this.state.showSubMenu && <SubNavBar />}
                         </ReactCSSTransitionGroup>
-                    </div>
+                    </div> */}
                 </p>
                 <img src="img/arrow.svg" alt="arrow"
                     className="arrow" />

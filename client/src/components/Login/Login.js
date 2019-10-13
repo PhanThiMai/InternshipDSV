@@ -7,36 +7,39 @@ import Register from '../Register/Register';
 class Login extends React.Component {
     constructor(props) {
         super(props);
-        let { openModel } = this.props;
+
         this.state = {
             modal: true,
-            register: false
+            register: false,
+            close: false
         };
     }
     showRegisterModel = (event) => {
         this.setState({
-            modal: false,
-            //register: true
+            modal: !this.state.modal,
         })
 
     }
 
+
+
     render() {
+        let { open, handleEvent } = this.props;
         return (
+
             <div>
-                <Modal isOpen={this.state.modal} >
+                <Modal isOpen={open} >
                     <div className="loginModel container container-fluid">
-                        <img src="img/cross.svg" alt="cross" className="cross mt-3" onClick={() => {
-                            this.setState({ modal: false })
-                        }} />                        <div className="loginT" >Login</div>
+                        <img src="img/cross.svg" alt="cross" className="cross mt-3" onClick={handleEvent} />
+                        <div className="loginT" >Login</div>
 
                         <div className="activeR">
-                            <p className="emailLabel">E-MAIL</p>
+                            <label className="emailLabel">E-MAIL</label>
                             <input type="email" name="email" id="email" placeholder="Enter your email..." />
                         </div>
 
                         <div className="activeR">
-                            <p className="passwordLabel">PASSWORD</p>
+                            <label className="passwordLabel">PASSWORD</label>
                             <input type="password" name="password" id="password" placeholder="Enter your password..." />
                         </div>
 
@@ -55,8 +58,8 @@ class Login extends React.Component {
                         </div>
                     </div>
                 </Modal>
-
-                <Register isOpen={this.state.register}></Register>
+                {/* 
+                <Register open={this.state.register}></Register> */}
             </div>
         );
     }

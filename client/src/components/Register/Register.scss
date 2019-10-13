@@ -74,6 +74,9 @@
       font-weight: bold;
       color: $pumpkin-orange;
       border-bottom: solid 1px $pale-orange;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -107,5 +110,8 @@
     color: $pumpkin-orange;
     text-align: left;
     border-bottom: 1px solid $pumpkin-orange;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

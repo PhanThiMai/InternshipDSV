@@ -18,6 +18,7 @@
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
     margin-left: 90%;
+
     &:hover {
       cursor: pointer;
     }
@@ -63,12 +64,20 @@
 
     .checkBox {
       @include heightAndWidth(24px, 24px);
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     .rememberPsw {
       @include heightAndWidth(22px, 152px);
       @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
       color: $greyish-brown;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -78,6 +87,10 @@
     text-align: right;
     @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
     color: $greyish-brown;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .loginButton {
@@ -111,5 +124,9 @@
     color: $pumpkin-orange;
     border-bottom: 1px solid $pumpkin-orange;
     text-align: left;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

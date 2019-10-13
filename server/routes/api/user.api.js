@@ -51,7 +51,7 @@ router.post('/', (req, res, next) => {
             if (!user) {
                 body.password = hashPassword(body.email, body.password);
             } else {
-                res.json({ error: 'User already exists' })
+                res.json({ errors: 'User already exists', type: 0 })
             }
         })
         .catch(err => {
@@ -66,7 +66,7 @@ router.post('/', (req, res, next) => {
     });
 
     return finalUser.save()
-        .then(() => res.json({ user: finalUser.toJSON() }))
+        .then(() => res.json({ data: finalUser.toJSON(), type: 1 }))
         .catch(next);
 });
 
