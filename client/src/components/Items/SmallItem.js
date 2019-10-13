@@ -9,9 +9,7 @@ function SmallItem(props) {
         <div className="smallItem mx-3">
             <Card inverse>
                 <img className="smallBalli" src={src} alt={name} />
-
                 <div className="subSmall">
-
                     <h2 className="imgTextSmall">{name}</h2>
                     <button className="shopNowSmall">Shop Now</button>
                 </div>

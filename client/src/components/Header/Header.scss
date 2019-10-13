@@ -1,14 +1,11 @@
-@import '../Helper/Color.scss';
-@import '../Helper//Font.scss';
-
-
+@import "../Helper/Color.scss";
+@import "../Helper/Font.scss";
 
 .rectangle-2 {
-
   @include heightAndWidth(35px, 181px);
-  border-radius: 40px;
-  border: solid 1px gray;
-  opacity: 0.6;
+  border-radius: 17px;
+  border: solid 1px $greyish-two;
+  opacity: 0.5;
   padding: 5px;
 
   .search {
@@ -22,19 +19,25 @@
     color: gray;
 
     .searchIcon {
-      @include heightAndWidth(20px, 20px);
+      @include heightAndWidth(24px, 24px);
       object-fit: contain;
       opacity: 0.6;
-      float: right;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
-      :hover {
+      // float: right;
+      // border-radius: 50%;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      &:hover {
         cursor: pointer;
       }
     }
+  }
+
+  .search::-webkit-input-placeholder {
+    @include heightAndWidth(22px, 48px);
+    @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+    color: $pinkish-grey;
   }
 }
 
@@ -47,16 +50,21 @@
   @include heightAndWidth(22px, 59px);
   @include font(Montserrat, 16px, normal, normal, normal, 2.57, normal);
   color: $greyish-brown;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .login {
-
   @include heightAndWidth(35px, 120px);
   border-radius: 100px;
   border: solid 1px $pale-orange;
   background: $white;
   color: $pale-orange;
   font-weight: bold;
+  margin-left: 24px;
+  margin-right: 29px;
 }
 
 .cart {
@@ -65,7 +73,6 @@
 }
 
 .oval {
-
   @include heightAndWidth(18px, 18px);
 
   background-color: $pale-orange;

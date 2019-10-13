@@ -27,7 +27,11 @@ function LargeItem() {
                 <img className="balli" src={imgOfCategory.large} alt="balli" />
                 <CardImgOverlay>
                     <h1 className="imgText">OUT FIT OF THE WEEK</h1>
-                    <button className="shopNow">Shop Now</button>
+                    <button className="btnshopNow align-self-center">
+                        <p className="shopNow">
+                            Shop Now
+                        </p>
+                    </button>
                 </CardImgOverlay>
             </Card>
             <div className=" d-flex justify-content-center ">{category}</div>

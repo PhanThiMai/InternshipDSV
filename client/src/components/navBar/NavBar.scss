@@ -1,34 +1,38 @@
-
-@import '../Helper/Font.scss';
-@import '../Helper/Color.scss';
+@import "../Helper/Font.scss";
+@import "../Helper/Color.scss";
 
 @mixin category($width) {
   @include heightAndWidth(22px, $width);
   @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
 
   color: $dark-grey;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .NavBar {
-  .men {
+  .cateMen {
     @include category(32px);
   }
 
-  .ladies {
+  .cateLadies {
     @include category(46px);
   }
 
-  .girls {
+  .cateGirls {
     @include category(32px);
   }
 
-  .boys {
+  .cateBoys {
     @include category(35px);
   }
 
   .arrow {
-
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

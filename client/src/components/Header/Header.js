@@ -25,19 +25,15 @@ function Header() {
         <div className="d-flex justify-content-around">
 
             <div className="rectangle-2" >
-                <input type="text" className="search" placeholder="search" />
-                <div className="searchIcon">
-                    <img src={img.search} alt="search"></img>
-                </div>
+                <input type="text" className="search" placeholder="Search" />
+                <img src={img.search} alt="search" className="searchIcon"></img>
             </div>
-
             <img src={img.logo}
                 className="logo" alt="logo">
-
             </img>
 
             <div className="d-flex ">
-                <p className="register mr-2" onClick={() => showRegisterModel}>Register</p>
+                <p className="register mr-2" onClick={() => showRegisterModel} >Register</p>
                 <button className="login" onClick={() => showLoginModel}>Login</button>
 
                 <img src={img.cart} alt="cart"
