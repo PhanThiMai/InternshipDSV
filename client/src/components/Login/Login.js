@@ -1,8 +1,6 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Login.scss'
-import '../Register/Register'
-import Register from '../Register/Register';
 
 class Login extends React.Component {
     constructor(props) {
@@ -14,23 +12,19 @@ class Login extends React.Component {
             close: false
         };
     }
-    showRegisterModel = (event) => {
-        this.setState({
-            modal: !this.state.modal,
-        })
 
-    }
 
 
 
     render() {
-        let { open, handleEvent } = this.props;
+        const { open, handleLoginModal, showOneAndCloseAnother } = this.props
         return (
 
             <div>
                 <Modal isOpen={open} >
-                    <div className="loginModel container container-fluid">
-                        <img src="img/cross.svg" alt="cross" className="cross mt-3" onClick={handleEvent} />
+                    <div className="loginModal container container-fluid">
+                        <img src="img/cross.svg" alt="cross" className="cross mt-3"
+                            onClick={handleLoginModal} />
                         <div className="loginT" >Login</div>
 
                         <div className="activeR">
@@ -54,12 +48,11 @@ class Login extends React.Component {
 
                         <div className="d-flex mt-5">
                             <div className="dontHaveAccount mr-2">Don't have an account? </div>
-                            <p className="register" onClick={this.showRegisterModel}>Register</p>
+                            <p className="register" onClick={showOneAndCloseAnother}>Register</p>
                         </div>
                     </div>
                 </Modal>
-                {/* 
-                <Register open={this.state.register}></Register> */}
+
             </div>
         );
     }

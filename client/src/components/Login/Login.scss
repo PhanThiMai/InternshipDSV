@@ -9,7 +9,7 @@
   color: $dark-grey;
 }
 
-.loginModel {
+.loginModal {
   @include heightAndWidth(568px, 555px);
   box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
   background-color: $white;

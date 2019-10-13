@@ -18,33 +18,44 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loginModel: false,
-            registerModel: false
+            loginModal: false,
+            registerModal: false
         }
     }
 
-    showLoginModel = () => {
+    handleLoginModal = () => {
         this.setState({
-            loginModel: !this.state.loginModel,
-            // registerModel: false
+            loginModal: !this.state.loginModal
         })
-        console.log("login click")
     }
 
-    showRegisterModel = () => {
+    handleRegisterModal = () => {
         this.setState({
-            registerModel: !this.state.registerModel,
-            // loginModel: false
+            registerModal: !this.state.registerModal
         })
-        console.log("register click")
 
+    }
+
+    showOneAndCloseAnother = () => {
+        this.setState({
+            loginModal: !this.state.loginModal,
+            registerModal: !this.state.registerModal
+        })
     }
 
     render() {
+
         return (
             <div>
-                <Login open={this.state.loginModel} handleEvent={this.showLoginModel}></Login>
-                <Register open={this.state.registerModel} handleEvent={this.showRegisterModel}></Register>
+                <Login open={this.state.loginModal}
+                    handleLoginModal={this.handleLoginModal}
+                    showOneAndCloseAnother={this.showOneAndCloseAnother}
+                ></Login>
+                <Register open={this.state.registerModal}
+                    handleRegisterModal={this.handleRegisterModal}
+                    showOneAndCloseAnother={this.showOneAndCloseAnother}
+
+                ></Register>
                 <div className="d-flex justify-content-around">
 
                     <div className="rectangle-2" >
@@ -56,8 +67,8 @@ class Header extends React.Component {
                     </img>
 
                     <div className="d-flex ">
-                        <p className="register mr-2" onClick={this.showRegisterModel} >Register</p>
-                        <button className="login" onClick={this.showLoginModel}>Login</button>
+                        <p className="register mr-2" onClick={this.handleRegisterModal} >Register</p>
+                        <button className="login" onClick={this.handleLoginModal}>Login</button>
 
                         <img src={img.cart} alt="cart"
                             className="cart">

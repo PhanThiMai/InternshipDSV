@@ -1,15 +1,13 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Register.scss'
-import Login from '../Login/Login'
 import axios from 'axios'
 
 class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: true,
-            login: false,
+
             fullname: '',
             email: '',
             password: '',
@@ -20,17 +18,8 @@ class Register extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-    showLoginModel = (event) => {
-        this.setState({
-            modal: !this.state.modal,
-            // login: true
-        })
-
-    }
-
     onChange(e) {
         this.setState({ [e.target.name]: e.target.value })
-
     }
 
     handleClick(e) {
@@ -42,10 +31,10 @@ class Register extends React.Component {
             password,
         })
             .then(res => {
-                if (res.status == 422)
+                if (res.status === 422)
                     console.log(res.errors)
                 else {
-                    if (res.type == 0)
+                    if (res.type === 0)
                         console.log(res.errors)
                     else
                         console.log(res.data)
@@ -55,12 +44,15 @@ class Register extends React.Component {
     }
 
     render() {
-        const { open, handleEvent } = this.props;
+        const { open, handleRegisterModal, showOneAndCloseAnother } = this.props
+
         return (
             <div>
-                <Modal isOpen={this.state.modal && open} >
-                    <div className="registerModel container container-fluid">
-                        <img src="img/cross.svg" alt="cross" className="cross mt-3" onClick={handleEvent}
+                <Modal isOpen={open} >
+                    <div className="registerModal container container-fluid">
+                        <img src="img/cross.svg" alt="cross"
+                            className="cross mt-3"
+                            onClick={handleRegisterModal}
                         />
                         <div className="register" >Register</div>
 
@@ -110,16 +102,15 @@ class Register extends React.Component {
                         <hr></hr>
                         <div className="d-flex ">
                             <div className="dontHaveAccount mr-2">Do you have an account?</div>
-                            <p className="loginN" onClick={this.showLoginModel}>Login</p>
+                            <p className="loginN" onClick={showOneAndCloseAnother} >Login</p>
 
                         </div>
-
-
                     </div>
 
                 </Modal>
                 {/* 
-                <Login open={this.state.login}></Login> */}
+                <Login prop={prop}></Login> */}
+
 
             </div>
         );
