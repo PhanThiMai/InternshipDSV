@@ -12,7 +12,7 @@ function HomePage() {
             <Header />
             <hr></hr>
             <NavBar />
-            <hr></hr>
+            <hr className="mt-0"></hr>
             <LargeItem></LargeItem>
             <Footer className="footer"></Footer>
 

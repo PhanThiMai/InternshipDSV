@@ -13,6 +13,8 @@
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
   border: solid 0.5px #eaeaea;
   background-color: #fbfbfb;
+  position: relative;
+  z-index: 10000;
 
   .categoryTops {
     @include category(34px);

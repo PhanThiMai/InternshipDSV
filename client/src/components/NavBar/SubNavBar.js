@@ -9,7 +9,7 @@ const sunCategoriesTag = subCategories.map((item, index) =>
 
 function SubNavBar() {
     return (
-        <div className="d-flex justify-content-around align-items-center  subNavBar">
+        <div className="d-flex justify-content-around align-items-center mt-3  subNavBar"  >
             {sunCategoriesTag}
         </div>
     )
@@ -17,3 +17,4 @@ function SubNavBar() {
 }
 
 export default SubNavBar;
+

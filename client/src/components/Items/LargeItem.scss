@@ -2,16 +2,16 @@
 @import "../Helper/Color.scss";
 
 .balli {
-  @include heightAndWidth(513px, 1000px);
-
+  @include heightAndWidth(500px, 1000px);
   margin: 10%;
+  margin-bottom: 2%;
   margin-top: 2%;
 }
 
 .imgText {
   position: absolute;
-  top: 20%;
-  right: 15%;
+  top: 40%;
+  right: 18%;
   color: $white;
   @include heightAndWidth(45px, 545px);
   text-align: right;
@@ -24,7 +24,7 @@
   background-color: $pale-orange;
 
   position: absolute;
-  bottom: 25%;
+  bottom: 1%;
   right: 20%;
 
   .shopNow {
