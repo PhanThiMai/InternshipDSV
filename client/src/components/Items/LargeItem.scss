@@ -1,31 +1,38 @@
-@import '../Helper/Font.scss';
-@import '../Helper/Color.scss';
-
+@import "../Helper/Font.scss";
+@import "../Helper/Color.scss";
 
 .balli {
-
-  @include heightAndWidth(513px, 1000px);
-
+  @include heightAndWidth(500px, 1000px);
   margin: 10%;
+  margin-bottom: 2%;
   margin-top: 2%;
 }
 
 .imgText {
   position: absolute;
-  top: 20%;
-  right: 15%;
+  top: 40%;
+  right: 18%;
   color: $white;
   @include heightAndWidth(45px, 545px);
   text-align: right;
   @include font(Montserrat, 48px, bold, normal, normal, 0.94, normal);
 }
 
-.shopNow {
+.btnshopNow {
   @include heightAndWidth(49px, 180px);
   box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
   background-color: $pale-orange;
-  border-color: $pale-orange;
+
   position: absolute;
-  bottom: 30%;
-  right: 30%;
+  bottom: 1%;
+  right: 20%;
+
+  .shopNow {
+    @include heightAndWidth(24px, 84px);
+    @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+    text-align: center;
+    color: $white;
+    margin-left: 17%;
+    margin-top: 5%;
+  }
 }

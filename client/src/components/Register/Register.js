@@ -1,60 +1,117 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Register.scss'
+import axios from 'axios'
 
 class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modal: true
+
+            fullname: '',
+            email: '',
+            password: '',
+            errors: {}
         };
+
+        this.onChange = this.onChange.bind(this)
+        this.handleClick = this.handleClick.bind(this)
     }
 
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value })
+    }
 
+    handleClick(e) {
+        e.preventDefault()
+        const { fullname, email, password } = this.state;
+        return axios.post('http://localhost:4000/user', {
+            fullname,
+            email,
+            password,
+        })
+            .then(res => {
+                if (res.status === 422)
+                    console.log(res.errors)
+                else {
+                    if (res.type === 0)
+                        console.log(res.errors)
+                    else
+                        console.log(res.data)
+                }
+            })
+
+    }
 
     render() {
+        const { open, handleRegisterModal, showOneAndCloseAnother } = this.props
+
         return (
             <div>
-                <Modal isOpen={this.state.modal} >
-                    <div className="registerModel container container-fluid">
-                        <img src="img/cross.svg" alt="cross" className="cross mt-3" />
+                <Modal isOpen={open} >
+                    <div className="registerModal container container-fluid">
+                        <img src="img/cross.svg" alt="cross"
+                            className="cross mt-3"
+                            onClick={handleRegisterModal}
+                        />
                         <div className="register" >Register</div>
 
                         <div className="activeR">
-                            <p className="fullNameLabel">NAME</p>
-                            <input type="text" name="fullname" id="fullname" placeholder="Enter your name..." />
+                            <label className="fullNameLabel">NAME</label>
+                            <input type="text"
+                                name="fullname"
+                                id="fullname"
+                                placeholder="Enter your name..."
+                                value={this.state.fullname}
+                                onChange={this.onChange}
+
+                            />
+
                         </div>
 
                         <div className="activeR">
-                            <p className="emailLabel">E-MAIL</p>
-                            <input type="email" name="email" id="email" placeholder="Enter your email..." />
+                            <label className="emailLabel">E-MAIL</label>
+                            <input type="email" name="email" id="email"
+                                placeholder="Enter your email..."
+                                value={this.state.email}
+                                onChange={this.onChange}
+
+                            />
                         </div>
 
                         <div className="activeR">
-                            <p className="passwordLabel">PASSWORD</p>
-                            <input type="password" name="password" id="password" placeholder="Enter your password..." />
+                            <label className="passwordLabel">PASSWORD</label>
+                            <input type="password" name="password" id="password"
+                                placeholder="Enter your password..."
+                                value={this.state.password}
+                                onChange={this.onChange}
+
+                            />
                         </div>
 
                         <div className="subInfor"> By creating an account you agree to the
 
                              <div className="d-flex ml-5">
-                                <p className="privacy mr-1">Term of Service  </p>
+                                <p className="privacy mr-2">Term of Service  </p>
                                 <p>and</p>
-                                <p className="privacy ml-1">Privacy Polity</p>
+                                <p className="privacy ml-2">Privacy Polity</p>
                             </div>
                         </div>
 
-
-                        <button className="registerButton"><div className="buttonText" >Register</div></button>
+                        <button className="registerButton" onClick={this.handleClick}><div className="buttonText" >Register</div></button>
                         <hr></hr>
-                        <div className="dontHaveAccount">Do you have an account? <a href="/" className="login">Login</a> </div>
+                        <div className="d-flex ">
+                            <div className="dontHaveAccount mr-2">Do you have an account?</div>
+                            <p className="loginN" onClick={showOneAndCloseAnother} >Login</p>
 
-
+                        </div>
                     </div>
 
-
-
                 </Modal>
+                {/* 
+                <Login prop={prop}></Login> */}
+
+
             </div>
         );
     }

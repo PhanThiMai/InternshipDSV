@@ -1,6 +1,5 @@
-
-@import '../Helper/Font.scss';
-@import '../Helper/Color.scss';
+@import "../Helper/Font.scss";
+@import "../Helper/Color.scss";
 
 @mixin category($width) {
   @include heightAndWidth(22px, $width);
@@ -10,8 +9,13 @@
 }
 
 .NavBar {
+  &:hover {
+    cursor: pointer;
+  }
+
   .men {
-    @include category(32px);
+    @include category(160px);
+    text-align: right;
   }
 
   .ladies {
@@ -27,7 +31,6 @@
   }
 
   .arrow {
-
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
   }

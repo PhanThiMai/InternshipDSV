@@ -1,20 +1,43 @@
-@import '../Helper/Color.scss';
-@import '../Helper//Font.scss';
+@import "../Helper/Color.scss";
+@import "../Helper//Font.scss";
 
+@mixin inforItemRight($width) {
+  @include heightAndWidth(22px, $width);
+  opacity: 0.4;
+  @include font(Montserrat, 12px, normal, normal, normal, 1.83, normal);
+  text-align: right;
+  color: $dark-grey;
 
-
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 .inforItem {
-
-  @include heightAndWidth(22px, 85px);
+  @include heightAndWidth(22px, 90px);
   opacity: 0.5;
   @include font(Montserrat, 12px, normal, normal, normal, 1.57, normal);
   text-align: center;
   color: $greyish-two;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .socialImgItem {
-
   @include heightAndWidth(24px, 24px);
   object-fit: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.privacy-policy {
+  @include inforItemRight(106.3px);
+}
+
+.terms-conditions {
+  @include inforItemRight(141.3px);
 }

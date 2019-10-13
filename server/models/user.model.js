@@ -10,13 +10,14 @@ var userSchema = new Schema({
 });
 
 
+
 userSchema.methods.toJSON = () => {
     return {
-        _id: this._id,
-        fullname: this.fullname,
-        password: this.password,
-        email: this.email
+        _id: userSchema._id,
+        fullname: userSchema.fullname,
+        password: userSchema.password,
+        email: userSchema.email
     };
-}
+};
 
 module.exports = mongoose.model("users", userSchema);
