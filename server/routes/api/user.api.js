@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const router = require('express').Router();
-const users = mongoose.model('users');
+const users = require('../../models/user.model')
+
 var crypto = require("crypto");
 
 const hashPassword = (email, password) => {
@@ -17,6 +18,7 @@ const hashPassword = (email, password) => {
 
 router.post('/', (req, res, next) => {
     const { body } = req;
+
     if (!body.fullname) {
         return res.status(422).json({
             errors: {
@@ -41,17 +43,36 @@ router.post('/', (req, res, next) => {
         });
     }
 
-    body.password = hashPassword(body.email, body.password);
-    const finalUser = new users(body);
+
+    users.findOne({
+        email: body.email
+    })
+        .then(user => {
+            if (!user) {
+                body.password = hashPassword(body.email, body.password);
+            } else {
+                res.json({ error: 'User already exists' })
+            }
+        })
+        .catch(err => {
+            res.send('error: ' + err)
+        })
+
+
+    let finalUser = new users({
+        username: body.username,
+        email: body.email,
+        password: body.pas
+    });
 
     return finalUser.save()
-        .then(() => res.json({ users: finalUser.toJSON() }))
+        .then(() => res.json({ user: finalUser.toJSON() }))
         .catch(next);
 });
 
 router.get('/', (req, res, next) => {
     return users.find()
-        .then((users) => res.json({ usesr: users.map(user => user.toJSON()) }))
+        .then((users) => res.json({ users: users.map(user => user.toJSON()) }))
         .catch(next);
 });
 

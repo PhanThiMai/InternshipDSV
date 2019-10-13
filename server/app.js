@@ -24,41 +24,24 @@ app.use(session({ secret: 'LightBlog', cookie: { maxAge: 60000 }, resave: false,
 if (!isProduction) {
     app.use(errorHandler());
 }
-// mongoose.connect('mongodb+srv://Mai:mai101205@cluster0-rmxxx.mongodb.net/test');
-// mongoose.set('debug', true);
 
 const connStr = "mongodb+srv://Mai:mai101205@cluster0-rmxxx.mongodb.net/test"
 mongoose.connect(connStr, err => {
     if (err) fail(err);
     else console.log("Connected database!");
-    Grid.mongo = mongoose.mongo;
-    let gfs = new Grid(mongoose.connection.db);
-    gfs.collection("avatars");
 
-    global.gfs = gfs;
 });
 
-// Add models
-require('./models/user.model');
-// Add routes
+
+var Users = require('./routes/api/user.api')
+app.use('/user', Users)
+
 app.use((req, res, next) => {
     const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-if (!isProduction) {
-    app.use((err, req, res) => {
-        res.status(err.status || 500);
-
-        res.json({
-            errors: {
-                message: err.message,
-                error: err,
-            },
-        });
-    });
-}
 
 app.use((err, req, res) => {
     res.status(err.status || 500);
