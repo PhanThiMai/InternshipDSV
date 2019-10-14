@@ -30,14 +30,11 @@
       background-color: $pale-orange;
       border-color: $pale-orange;
 
-      .shopNowSmallText {
-        @include heightAndWidth(22px, 83px);
-        text-align: center;
-        @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
-        color: $white;
-        margin-left: 15%;
-        margin-top: 5%;
-      }
+      text-align: center;
+      @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
+      color: $white;
+      margin-left: 15%;
+      margin-top: 5%;
     }
   }
 }

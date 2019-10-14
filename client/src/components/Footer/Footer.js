@@ -32,7 +32,6 @@ function Footer() {
                     {socialImgItem}
                 </div>
             </div>
-
             <hr></hr>
             <div className="clearfix">
                 <Navbar className="float-left">

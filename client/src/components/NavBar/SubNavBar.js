@@ -2,12 +2,13 @@ import React from 'react';
 import './SubNavBar.scss'
 
 
-const subCategories = ["Tops", "Bottoms", "Dresses", "Jackets", "Shoes", "Accessories", "Sale"];
 
-const sunCategoriesTag = subCategories.map((item, index) =>
-    <div key={index} className={`category${item}`}> {item}</div >);
+function SubNavBar(props) {
+    const { value } = props;
 
-function SubNavBar() {
+    const sunCategoriesTag = value.map((item, index) =>
+        <div key={index} className={`category${item}`}> {item}</div >);
+
     return (
         <div className="d-flex justify-content-around align-items-center mt-3  subNavBar"  >
             {sunCategoriesTag}
