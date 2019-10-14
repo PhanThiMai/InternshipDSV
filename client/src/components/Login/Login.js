@@ -44,6 +44,9 @@ class Login extends React.Component {
         const { open, handleLoginModal, showOneAndCloseAnother } = this.props
         const active = this.state.email !== '' && this.state.password !== '';
         const error = this.state.errors;
+        const errorTextEmail = error && <p className="errorText">Please enter a valid email</p>
+        const errorTextPassword = error && <p className="errorText">Please enter a valid password</p>
+
 
         return (
             <div>
@@ -60,8 +63,9 @@ class Login extends React.Component {
                                 placeholder="Enter your email..."
                                 value={this.state.email}
                                 className={error ? 'errorInput' : 'normalInput'}
-
                                 onChange={this.onChange} />
+                            <div>{errorTextEmail}</div>
+
                         </div>
 
                         <div className="activeR">
@@ -72,6 +76,8 @@ class Login extends React.Component {
                                 className={error ? 'errorInput' : 'normalInput'}
 
                                 onChange={this.onChange} />
+                            <div>{errorTextPassword}</div>
+
                         </div>
 
                         <div className="subInfor d-flex float-left ml-5 ">

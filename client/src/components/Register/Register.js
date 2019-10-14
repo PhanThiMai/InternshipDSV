@@ -42,6 +42,10 @@ class Register extends React.Component {
         const { open, handleRegisterModal, showOneAndCloseAnother, handleLoginCheck } = this.props;
         const active = this.state.fullname !== '' && this.state.email !== '' && this.state.password !== '';
         const error = this.state.errors;
+        const errorTextName = error && <p className="errorText">Please enter a valid name</p>
+        const errorTextEmail = error && <p className="errorText">Please enter a valid email</p>
+        const errorTextPassword = error && <p className="errorText">Please enter a valid password</p>
+
         return (
             <div>
                 <Modal isOpen={open && (!this.state.isLogin)} >
@@ -62,6 +66,7 @@ class Register extends React.Component {
                                 value={this.state.fullname}
                                 onChange={this.onChange}
                             />
+                            <div>{errorTextName}</div>
                         </div>
 
                         <div className="activeR">
@@ -73,6 +78,8 @@ class Register extends React.Component {
                                 onChange={this.onChange}
 
                             />
+                            <div>{errorTextEmail}</div>
+
                         </div>
 
                         <div className="activeR">
@@ -85,6 +92,8 @@ class Register extends React.Component {
                                 onChange={this.onChange}
 
                             />
+                            <div>{errorTextPassword}</div>
+
                         </div>
 
                         <div className="subInfor"> By creating an account you agree to the
@@ -105,11 +114,7 @@ class Register extends React.Component {
 
                         </div>
                     </div>
-
                 </Modal>
-                {/* 
-                <Login prop={prop}></Login> */}
-
 
             </div>
         );

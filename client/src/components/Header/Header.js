@@ -3,6 +3,9 @@ import './Header.scss'
 import { Badge } from 'reactstrap'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
+import UserSetting from './UserSetting'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
@@ -21,9 +24,19 @@ class Header extends React.Component {
         this.state = {
             loginModal: false,
             registerModal: false,
-            isLogin: false
+            isLogin: false,
+            showUserSetting: false
         }
     }
+
+    handleHover = (event) => {
+        this.setState({ showUserSetting: true });
+    };
+
+    handleLeave = (event) => {
+        this.setState({ showUserSetting: false });
+    };
+
 
     handleLoginCheck = () => {
         this.setState({
@@ -57,7 +70,14 @@ class Header extends React.Component {
         let loginAuthen;
 
         if (this.state.isLogin) {
-            loginAuthen = <div className="userpic mr-3"></div>
+            loginAuthen = <div className="userpic mr-3" onMouseEnter={this.handleHover}>
+                <ReactCSSTransitionGroup
+                    transitionName="slide"
+                    transitionEnterTimeout={300}
+                    transitionLeaveTimeout={300}>
+                    {this.state.showUserSetting && <UserSetting />}
+                </ReactCSSTransitionGroup>
+            </div>
         } else {
             loginAuthen = <div className="d-flex">
                 <p className="register mr-2" onClick={this.handleRegisterModal} >Register</p>

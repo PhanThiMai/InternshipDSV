@@ -90,6 +90,12 @@
       1.57,
       normal
     );
+
+    .errorText {
+      @include heightAndWidth(22px, 133px);
+      @include font(Montserrat, 10px, 500, normal, normal, 2.2, normal);
+      color: $strawberry;
+    }
   }
 
   .subInfor {
