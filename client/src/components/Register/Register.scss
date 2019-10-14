@@ -1,5 +1,6 @@
 @import "../Helper/Color.scss";
 @import "../Helper/font.scss";
+@import "../Helper/Item.scss";
 
 @mixin label($width, $height) {
   width: $width;
@@ -7,6 +8,21 @@
   @include font(Montserrat, 12px, bolder, normal, normal, 1.5, normal);
   font-weight: bold;
   color: $dark-grey;
+}
+
+@mixin registerBtn {
+  @include heightAndWidth(50px, 395px);
+  margin-top: 7%;
+  margin-left: 8%;
+  margin-bottom: 10%;
+}
+
+@mixin btnText {
+  @include heightAndWidth(24px, 71px);
+  @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+  text-align: center;
+  color: $white;
+  margin-left: 40%;
 }
 
 .registerModal {
@@ -18,6 +34,7 @@
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
     margin-left: 90%;
+
     &:hover {
       cursor: pointer;
     }
@@ -48,18 +65,31 @@
       @include label(76px, 18px);
     }
 
-    input {
+    .errorInput {
+      @include errorInput();
+    }
+
+    .normalInput {
       @include heightAndWidth(46px, 395px);
       background-color: $white-two;
       border: none;
+      padding-left: 5px;
     }
 
-    input ::-webkit-input-placeholder {
-      @include heightAndWidth(22px, 129px);
-      opacity: 0.3;
-      @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
-      color: $greyish-brown;
-    }
+    @include placeholder(
+      "input",
+      $greyish-brown,
+      22px,
+      129px,
+      0.3,
+      Montserrat,
+      14px,
+      500,
+      normal,
+      normal,
+      1.57,
+      normal
+    );
   }
 
   .subInfor {
@@ -74,6 +104,7 @@
       font-weight: bold;
       color: $pumpkin-orange;
       border-bottom: solid 1px $pale-orange;
+
       &:hover {
         cursor: pointer;
       }
@@ -81,18 +112,21 @@
   }
 
   .registerButton {
-    @include heightAndWidth(49px, 395px);
+    @include registerBtn();
     background-color: $white-four;
-    margin-top: 7%;
-    margin-left: 8%;
-    margin-bottom: 10%;
 
     .buttonText {
-      @include heightAndWidth(24px, 71px);
-      @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
-      text-align: center;
-      color: $white;
-      margin-left: 40%;
+      @include btnText();
+    }
+  }
+
+  .registerButtonActive {
+    @include registerBtn();
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    background-color: $pale-orange;
+
+    .buttonText {
+      @include btnText();
     }
   }
 
@@ -110,6 +144,7 @@
     color: $pumpkin-orange;
     text-align: left;
     border-bottom: 1px solid $pumpkin-orange;
+
     &:hover {
       cursor: pointer;
     }

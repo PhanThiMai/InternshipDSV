@@ -1,17 +1,18 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Register.scss'
-import axios from 'axios'
+import { register } from '../../actions/userAction'
+
 
 class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            isLogin: false,
             fullname: '',
             email: '',
             password: '',
-            errors: {}
+            errors: false
         };
 
         this.onChange = this.onChange.bind(this)
@@ -25,30 +26,25 @@ class Register extends React.Component {
     handleClick(e) {
         e.preventDefault()
         const { fullname, email, password } = this.state;
-        return axios.post('http://localhost:4000/user', {
-            fullname,
-            email,
-            password,
-        })
-            .then(res => {
-                if (res.status === 422)
-                    console.log(res.errors)
-                else {
-                    if (res.type === 0)
-                        console.log(res.errors)
-                    else
-                        console.log(res.data)
-                }
-            })
 
+
+        if (register(fullname, email, password) === false) {
+            this.setState({ errors: true })
+
+        } else {
+            register(fullname, email, password).then(res => {
+                if (res === 200) { this.setState({ isLogin: true }) }
+            })
+        }
     }
 
     render() {
-        const { open, handleRegisterModal, showOneAndCloseAnother } = this.props
-
+        const { open, handleRegisterModal, showOneAndCloseAnother, handleLoginCheck } = this.props;
+        const active = this.state.fullname !== '' && this.state.email !== '' && this.state.password !== '';
+        const error = this.state.errors;
         return (
             <div>
-                <Modal isOpen={open} >
+                <Modal isOpen={open && (!this.state.isLogin)} >
                     <div className="registerModal container container-fluid">
                         <img src="img/cross.svg" alt="cross"
                             className="cross mt-3"
@@ -61,17 +57,17 @@ class Register extends React.Component {
                             <input type="text"
                                 name="fullname"
                                 id="fullname"
+                                className={(error) ? 'errorInput' : 'normalInput'}
                                 placeholder="Enter your name..."
                                 value={this.state.fullname}
                                 onChange={this.onChange}
-
                             />
-
                         </div>
 
                         <div className="activeR">
                             <label className="emailLabel">E-MAIL</label>
                             <input type="email" name="email" id="email"
+                                className={error ? 'errorInput' : 'normalInput'}
                                 placeholder="Enter your email..."
                                 value={this.state.email}
                                 onChange={this.onChange}
@@ -82,6 +78,8 @@ class Register extends React.Component {
                         <div className="activeR">
                             <label className="passwordLabel">PASSWORD</label>
                             <input type="password" name="password" id="password"
+                                className={error ? 'errorInput' : 'normalInput'}
+
                                 placeholder="Enter your password..."
                                 value={this.state.password}
                                 onChange={this.onChange}
@@ -98,7 +96,8 @@ class Register extends React.Component {
                             </div>
                         </div>
 
-                        <button className="registerButton" onClick={this.handleClick}><div className="buttonText" >Register</div></button>
+                        <button className={active ? 'registerButtonActive' : 'registerButton'}
+                            onClick={this.handleClick}><div className="buttonText" >Register</div></button>
                         <hr></hr>
                         <div className="d-flex ">
                             <div className="dontHaveAccount mr-2">Do you have an account?</div>

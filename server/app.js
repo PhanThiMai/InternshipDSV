@@ -6,6 +6,7 @@ const cors = require('cors');
 const errorHandler = require('errorhandler');
 const mongoose = require('mongoose');
 var Grid = require("gridfs-stream");
+require("dotenv").config();
 
 
 mongoose.promise = global.Promise;
@@ -25,13 +26,18 @@ if (!isProduction) {
     app.use(errorHandler());
 }
 
-const connStr = "mongodb+srv://Mai:mai101205@cluster0-rmxxx.mongodb.net/test"
+//const connStr = "mongodb+srv://Mai:mai101205@cluster0-rmxxx.mongodb.net/test"
+
+const connStr = `mongodb+srv://${process.env.DB_USER}:${
+    process.env.DB_PASS
+    }@${process.env.DB_URL}/${process.env.DB_NAME}`;
+
+
 mongoose.connect(connStr, err => {
     if (err) fail(err);
     else console.log("Connected database!");
 
 });
-
 
 var Users = require('./routes/api/user.api')
 app.use('/user', Users)

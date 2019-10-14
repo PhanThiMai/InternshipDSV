@@ -1,5 +1,6 @@
 @import "../Helper/Color.scss";
 @import "../Helper/font.scss";
+@import "../Helper/Item.scss";
 
 @mixin label($width, $height) {
   width: $width;
@@ -7,6 +8,15 @@
   @include font(Montserrat, 12px, bolder, normal, normal, 1.5, normal);
   font-weight: bold;
   color: $dark-grey;
+}
+
+@mixin btnText {
+  @include heightAndWidth(24px, 53px);
+  @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+  text-align: center;
+  color: $white;
+  margin-left: 40%;
+  margin-top: 3%;
 }
 
 .loginModal {
@@ -32,6 +42,16 @@
     margin-left: 35%;
   }
 
+  .errorNotification {
+    width: 191px;
+    height: 22px;
+    @include heightAndWidth(22px, 191px);
+    @include font(Montserrat, 12px, 500, normal, normal, 1.83, normal);
+
+    text-align: center;
+    color: $strawberry;
+  }
+
   .activeR {
     @include heightAndWidth(72px, 195px);
     margin-left: 8%;
@@ -45,18 +65,38 @@
       @include label(76px, 18px);
     }
 
-    input {
+    // input {
+    //   @include heightAndWidth(46px, 395px);
+    //   background-color: $white-two;
+    //   border: none;
+    //   padding-left: 5px;
+    // }
+
+    .errorInput {
+      @include errorInput();
+    }
+
+    .normalInput {
       @include heightAndWidth(46px, 395px);
       background-color: $white-two;
       border: none;
-
-      &::-webkit-input-placeholder {
-        @include heightAndWidth(22px, 129px);
-        opacity: 0.3;
-        @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
-        color: $greyish-brown;
-      }
+      padding-left: 5px;
     }
+
+    @include placeholder(
+      "input",
+      $greyish-brown,
+      22px,
+      129px,
+      0.3,
+      Montserrat,
+      14px,
+      500,
+      normal,
+      normal,
+      1.57,
+      normal
+    );
   }
 
   .subInfor {
@@ -94,19 +134,19 @@
   }
 
   .loginButton {
-    @include heightAndWidth(49px, 395px);
-    background-color: $white-four;
-    margin-top: 5%;
-    margin-left: 8%;
-    margin-bottom: 6%;
+    @include loginBtn($white-four);
 
     .buttonText {
-      @include heightAndWidth(24px, 53px);
-      @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
-      text-align: center;
-      color: $white;
-      margin-left: 40%;
-      margin-top: 3%;
+      @include btnText();
+    }
+  }
+
+  .loginButtonActive {
+    @include loginBtn($pale-orange);
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+
+    .buttonText {
+      @include btnText();
     }
   }
 

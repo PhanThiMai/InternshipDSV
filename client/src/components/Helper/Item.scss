@@ -1,0 +1,22 @@
+@mixin loginBtn($bgcolor) {
+  @include heightAndWidth(50px, 395px);
+  background-color: $bgcolor;
+  margin-top: 5%;
+  margin-left: 8%;
+  margin-bottom: 6%;
+}
+
+@mixin registerBtn($bgcolor) {
+  @include heightAndWidth(50px, 395px);
+  background-color: $bgcolor;
+  margin-top: 7%;
+  margin-left: 8%;
+  margin-bottom: 10%;
+}
+
+@mixin errorInput {
+  @include heightAndWidth(46px, 395px);
+  border: solid 1px $strawberry;
+  background-color: rgba(246, 63, 69, 0.04);
+  padding-left: 5px;
+}

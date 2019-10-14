@@ -12,3 +12,37 @@
   height: $height;
   width: $width;
 }
+
+@mixin placeholder(
+  $selector,
+  $color,
+  $height,
+  $width,
+  $opacity,
+  $font-family,
+  $font-size,
+  $font-weight,
+  $font-style,
+  $font-stretch,
+  $line-height,
+  $letter-spacing
+) {
+  #{$selector}::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  #{$selector}::-moz-placeholder {
+    color: $color;
+  }
+
+  #{$selector}:-ms-input-placeholder {
+    color: $color;
+  }
+
+  #{$selector}::placeholder {
+    color: $color;
+    opacity: $opacity;
+    @include heightAndWidth($height, $width);
+    @include font($font-family, $font-size, $font-weight, $font-style, $font-stretch, $line-height, $letter-spacing);
+  }
+}
