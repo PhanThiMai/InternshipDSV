@@ -3,6 +3,7 @@ import './Header.scss'
 import { Badge } from 'reactstrap'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 
 const img = {
@@ -19,8 +20,15 @@ class Header extends React.Component {
         super(props);
         this.state = {
             loginModal: false,
-            registerModal: false
+            registerModal: false,
+            isLogin: false
         }
+    }
+
+    handleLoginCheck = () => {
+        this.setState({
+            isLogin: !this.state.isLogin
+        })
     }
 
     handleLoginModal = () => {
@@ -43,17 +51,31 @@ class Header extends React.Component {
         })
     }
 
+
+
     render() {
+        let loginAuthen;
+
+        if (this.state.isLogin) {
+            loginAuthen = <div className="userpic mr-3"></div>
+        } else {
+            loginAuthen = <div className="d-flex">
+                <p className="register mr-2" onClick={this.handleRegisterModal} >Register</p>
+                <button className="login" onClick={this.handleLoginModal}>Login</button>
+            </div>
+        }
 
         return (
             <div>
                 <Login open={this.state.loginModal}
                     handleLoginModal={this.handleLoginModal}
                     showOneAndCloseAnother={this.showOneAndCloseAnother}
+                    handleLoginCheck={this.handleLoginCheck}
                 ></Login>
                 <Register open={this.state.registerModal}
                     handleRegisterModal={this.handleRegisterModal}
                     showOneAndCloseAnother={this.showOneAndCloseAnother}
+                    handleLoginCheck={this.handleLoginCheck}
 
                 ></Register>
                 <div className="d-flex justify-content-around">
@@ -67,8 +89,10 @@ class Header extends React.Component {
                     </img>
 
                     <div className="d-flex ">
+                        {/* 
                         <p className="register mr-2" onClick={this.handleRegisterModal} >Register</p>
-                        <button className="login" onClick={this.handleLoginModal}>Login</button>
+                        <button className="login" onClick={this.handleLoginModal}>Login</button> */}
+                        {loginAuthen}
 
                         <img src={img.cart} alt="cart"
                             className="cart">

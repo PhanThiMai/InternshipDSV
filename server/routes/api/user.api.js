@@ -16,63 +16,115 @@ const hashPassword = (email, password) => {
         .digest("hex");
 }
 
-router.post('/', (req, res, next) => {
+router.post('/register', (req, res, next) => {
     const { body } = req;
 
-    if (!body.fullname) {
-        return res.status(422).json({
+    if (!body.fullname || body.fullname.length < 3) {
+        return res.json({
+            type: 0,
             errors: {
-                fullname: 'is required',
+                fullname: 'Please enter a valid name !',
             },
         });
     }
 
-    if (!body.email) {
+    if (!body.email || body.email.length < 6) {
         return res.status(422).json({
+            type: 0,
             errors: {
-                email: 'is required',
+                email: 'Please enter a valid e-mail !',
             },
         });
     }
 
-    if (!body.password) {
+    if (!body.password || body.password.length < 5) {
         return res.status(422).json({
+            type: 0,
             errors: {
-                password: 'is required',
+                password: 'Your password must be more than 6 characters !',
             },
         });
     }
-
 
     users.findOne({
         email: body.email
     })
         .then(user => {
             if (!user) {
-                body.password = hashPassword(body.email, body.password);
+                // body.password = hashPassword(body.email, body.password);
+
+                let finalUser = new users({
+                    fullname: body.fullname,
+                    email: body.email,
+                    password: hashPassword(body.email, body.password)
+                });
+
+                return finalUser.save()
+                    .then(() => res.json({
+                        data: finalUser,
+                        type: 1
+                    }))
+                    .catch(err => {
+                        res.json({ type: 0 })
+                    });
             } else {
                 res.json({ errors: 'User already exists', type: 0 })
             }
         })
         .catch(err => {
-            res.send('error: ' + err)
+            res.json({ type: 0 })
         })
 
 
-    let finalUser = new users({
-        username: body.username,
-        email: body.email,
-        password: body.pas
-    });
+});
 
-    return finalUser.save()
-        .then(() => res.json({ data: finalUser.toJSON(), type: 1 }))
-        .catch(next);
+router.post('/login', (req, res, next) => {
+    const { body } = req;
+    if (!body.email) {
+        return res.status(422).json({
+            type: 0,
+            errors: {
+                email: 'Please enter a valid e-mail !',
+            },
+        });
+    }
+    if (!body.password) {
+        return res.status(422).json({
+            type: 0,
+            errors: {
+                password: 'Your password must be more than 6 characters !',
+            },
+        });
+    }
+
+    users.findOne({
+        email: body.email
+    })
+        .then(user => {
+            if (user) {
+                if (hashPassword(body.email, body.password) === user.password) {
+                    res.json({ type: 1 })
+                }
+                else {
+                    res.json({
+                        error: 'User does not exist', type: 0
+                    })
+                }
+            } else {
+                res.json({ error: 'User does not exist', type: 0 })
+            }
+        })
+        .catch(err => {
+            res.json({ type: 0 })
+        })
 });
 
 router.get('/', (req, res, next) => {
     return users.find()
-        .then((users) => res.json({ users: users.map(user => user.toJSON()) }))
+        .then((users) => res.json({
+            type: 1,
+            data: users
+        }))
         .catch(next);
 });
 
@@ -89,7 +141,7 @@ router.param('id', (req, res, next, _id) => {
 
 router.get('/:id', (req, res, next) => {
     return res.json({
-        user: req.user.toJSON(),
+        user: req.user,
     });
 });
 
@@ -109,7 +161,7 @@ router.patch('/:id', (req, res, next) => {
     }
 
     return req.user.save()
-        .then(() => res.json({ user: req.user.toJSON() }))
+        .then(() => res.json({ user: req.user }))
         .catch(next);
 });
 
