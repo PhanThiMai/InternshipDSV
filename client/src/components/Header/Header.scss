@@ -1,12 +1,11 @@
-$greyish-brown: #4d4d4d;
-$pale-orange: #ffa15f;
+@import "../Helper/Color.scss";
+@import "../Helper/Font.scss";
 
 .rectangle-2 {
-  width: 181px;
-  height: 35px;
-  border-radius: 40px;
-  border: solid 1px gray;
-  opacity: 0.6;
+  @include heightAndWidth(35px, 181px);
+  border-radius: 17px;
+  border: solid 1px $greyish-two;
+  opacity: 0.5;
   padding: 5px;
 
   .search {
@@ -18,63 +17,61 @@ $pale-orange: #ffa15f;
     line-height: 25px;
     width: 145px;
     color: gray;
+    padding-left: 5px;
 
     .searchIcon {
-      width: 20px;
-      height: 20px;
+      @include heightAndWidth(24px, 24px);
       object-fit: contain;
       opacity: 0.6;
-      float: right;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
 
-      :hover {
+      &:hover {
         cursor: pointer;
       }
     }
   }
+
+  @include placeholder(".search", $pinkish-grey, 22px, 48px, 1, Montserrat, 14px, normal, normal, normal, 1.57, normal);
 }
 
 .logo {
-  width: 96px;
-  height: 20px;
+  @include heightAndWidth(20px, 96px);
   object-fit: contain;
 }
 
 .register {
-  width: 59px;
-  height: 22px;
-  font-family: Montserrat;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2.57;
-  letter-spacing: normal;
+  @include heightAndWidth(22px, 59px);
+  @include font(Montserrat, 16px, normal, normal, normal, 2.57, normal);
   color: $greyish-brown;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .login {
-  width: 120px;
-  height: 35px;
+  @include heightAndWidth(35px, 120px);
   border-radius: 100px;
   border: solid 1px $pale-orange;
-  background: #ffff;
+  background: $white;
   color: $pale-orange;
   font-weight: bold;
+  margin-left: 24px;
+  margin-right: 29px;
+}
+
+.userpic {
+  @include heightAndWidth(28px, 28px);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cart {
-  width: 24px;
-  height: 24px;
+  @include heightAndWidth(24px, 24px);
   object-fit: contain;
 }
 
 .oval {
-  width: 18px;
-  height: 18px;
+  @include heightAndWidth(18px, 18px);
+
   background-color: $pale-orange;
   margin-left: -8px;
 

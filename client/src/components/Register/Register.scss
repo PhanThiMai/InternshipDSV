@@ -10,18 +10,24 @@
   color: $dark-grey;
 }
 
+@mixin registerBtn {
+  @include heightAndWidth(50px, 395px);
+  margin-top: 7%;
+  margin-left: 8%;
+  margin-bottom: 10%;
+}
+
 @mixin btnText {
-  @include heightAndWidth(24px, 53px);
+  @include heightAndWidth(24px, 71px);
   @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
   text-align: center;
   color: $white;
   margin-left: 40%;
-  margin-top: 3%;
 }
 
-.loginModal {
-  @include heightAndWidth(568px, 555px);
-  box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
+.registerModal {
+  @include heightAndWidth(703px, 555px);
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.03);
   background-color: $white;
 
   .cross {
@@ -34,28 +40,22 @@
     }
   }
 
-  .loginT {
-    @include heightAndWidth(42px, 105px);
+  .register {
+    @include heightAndWidth(42px, 141px);
     @include font(Montserrat, 32px, bold, normal, normal, 1.31, normal);
     text-align: center;
     color: $dark-grey;
-    margin-left: 35%;
-  }
-
-  .errorNotification {
-    width: 191px;
-    height: 22px;
-    @include heightAndWidth(22px, 191px);
-    @include font(Montserrat, 12px, 500, normal, normal, 1.83, normal);
-
-    text-align: center;
-    color: $strawberry;
+    margin-left: 30%;
   }
 
   .activeR {
     @include heightAndWidth(72px, 195px);
     margin-left: 8%;
     margin-top: 5%;
+
+    .fullNameLabel {
+      @include label(39px, 18px);
+    }
 
     .emailLabel {
       @include label(45px, 18px);
@@ -64,13 +64,6 @@
     .passwordLabel {
       @include label(76px, 18px);
     }
-
-    // input {
-    //   @include heightAndWidth(46px, 395px);
-    //   background-color: $white-two;
-    //   border: none;
-    //   padding-left: 5px;
-    // }
 
     .errorInput {
       @include errorInput();
@@ -100,20 +93,17 @@
   }
 
   .subInfor {
-    margin-top: 8%;
+    @include heightAndWidth(44px, 282px);
+    @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+    text-align: center;
+    color: $dark-grey;
+    margin-top: 9%;
+    margin-left: 15%;
 
-    .checkBox {
-      @include heightAndWidth(24px, 24px);
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    .rememberPsw {
-      @include heightAndWidth(22px, 152px);
-      @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
-      color: $greyish-brown;
+    .privacy {
+      font-weight: bold;
+      color: $pumpkin-orange;
+      border-bottom: solid 1px $pale-orange;
 
       &:hover {
         cursor: pointer;
@@ -121,29 +111,19 @@
     }
   }
 
-  .forgotPsw {
-    margin-top: 8%;
-    @include heightAndWidth(22px, 166px);
-    text-align: right;
-    @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
-    color: $greyish-brown;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-
-  .loginButton {
-    @include loginBtn($white-four);
+  .registerButton {
+    @include registerBtn();
+    background-color: $white-four;
 
     .buttonText {
       @include btnText();
     }
   }
 
-  .loginButtonActive {
-    @include loginBtn($pale-orange);
+  .registerButtonActive {
+    @include registerBtn();
     box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    background-color: $pale-orange;
 
     .buttonText {
       @include btnText();
@@ -151,19 +131,19 @@
   }
 
   .dontHaveAccount {
-    @include heightAndWidth(22px, 168px);
+    @include heightAndWidth(22px, 180px);
     @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
     color: $greyish-brown;
-    margin-left: 20%;
     text-align: right;
+    margin-left: 20%;
   }
 
-  .register {
-    @include heightAndWidth(22px, 62px);
+  .loginN {
+    @include heightAndWidth(22px, 46px);
     @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
     color: $pumpkin-orange;
-    border-bottom: 1px solid $pumpkin-orange;
     text-align: left;
+    border-bottom: 1px solid $pumpkin-orange;
 
     &:hover {
       cursor: pointer;

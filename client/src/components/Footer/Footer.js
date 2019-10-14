@@ -12,7 +12,7 @@ const infoItem = infor.map((item, index) =>
 );
 
 const socialImgItem = socialImg.map((item, index) =>
-    <img src={item} key={index} alt="social" className="socialImgItem" />);
+    <img src={item} key={index} alt="social" className="socialImgItem mr-2" />);
 
 
 
@@ -28,7 +28,7 @@ function Footer() {
                     {infoItem}
                 </Navbar>
 
-                <div className="d-flex justify-content-end mr-2">
+                <div className="d-flex justify-content-end ">
                     {socialImgItem}
                 </div>
             </div>
@@ -39,8 +39,8 @@ function Footer() {
                     {infoItem}
                 </Navbar>
                 <Navbar className="float-right ">
-                    <NavLink className="inforItem ">Privacy Policy</NavLink>
-                    <NavLink className="inforItem ">Term Condition</NavLink>
+                    <NavLink className="privacy-policy  ">Privacy Policy</NavLink>
+                    <NavLink className="terms-conditions  ">Term Condition</NavLink>
                 </Navbar>
             </div>
 

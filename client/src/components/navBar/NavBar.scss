@@ -1,19 +1,21 @@
+@import "../Helper/Font.scss";
+@import "../Helper/Color.scss";
+
 @mixin category($width) {
-  width: $width;
-  height: 22px;
-  font-family: Montserrat;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.57;
-  letter-spacing: normal;
-  color: var(--dark-grey);
+  @include heightAndWidth(22px, $width);
+  @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+
+  color: $dark-grey;
 }
 
-.navBar {
+.NavBar {
+  &:hover {
+    cursor: pointer;
+  }
+
   .men {
-    @include category(32px);
+    @include category(160px);
+    text-align: right;
   }
 
   .ladies {
@@ -29,8 +31,7 @@
   }
 
   .arrow {
-    width: 24px;
-    height: 24px;
+    @include heightAndWidth(24px, 24px);
     object-fit: contain;
   }
 }

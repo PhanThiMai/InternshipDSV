@@ -8,5 +8,19 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.1.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "gridfs-stream": "^1.1.1",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.4",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7"
+  }
 }

@@ -1,0 +1,48 @@
+@mixin font($font-family, $font-size, $font-weight, $font-style, $font-stretch, $line-height, $letter-spacing) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  font-style: $font-style;
+  font-stretch: $font-stretch;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin heightAndWidth($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin placeholder(
+  $selector,
+  $color,
+  $height,
+  $width,
+  $opacity,
+  $font-family,
+  $font-size,
+  $font-weight,
+  $font-style,
+  $font-stretch,
+  $line-height,
+  $letter-spacing
+) {
+  #{$selector}::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  #{$selector}::-moz-placeholder {
+    color: $color;
+  }
+
+  #{$selector}:-ms-input-placeholder {
+    color: $color;
+  }
+
+  #{$selector}::placeholder {
+    color: $color;
+    opacity: $opacity;
+    @include heightAndWidth($height, $width);
+    @include font($font-family, $font-size, $font-weight, $font-style, $font-stretch, $line-height, $letter-spacing);
+  }
+}

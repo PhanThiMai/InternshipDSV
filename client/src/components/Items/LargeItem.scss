@@ -1,40 +1,38 @@
-//   position: absolute;
-//   bottom: 8px;
-//   right: 16px;
-$pale-orange: #ffa15f;
+@import "../Helper/Font.scss";
+@import "../Helper/Color.scss";
 
 .balli {
-  width: 1000px;
-  height: 513px;
+  @include heightAndWidth(500px, 1000px);
   margin: 10%;
+  margin-bottom: 2%;
   margin-top: 2%;
 }
 
 .imgText {
   position: absolute;
-  top: 20%;
-  right: 15%;
-  color: white;
-
-  width: 545px;
-  height: 45px;
-  font-size: 48px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 0.94;
-  letter-spacing: normal;
+  top: 40%;
+  right: 18%;
+  color: $white;
+  @include heightAndWidth(45px, 545px);
   text-align: right;
-  color: white;
+  @include font(Montserrat, 48px, bold, normal, normal, 0.94, normal);
 }
 
-.shopNow {
-  width: 180px;
-  height: 49px;
+.btnshopNow {
+  @include heightAndWidth(49px, 180px);
   box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
   background-color: $pale-orange;
-  border-color: $pale-orange;
+
   position: absolute;
-  bottom: 30%;
-  right: 30%;
+  bottom: 1%;
+  right: 20%;
+
+  .shopNow {
+    @include heightAndWidth(24px, 84px);
+    @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+    text-align: center;
+    color: $white;
+    margin-left: 17%;
+    margin-top: 5%;
+  }
 }
