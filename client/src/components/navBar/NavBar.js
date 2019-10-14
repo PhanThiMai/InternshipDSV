@@ -22,7 +22,10 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="d-flex justify-content-center NavBar" onMouseEnter={this.handleHover} >
-                <div className="category d-flex mr-4" onMouseLeave={this.handleLeave}>
+                <div className="category d-flex mr-4"
+                    onClick={this.handleHover}
+                    onMouseLeave={this.handleLeave}
+                    onMouseEnter={this.handleHover}>
                     <p className="men">Men
 
                     <div >
@@ -38,7 +41,8 @@ class NavBar extends React.Component {
                         className="arrow" />
                 </div>
 
-                <div className="category d-flex mr-4" onMouseLeave={this.handleLeave}>
+                <div className="category d-flex mr-4" onMouseEnter={this.handleHover} onClick={this.handleHover}
+                >
                     <p className="ladies">Ladies
 
 
@@ -47,13 +51,15 @@ class NavBar extends React.Component {
                         className="arrow" />
                 </div>
 
-                <div className="category d-flex mr-4" onMouseLeave={this.handleLeave}>
+                <div className="category d-flex mr-4" onMouseEnter={this.handleHover} onClick={this.handleHover}
+                >
                     <p className="girls">Girls</p>
                     <img src="img/arrow.svg" alt="arrow"
                         className="arrow" />
                 </div>
 
-                <div className="category d-flex mr-4" onMouseLeave={this.handleLeave}>
+                <div className="category d-flex mr-4" onMouseEnter={this.handleHover} onClick={this.handleHover}
+                >
                     <p className="boys">Boys</p>
                     <img src="img/arrow.svg" alt="arrow"
                         className="arrow" />
