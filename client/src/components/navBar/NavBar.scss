@@ -8,14 +8,31 @@
   color: $dark-grey;
 }
 
-.NavBar {
+.nav-bar {
+  list-style-type: none;
+  position: relative;
+
   &:hover {
     cursor: pointer;
   }
 
+  li {
+    .sub-nav-bar-container {
+      display: none;
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+
+    &:hover {
+      .sub-nav-bar-container {
+        display: block;
+      }
+    }
+  }
+
   .men {
-    @include category(160px);
-    text-align: right;
+    @include category(32px);
   }
 
   .ladies {

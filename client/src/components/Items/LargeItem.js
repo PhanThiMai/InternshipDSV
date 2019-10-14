@@ -24,7 +24,7 @@ function LargeItem() {
             <img className="balli" src={imgOfCategory.large} alt="balli" />
             <h1 className="imgText">OUT FIT OF THE WEEK</h1>
             <button className="btnshopNow align-self-center">
-                <p className="shopNow">Shop Now </p>
+                Shop Now
             </button>
             <div className=" d-flex justify-content-center">{category}</div>
         </div>

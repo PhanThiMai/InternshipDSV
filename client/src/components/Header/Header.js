@@ -4,10 +4,6 @@ import { Badge } from 'reactstrap'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
 
 const img = {
     cart: './img/cart.png',
@@ -71,12 +67,7 @@ class Header extends React.Component {
 
         if (this.state.isLogin) {
             loginAuthen = <div className="userpic mr-3" onMouseEnter={this.handleHover}>
-                <ReactCSSTransitionGroup
-                    transitionName="slide"
-                    transitionEnterTimeout={300}
-                    transitionLeaveTimeout={300}>
-                    {this.state.showUserSetting && <UserSetting />}
-                </ReactCSSTransitionGroup>
+                <UserSetting />
             </div>
         } else {
             loginAuthen = <div className="d-flex">
@@ -109,16 +100,12 @@ class Header extends React.Component {
                     </img>
 
                     <div className="d-flex ">
-                        {/* 
-                        <p className="register mr-2" onClick={this.handleRegisterModal} >Register</p>
-                        <button className="login" onClick={this.handleLoginModal}>Login</button> */}
                         {loginAuthen}
-
                         <img src={img.cart} alt="cart"
                             className="cart">
                         </img>
-
-                        <Badge color="warning" className="oval badge badge-pill badge-warning" >{numOfProductInCart}</Badge>
+                        <Badge color="warning" className=" badge badge-pill badge-warning" >
+                            {numOfProductInCart}</Badge>
                     </div>
 
                 </div>

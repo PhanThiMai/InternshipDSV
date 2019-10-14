@@ -8,9 +8,9 @@ function SmallItem(props) {
             <img className="smallBalli" src={src} alt={name} />
             <div className="subSmall">
                 <h2 className="imgTextSmall">{name}</h2>
-                <button className="shopNowSmall"><p className="shopNowSmallText">
+                <button className="shopNowSmall">
                     Shop now
-                    </p></button>
+            </button>
             </div>
 
         </div>

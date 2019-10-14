@@ -15,7 +15,7 @@
 
 .inforItem {
   @include heightAndWidth(22px, 90px);
-  opacity: 0.5;
+  opacity: 0.3;
   @include font(Montserrat, 12px, normal, normal, normal, 1.57, normal);
   text-align: center;
   color: $greyish-two;
@@ -35,7 +35,7 @@
 }
 
 .privacy-policy {
-  @include inforItemRight(106.3px);
+  @include inforItemRight(130.3px);
 }
 
 .terms-conditions {
