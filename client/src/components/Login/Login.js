@@ -25,10 +25,11 @@ class Login extends React.Component {
 
         } else {
             login(email, password).then(res => {
-                if (res === 200) {
+                if (res) {
                     this.props.handleLoginCheck();
                 }
             })
+
         }
     }
 
