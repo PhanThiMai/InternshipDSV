@@ -1,47 +1,39 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Login.scss'
-import { login } from '../../actions/userAction';
+import { login } from '../../services/userAction';
 
 class Login extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
-            isLogin: false,
             email: '',
             password: '',
             errors: false
         };
-        this.onChange = this.onChange.bind(this)
-        this.handleClick = this.handleClick.bind(this)
-
     }
 
-
-    onChange(e) {
+    onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleClick(e) {
+    handleClick = (e) => {
         e.preventDefault()
         const { email, password } = this.state;
-
-
         if (login(email, password) === false) {
             this.setState({ errors: true })
 
         } else {
             login(email, password).then(res => {
                 if (res === 200) {
-                    this.setState({ isLogin: true })
+                    this.props.handleLoginCheck();
                 }
             })
         }
     }
 
     render() {
-        const { open, handleLoginModal, showOneAndCloseAnother } = this.props
+        const { open, handleLoginModal, showOneAndCloseAnother, handleLoginCheck } = this.props
         const active = this.state.email !== '' && this.state.password !== '';
         const error = this.state.errors;
         const errorTextEmail = error && <p className="errorText">Please enter a valid email</p>
@@ -50,7 +42,7 @@ class Login extends React.Component {
 
         return (
             <div>
-                <Modal isOpen={open && (!this.state.isLogin)} >
+                <Modal isOpen={open}>
                     <div className="loginModal container container-fluid">
                         <img src="img/cross.svg" alt="cross" className="cross mt-3"
                             onClick={handleLoginModal} />

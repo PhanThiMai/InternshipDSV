@@ -4,6 +4,8 @@ import { Badge } from 'reactstrap'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
+import { connect } from 'react-redux'
+import * as actions from '../../actions/index'
 
 const img = {
     cart: './img/cart.png',
@@ -14,79 +16,39 @@ const numOfProductInCart = 4;
 
 
 class Header extends React.Component {
-
     constructor(props) {
         super(props);
-        this.state = {
-            loginModal: false,
-            registerModal: false,
-            isLogin: false,
-            showUserSetting: false
-        }
     }
-
-    handleHover = (event) => {
-        this.setState({ showUserSetting: true });
-    };
-
-    handleLeave = (event) => {
-        this.setState({ showUserSetting: false });
-    };
-
-
-    handleLoginCheck = () => {
-        this.setState({
-            isLogin: !this.state.isLogin
-        })
-    }
-
-    handleLoginModal = () => {
-        this.setState({
-            loginModal: !this.state.loginModal
-        })
-    }
-
-    handleRegisterModal = () => {
-        this.setState({
-            registerModal: !this.state.registerModal
-        })
-
-    }
-
-    showOneAndCloseAnother = () => {
-        this.setState({
-            loginModal: !this.state.loginModal,
-            registerModal: !this.state.registerModal
-        })
-    }
-
-
-
     render() {
+        const { loginModal, registerModal, isLogin,
+        } = this.props.headerState
+        const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin
+        } = this.props
+
+        console.log(this.props.headerState)
         let loginAuthen;
 
-        if (this.state.isLogin) {
-            loginAuthen = <div className="userpic mr-3" onMouseEnter={this.handleHover}>
+        if (isLogin) {
+            loginAuthen = <div className="userpic mr-3" >
                 <UserSetting />
             </div>
         } else {
             loginAuthen = <div className="d-flex">
-                <p className="register mr-2" onClick={this.handleRegisterModal} >Register</p>
-                <button className="login" onClick={this.handleLoginModal}>Login</button>
+                <p className="register mr-2" onClick={handleRegisterModal} >Register</p>
+                <button className="login" onClick={handleLoginModal}>Login</button>
             </div>
         }
-
         return (
             <div>
-                <Login open={this.state.loginModal}
-                    handleLoginModal={this.handleLoginModal}
-                    showOneAndCloseAnother={this.showOneAndCloseAnother}
-                    handleLoginCheck={this.handleLoginCheck}
+                <Login open={loginModal}
+                    handleLoginModal={handleLoginModal}
+                    showOneAndCloseAnother={showAnotherModal}
+                    handleLoginCheck={checkLogin}
                 ></Login>
-                <Register open={this.state.registerModal}
-                    handleRegisterModal={this.handleRegisterModal}
-                    showOneAndCloseAnother={this.showOneAndCloseAnother}
-                    handleLoginCheck={this.handleLoginCheck}
+                <Register open={registerModal}
+                    handleRegisterModal={handleRegisterModal}
+                    showOneAndCloseAnother={showAnotherModal}
+                    handleLoginCheck={checkLogin}
 
                 ></Register>
                 <div className="d-flex justify-content-around">
@@ -116,4 +78,27 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    headerState: state.headerReducer
+})
+
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        handleLoginModal: () => {
+            dispatch(actions.handleLoginModal())
+        },
+
+        handleRegisterModal: () => {
+            dispatch(actions.handleRegisterModal())
+        },
+        showAnotherModal: () => {
+            dispatch(actions.showAnotherModal())
+        },
+        checkLogin: () => {
+            dispatch(actions.checkLogin())
+        }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
