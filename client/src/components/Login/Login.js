@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Login.scss'
-import { login } from '../../services/userAction';
+import { login } from '../../api/userAction';
 
 class Login extends React.Component {
     constructor(props) {
@@ -33,7 +33,7 @@ class Login extends React.Component {
     }
 
     render() {
-        const { open, handleLoginModal, showOneAndCloseAnother, handleLoginCheck } = this.props
+        const { open, handleLoginModal, showOneAndCloseAnother } = this.props
         const active = this.state.email !== '' && this.state.password !== '';
         const error = this.state.errors;
         const errorTextEmail = error && <p className="errorText">Please enter a valid email</p>

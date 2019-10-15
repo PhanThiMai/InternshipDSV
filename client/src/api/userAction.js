@@ -16,7 +16,6 @@ export const register = (fullname, email, password) => {
             password,
         })
         .then(res => {
-            //console.log(res.status)
             return res.status
         })
 }

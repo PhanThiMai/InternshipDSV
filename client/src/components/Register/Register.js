@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Register.scss'
-import { register } from '../../services/userAction';
+import { register } from '../../api/userAction';
 
 
 class Register extends React.Component {
