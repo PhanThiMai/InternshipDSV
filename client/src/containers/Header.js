@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch, props) => {
         },
         checkLogin: () => {
             dispatch(actions.checkLogin())
+        },
+        logOut: () => {
+            dispatch(actions.logOut())
         }
     }
 }

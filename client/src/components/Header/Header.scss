@@ -74,6 +74,24 @@
     }
   }
 
+  &:active {
+    cursor: pointer;
+
+    .user-setting-dropdown {
+      display: block;
+      position: relative;
+    }
+  }
+
+  &:focus {
+    cursor: pointer;
+
+    .user-setting-dropdown {
+      display: block;
+      position: relative;
+    }
+  }
+
   .user-setting-dropdown {
     display: none;
     // margin-top: px;

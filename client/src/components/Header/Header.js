@@ -18,7 +18,8 @@ function Header(props) {
 
     const { loginModal, registerModal, isLogin,
     } = props.headerState
-    const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin
+    const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin,
+        logOut
     } = props
 
     let loginAuthen;
@@ -28,7 +29,7 @@ function Header(props) {
             <div className="userpic mr-3 " >
                 <img src={img.userImg} />
                 <div className="user-setting-dropdown">
-                    <UserSetting />
+                    <UserSetting logOut={logOut} />
                 </div>
 
             </div>
