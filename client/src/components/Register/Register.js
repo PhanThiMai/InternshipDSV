@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from 'reactstrap';
 import './Register.scss'
-import { register } from '../../actions/userAction'
+import { register } from '../../api/userAction';
 
 
 class Register extends React.Component {
@@ -33,13 +33,15 @@ class Register extends React.Component {
 
         } else {
             register(fullname, email, password).then(res => {
-                if (res === 200) { this.setState({ isLogin: true }) }
+                if (res === 200) {
+                    this.props.handleLoginCheck();
+                }
             })
         }
     }
 
     render() {
-        const { open, handleRegisterModal, showOneAndCloseAnother, handleLoginCheck } = this.props;
+        const { open, handleRegisterModal, showOneAndCloseAnother } = this.props;
         const active = this.state.fullname !== '' && this.state.email !== '' && this.state.password !== '';
         const error = this.state.errors;
         const errorTextName = error && <p className="errorText">Please enter a valid name</p>
