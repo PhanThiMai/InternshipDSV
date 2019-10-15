@@ -3,7 +3,7 @@ import * as types from '../constants/ActionType'
 let initialState = {
     loginModal: false,
     registerModal: false,
-    isLogin: true,
+    isLogin: false,
 }
 
 let headerReducer = (state = initialState, action) => {
@@ -36,6 +36,10 @@ let headerReducer = (state = initialState, action) => {
                 registerModal: false,
                 isLogin: true,
 
+            }
+        case types.LOG_OUT:
+            return {
+                isLogin: false
             }
 
         default:

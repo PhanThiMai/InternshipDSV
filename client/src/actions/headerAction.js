@@ -24,3 +24,9 @@ export const checkLogin = () => {
     }
 }
 
+export const logOut = () => {
+    return {
+        type: types.LOG_OUT
+    }
+}
+
