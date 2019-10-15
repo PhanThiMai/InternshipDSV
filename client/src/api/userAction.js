@@ -16,7 +16,8 @@ export const register = (fullname, email, password) => {
             password,
         })
         .then(res => {
-            return res.status
+            localStorage.setItem('usertoken', res.data)
+            return res.data
         })
 }
 
@@ -28,14 +29,14 @@ export const login = (email, password) => {
     if (email.length < 6 || password.length < 6) {
         return false;
     }
-
     return axios
         .post('http://localhost:4000/user/login', {
             email,
             password,
         })
         .then(res => {
-            return res.status
+            localStorage.setItem('usertoken', res.data)
+            return res.data
         })
 }
 

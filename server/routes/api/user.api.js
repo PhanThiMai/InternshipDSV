@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const router = require('express').Router();
 const users = require('../../models/user.model')
+const jwt = require('jsonwebtoken')
 
 var crypto = require("crypto");
 
@@ -51,19 +52,24 @@ router.post('/register', (req, res, next) => {
     })
         .then(user => {
             if (!user) {
-                // body.password = hashPassword(body.email, body.password);
-
+                console.log("TCL REGISTER : user not exists")
                 let finalUser = new users({
                     fullname: body.fullname,
                     email: body.email,
                     password: hashPassword(body.email, body.password)
                 });
+                // let token = jwt.sign(finalUser, process.env.SECRET_KEY, {
+                //     expiresIn: 1440
+                // })
 
                 return finalUser.save()
                     .then(() => res.json({
                         data: finalUser,
                         type: 1
                     }))
+                    // .then(() => {
+                    //     res.send(token)
+                    // })
                     .catch(err => {
                         res.json({ type: 0 })
                     });
@@ -103,11 +109,20 @@ router.post('/login', (req, res, next) => {
         .then(user => {
             if (user) {
                 if (hashPassword(body.email, body.password) === user.password) {
-                    res.json({ type: 1 })
+                    let token = jwt.sign({
+                        ...user
+                    }, process.env.SECRET_KEY, {
+                        expiresIn: 1440
+                    })
+                    console.log(token);
+                    res.send(token)
                 }
                 else {
+                    console.log("TCL LOGIN : password not match")
+
                     res.json({
-                        error: 'User does not exist', type: 0
+                        error: 'Password not match',
+                        type: 0
                     })
                 }
             } else {

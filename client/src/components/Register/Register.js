@@ -27,7 +27,7 @@ class Register extends React.Component {
 
         } else {
             register(fullname, email, password).then(res => {
-                if (res === 200) {
+                if (res) {
                     this.props.handleLoginCheck();
                 }
             })

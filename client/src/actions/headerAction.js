@@ -1,8 +1,9 @@
 import * as types from '../constants/ActionType'
 
-export const handleLoginModal = () => {
+export const handleLoginModal = (token) => {
     return {
-        type: types.HANDLE_LOGIN_MODAL
+        type: types.HANDLE_LOGIN_MODAL,
+        token
     }
 }
 
