@@ -1,7 +1,7 @@
 @mixin loginBtn($bgcolor) {
   @include heightAndWidth(50px, 395px);
   background-color: $bgcolor;
-  margin-top: 5%;
+  margin-top: 4%;
   margin-left: 8%;
   margin-bottom: 6%;
 }

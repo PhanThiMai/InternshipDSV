@@ -62,12 +62,33 @@
 
 .userpic {
   @include heightAndWidth(28px, 28px);
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+  border: solid 2px $pale-orange;
+  border-radius: 50%;
+
+  &:hover {
+    cursor: pointer;
+
+    .user-setting-dropdown {
+      display: block;
+      position: relative;
+    }
+  }
+
+  .user-setting-dropdown {
+    display: none;
+    // margin-top: px;
+    padding: 10px;
+  }
+
+  img {
+    vertical-align: baseline !important;
+  }
 }
 
 .cart {
   @include heightAndWidth(24px, 24px);
   object-fit: contain;
+  margin-top: 2px;
 }
 
 .badge-warning {

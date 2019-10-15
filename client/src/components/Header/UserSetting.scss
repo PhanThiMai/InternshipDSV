@@ -12,7 +12,10 @@
   box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
   border: solid 0.5px #eaeaea;
   background-color: #fbfbfb;
-
+  padding-left: 15px;
+  padding-top: 10px;
+  position: relative;
+  z-index: 1000;
   .account-setting {
     @include dropDownItem(22px, 104px);
   }
