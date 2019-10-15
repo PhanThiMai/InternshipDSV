@@ -8,26 +8,20 @@ class Register extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLogin: false,
             fullname: '',
             email: '',
             password: '',
             errors: false
         };
-
-        this.onChange = this.onChange.bind(this)
-        this.handleClick = this.handleClick.bind(this)
     }
 
-    onChange(e) {
+    onChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleClick(e) {
+    handleClick = (e) => {
         e.preventDefault()
         const { fullname, email, password } = this.state;
-
-
         if (register(fullname, email, password) === false) {
             this.setState({ errors: true })
 
@@ -50,10 +44,10 @@ class Register extends React.Component {
 
         return (
             <div>
-                <Modal isOpen={open && (!this.state.isLogin)} >
+                <Modal isOpen={open} >
                     <div className="registerModal container container-fluid">
                         <img src="img/cross.svg" alt="cross"
-                            className="cross mt-3"
+                            className="cross mt-2"
                             onClick={handleRegisterModal}
                         />
                         <div className="register" >Register</div>
@@ -98,13 +92,11 @@ class Register extends React.Component {
 
                         </div>
 
-                        <div className="subInfor"> By creating an account you agree to the
+                        <div className="subInfor">
+                            By creating an account you agree to the<br />
+                            <div className="d-flex ml-3">
+                                <p className="privacy mr-2">Term of Service</p>and<p className="privacy ml-2">Privacy Polity</p></div>
 
-                             <div className="d-flex ml-5">
-                                <p className="privacy mr-2">Term of Service  </p>
-                                <p>and</p>
-                                <p className="privacy ml-2">Privacy Polity</p>
-                            </div>
                         </div>
 
                         <button className={active ? 'registerButtonActive' : 'registerButton'}
@@ -118,7 +110,7 @@ class Register extends React.Component {
                     </div>
                 </Modal>
 
-            </div>
+            </div >
         );
     }
 }

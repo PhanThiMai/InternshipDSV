@@ -15,6 +15,7 @@
   margin-top: 7%;
   margin-left: 8%;
   margin-bottom: 10%;
+  border: none;
 }
 
 @mixin btnText {
@@ -45,7 +46,8 @@
     @include font(Montserrat, 32px, bold, normal, normal, 1.31, normal);
     text-align: center;
     color: $dark-grey;
-    margin-left: 30%;
+    margin-left: 34%;
+    margin-top: 5%;
   }
 
   .activeR {
@@ -92,19 +94,16 @@
     );
 
     .errorText {
-      @include heightAndWidth(22px, 133px);
       @include font(Montserrat, 10px, 500, normal, normal, 2.2, normal);
       color: $strawberry;
     }
   }
 
   .subInfor {
-    @include heightAndWidth(44px, 282px);
-    @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
-    text-align: center;
+    @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
     color: $dark-grey;
     margin-top: 9%;
-    margin-left: 15%;
+    margin-left: 17%;
 
     .privacy {
       font-weight: bold;
@@ -137,14 +136,15 @@
   }
 
   .dontHaveAccount {
-    @include heightAndWidth(22px, 180px);
     @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
     color: $greyish-brown;
-    text-align: right;
-    margin-left: 20%;
+    margin-left: 22%;
+    margin-top: 9px;
   }
 
   .loginN {
+    margin-top: 9px;
+
     @include heightAndWidth(22px, 46px);
     @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
     color: $pumpkin-orange;

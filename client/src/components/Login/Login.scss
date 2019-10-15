@@ -20,7 +20,7 @@
 }
 
 .loginModal {
-  @include heightAndWidth(568px, 555px);
+  @include heightAndWidth(545px, 555px);
   box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
   background-color: $white;
 
@@ -39,12 +39,14 @@
     @include font(Montserrat, 32px, bold, normal, normal, 1.31, normal);
     text-align: center;
     color: $dark-grey;
-    margin-left: 35%;
+    margin-left: 37%;
   }
 
   .errorNotification {
     width: 191px;
     height: 22px;
+    margin-left: 20%;
+
     @include heightAndWidth(22px, 191px);
     @include font(Montserrat, 12px, 500, normal, normal, 1.83, normal);
 
@@ -53,9 +55,9 @@
   }
 
   .activeR {
-    @include heightAndWidth(72px, 195px);
+    width: 195px;
     margin-left: 8%;
-    margin-top: 5%;
+    margin-bottom: 2%;
 
     .emailLabel {
       @include label(45px, 18px);
@@ -66,7 +68,6 @@
     }
 
     .errorText {
-      @include heightAndWidth(22px, 133px);
       @include font(Montserrat, 10px, 500, normal, normal, 2.2, normal);
       color: $strawberry;
     }
@@ -99,7 +100,7 @@
   }
 
   .subInfor {
-    margin-top: 8%;
+    margin-top: 5%;
 
     .checkBox {
       @include heightAndWidth(24px, 24px);
@@ -113,6 +114,7 @@
       @include heightAndWidth(22px, 152px);
       @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
       color: $greyish-brown;
+      margin-top: 3px;
 
       &:hover {
         cursor: pointer;
@@ -121,7 +123,7 @@
   }
 
   .forgotPsw {
-    margin-top: 8%;
+    margin-top: 5%;
     @include heightAndWidth(22px, 166px);
     text-align: right;
     @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
@@ -134,6 +136,7 @@
 
   .loginButton {
     @include loginBtn($white-four);
+    border: none;
 
     .buttonText {
       @include btnText();
@@ -143,6 +146,7 @@
   .loginButtonActive {
     @include loginBtn($pale-orange);
     box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    border: none;
 
     .buttonText {
       @include btnText();
@@ -150,11 +154,9 @@
   }
 
   .dontHaveAccount {
-    @include heightAndWidth(22px, 168px);
     @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
     color: $greyish-brown;
     margin-left: 20%;
-    text-align: right;
   }
 
   .register {

@@ -3,7 +3,7 @@ import * as types from '../constants/ActionType'
 let initialState = {
     loginModal: false,
     registerModal: false,
-    isLogin: false,
+    isLogin: true,
 }
 
 let headerReducer = (state = initialState, action) => {

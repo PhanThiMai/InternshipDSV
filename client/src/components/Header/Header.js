@@ -8,7 +8,8 @@ import UserSetting from './UserSetting'
 const img = {
     cart: './img/cart.png',
     logo: './img/logo.png',
-    search: './img/search.png'
+    search: './img/search.png',
+    userImg: './img/user.svg'
 }
 const numOfProductInCart = 4;
 
@@ -23,9 +24,15 @@ function Header(props) {
     let loginAuthen;
 
     if (isLogin) {
-        loginAuthen = <div className="userpic mr-3" >
-            <UserSetting />
-        </div>
+        loginAuthen =
+            <div className="userpic mr-3 " >
+                <img src={img.userImg} />
+                <div className="user-setting-dropdown">
+                    <UserSetting />
+                </div>
+
+            </div>
+
     } else {
         loginAuthen = <div className="d-flex">
             <p className="register mr-2" onClick={handleRegisterModal} >Register</p>
