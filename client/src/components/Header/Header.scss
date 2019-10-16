@@ -120,6 +120,14 @@
   letter-spacing: normal;
   color: $white;
   @include heightAndWidth(18px, 18px);
-  margin-left: -8px;
-  margin-top: -3px;
+  margin-left: -13px;
+  margin-top: -4px;
+}
+
+.badge-pill {
+  padding-right: 0.1rem;
+}
+
+.badge {
+  padding: 0px;
 }

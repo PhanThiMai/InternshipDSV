@@ -13,11 +13,19 @@ class Login extends React.Component {
         };
     }
 
-    onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+    handleFocus = e => {
+        this.setState({
+            [e.target.name]: '',
+            errors: false
+        })
+    }
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
     }
 
-    handleClick = (e) => {
+    handleClick = e => {
         e.preventDefault()
         const { email, password } = this.state;
         if (login(email, password) === false) {
@@ -27,6 +35,11 @@ class Login extends React.Component {
             login(email, password).then(res => {
                 if (res) {
                     this.props.handleLoginCheck();
+                    this.setState({
+                        fullname: '',
+                        email: '',
+                        password: ''
+                    })
                 }
             })
 
@@ -53,6 +66,7 @@ class Login extends React.Component {
                             <label className="emailLabel">E-MAIL</label>
                             <input type="email" name="email" id="email"
                                 placeholder="Enter your email..."
+                                onFocus={this.handleFocus}
                                 value={this.state.email}
                                 className={error ? 'errorInput' : 'normalInput'}
                                 onChange={this.onChange} />
@@ -63,16 +77,18 @@ class Login extends React.Component {
                             <input type="password" name="password" id="password"
                                 placeholder="Enter your password..."
                                 value={this.state.password}
+                                onFocus={this.handleFocus}
+
                                 className={error ? 'errorInput' : 'normalInput'}
                                 onChange={this.onChange} />
                         </div>
 
-                        <div className="subInfor d-flex float-left ml-5 ">
+                        <div className="subInfor d-flex float-left ">
                             <img src="img/check-box.svg" alt="checkBox"
                                 className="checkBox" />
                             <p className="rememberPsw">Remember password</p>
                         </div>
-                        <p className="forgotPsw float-right mr-5">Forgot password</p>
+                        <p className="forgotPsw float-right">Forgot password</p>
                         <button onClick={this.handleClick} className={active ? 'loginButtonActive' : 'loginButton'}><div className="buttonText mb-5" >Login</div></button>
                         <hr className="mt-2"></hr>
 

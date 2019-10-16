@@ -15,11 +15,20 @@ class Register extends React.Component {
         };
     }
 
-    onChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value })
+    handleFocus = e => {
+        this.setState({
+            [e.target.name]: '',
+            errors: false
+        })
     }
 
-    handleClick = (e) => {
+    onChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    handleClick = e => {
         e.preventDefault()
         const { fullname, email, password } = this.state;
         if (register(fullname, email, password) === false) {
@@ -29,6 +38,11 @@ class Register extends React.Component {
             register(fullname, email, password).then(res => {
                 if (res) {
                     this.props.handleLoginCheck();
+                    this.setState({
+                        fullname: '',
+                        email: '',
+                        password: ''
+                    })
                 }
             })
         }
@@ -61,6 +75,8 @@ class Register extends React.Component {
                                 placeholder="Enter your name..."
                                 value={this.state.fullname}
                                 onChange={this.onChange}
+                                onFocus={this.handleFocus}
+
                             />
                             <div>{errorTextName}</div>
                         </div>
@@ -72,6 +88,7 @@ class Register extends React.Component {
                                 placeholder="Enter your email..."
                                 value={this.state.email}
                                 onChange={this.onChange}
+                                onFocus={this.handleFocus}
 
                             />
                             <div>{errorTextEmail}</div>

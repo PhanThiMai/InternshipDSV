@@ -23,11 +23,12 @@
   @include heightAndWidth(545px, 555px);
   box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
   background-color: $white;
+  padding-left: 38px;
 
   .cross {
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
-    margin-left: 90%;
+    margin-left: 95%;
 
     &:hover {
       cursor: pointer;
@@ -101,6 +102,7 @@
 
   .subInfor {
     margin-top: 5%;
+    margin-left: 35px;
 
     .checkBox {
       @include heightAndWidth(24px, 24px);
@@ -128,6 +130,7 @@
     text-align: right;
     @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
     color: $greyish-brown;
+    margin-right: 65px;
 
     &:hover {
       cursor: pointer;

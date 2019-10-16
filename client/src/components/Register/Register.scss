@@ -31,10 +31,11 @@
   box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.03);
   background-color: $white;
 
+  padding-left: 40px;
   .cross {
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
-    margin-left: 90%;
+    margin-left: 94%;
 
     &:hover {
       cursor: pointer;
