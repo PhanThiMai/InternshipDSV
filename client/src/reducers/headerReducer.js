@@ -1,9 +1,11 @@
 import * as types from '../constants/ActionType'
 
+const token = localStorage.getItem("usertoken");
+console.log(token)
 let initialState = {
     loginModal: false,
     registerModal: false,
-    isLogin: false,
+    isLogin: token ? true : false
 }
 
 let headerReducer = (state = initialState, action) => {
@@ -12,8 +14,8 @@ let headerReducer = (state = initialState, action) => {
         case types.HANDLE_LOGIN_MODAL:
             return {
                 registerModal,
-                isLogin,
-                loginModal: !loginModal
+                isLogin: action.token ? true : false,
+                loginModal: action.token ? false : !loginModal
             }
         case types.HANDLE_REGISTER_MODAL:
 
@@ -38,6 +40,7 @@ let headerReducer = (state = initialState, action) => {
 
             }
         case types.LOG_OUT:
+            localStorage.removeItem("usertoken")
             return {
                 isLogin: false
             }

@@ -2,6 +2,8 @@ import { connect } from 'react-redux'
 import * as actions from '../actions/headerAction'
 import Header from '../components/Header/Header'
 
+
+const token = localStorage.getItem("usertoken");
 const mapStateToProps = state => ({
     headerState: state.headerReducer
 })
@@ -9,7 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = (dispatch, props) => {
     return {
         handleLoginModal: () => {
-            dispatch(actions.handleLoginModal())
+            dispatch(actions.handleLoginModal(token))
         },
 
         handleRegisterModal: () => {
