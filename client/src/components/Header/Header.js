@@ -1,6 +1,8 @@
 import React from 'react';
 import './Header.scss'
 import { Badge } from 'reactstrap'
+import { Link } from 'react-router-dom'
+
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
@@ -59,10 +61,11 @@ function Header(props) {
                 <input type="text" className="search" placeholder="Search" />
                 <img src={img.search} alt="search" className="searchIcon"></img>
             </div>
-            <img src={img.logo}
-                className="logo" alt="logo">
-            </img>
-
+            <Link to="/">
+                <img src={img.logo}
+                    className="logo" alt="logo">
+                </img>
+            </Link>
             <div className="d-flex ">
                 {loginAuthen}
                 <img src={img.cart} alt="cart"

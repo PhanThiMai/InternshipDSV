@@ -1,0 +1,10 @@
+@import "../../Helper/Color.scss";
+@import "../../Helper/Font.scss";
+
+.child-category {
+  height: 22px;
+
+  @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+
+  color: $dark-grey;
+}

@@ -1,0 +1,34 @@
+@import "../../../Helper/Font.scss";
+@import "../../../Helper/Color.scss";
+
+.category-title {
+  width: 77px;
+  height: 24px;
+  @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+  color: $dark-grey;
+}
+
+.all-dresses {
+  height: 22px;
+  margin-top: 20%;
+  @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+  color: $bright-orange;
+}
+
+.hr-setting {
+  width: 20px;
+  height: 1px;
+  margin-bottom: 5%;
+  border: solid 0.5px #979797;
+}
+
+.categorie-item {
+  width: 148px;
+  height: 22px;
+  @include font(Montserrat, 14px, normal, normal, normal, 1.57, -0.1px);
+  color: $greyish-brown;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
