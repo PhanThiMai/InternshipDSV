@@ -12,28 +12,13 @@ import Content from '../Products/Content/Content'
 function SubNavBar(props) {
     const { value } = props;
     const sunCategoriesTag = value.map((item, index) =>
-        //<Link to="/products" exact key={index} className={`category${item}`}> {item}</Link >);
-        <Link to={`/products/${item}`} exact key={index} className={`category${item}`}> {item}</Link >);
-
-    // <Router>
-    //     {
-    //         value.map((item, index) => {
-    //             return (
-    //                 <Route exact path={`products/${item}`}>
-    //                     <Content />
-    //                 </Route>
-    //             )
-    //         })
-    //     }
-    // </Router>
-
+        <Link to={item} key={index} className={`category${item}`}> {item}</Link >);
 
     return (
         <div className="d-flex justify-content-around align-items-center mt-3  subNavBar"  >
             {sunCategoriesTag}
         </div>
     )
-
 }
 
 

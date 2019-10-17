@@ -2,11 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from './components/HomePage/HomePage';
-import Products from './components/Products/Products'
+import Products from './components/Products/Products';
+import Header from './containers/Header';
+import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer'
 
 import {
   BrowserRouter as Router,
-  Route, Link
+  Route, Switch
 } from "react-router-dom";
 
 
@@ -14,13 +17,22 @@ import {
 function App() {
   return (
     <Router>
-      <Route exact path="/">
-        <HomePage />
-      </Route>
-      <Route exact path="/products">
-        <Products />
-      </Route>
+      <Header />
+      <hr></hr>
+      <NavBar />
+      <hr className="mt-0"></hr>
+
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route exact path="/:id" children={<Products />} />
+      </Switch>
+
+      <Footer className="footer"></Footer>
     </Router>
+
+
   )
 }
 export default App;

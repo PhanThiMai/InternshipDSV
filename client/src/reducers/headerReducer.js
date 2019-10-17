@@ -1,7 +1,6 @@
 import * as types from '../constants/ActionType'
 
 const token = localStorage.getItem("usertoken");
-console.log(token)
 let initialState = {
     loginModal: false,
     registerModal: false,

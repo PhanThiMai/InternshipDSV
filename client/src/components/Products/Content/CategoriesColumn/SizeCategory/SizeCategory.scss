@@ -1,0 +1,53 @@
+@import '../../../../Helper/Color.scss';
+@import '../../../../Helper/Font.scss';
+
+
+
+.sizes {
+    margin-top: 10px;
+    padding-right: 45px;
+    border-top: dashed 1px $greyish-brown;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+
+    .square {
+        width: 40px;
+        height: 40px;
+        border: solid 1px #808080;
+        @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+        color: $dark-grey;
+        cursor: pointer;
+        background: $white;
+        border-radius: 2px;
+
+        &:focus {
+            background-color: $pale-orange !important;
+            @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+            color: $white;
+            text-align: center;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border: none;
+        }
+    }
+
+
+    button {
+        &:focus {
+            outline: solid 1px $white-four;
+        }
+    }
+
+    .unenable {
+        width: 40px;
+        height: 40px;
+        @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+        border: solid 1px $white-four;
+        opacity: 0.4;
+        color: $greyish-brown;
+        cursor: no-drop;
+
+    }
+}

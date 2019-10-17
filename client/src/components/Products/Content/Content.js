@@ -9,7 +9,7 @@ function Content(props) {
         <div className=" content row">
             <div className="categories-column"><Categories mainCategory={mainCategory} /></div>
             <div className=" product-list">
-                <ProductsColumn />
+                <ProductsColumn mainCategory={mainCategory} />
             </div>
         </div>
     )

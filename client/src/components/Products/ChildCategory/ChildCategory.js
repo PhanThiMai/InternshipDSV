@@ -5,7 +5,7 @@ function ChildCategory(props) {
     const { categoryName } = props;
 
     return (
-        <div className="child-category d-flex justify-content-around  mt-5   " >
+        <div className="child-category d-flex justify-content-around  mt-3   " >
             {categoryName}
         </div>
     )
