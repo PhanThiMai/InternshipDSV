@@ -2,8 +2,9 @@ import React from 'react';
 import './Categories.scss'
 import { Link } from 'react-router-dom'
 import SizeCategory from './SizeCategory/SizeCategory'
-import { Accordion, Button } from 'react-bootstrap'
-
+import ColorCategory from './ColorCategory/ColorCategory'
+import BrandCategory from './BrandCategory/BrandCategory'
+import PriceCategory from './PriceCategory/PriceCategory'
 const categories = [
     "Rompers / Jumpsuits",
     "Casual dresses", "Going out dresses",
@@ -27,85 +28,159 @@ const sizes = [
 
 ]
 
+const brands = ["Zara", "H&M", "Pull&Bear", "Dior", "Chanel"]
 
-// function CategoryItem(props) {
-//     const { decoratedOnClick } = props;
-//     return (
-//         <div onClick={decoratedOnClick}>
-//             <span>{props.children}</span>
-//             <img src="img/arrow.svg"
-//                 className="arrow float-right" />
-//         </div>
-//     )
-// }
+const colors = ["Red", "Yellow", "Blue", "Orange", "Brown", "Gray"]
+
+const availables = ["In-store", "Out of stock"];
+
+class Categories extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            sizeCollapsed: false,
+            colorCollapsed: false,
+            brandCollapsed: false,
+            priceCollapsed: false,
+            availCollapsed: false
+        }
+    }
 
 
+    render() {
+        const { mainCategory } = this.props
+        const { colorCollapsed, sizeCollapsed, brandCollapsed, priceCollapsed, availCollapsed } = this.state
+        const categoryItem = categories.map((item, index) => {
+            return (
+                <Link to={`${mainCategory}/${index}`} key={index} className="category-item">
+                    {item}
+                </Link>
+            )
+        })
 
-function Categories(props) {
-    const { mainCategory } = props
-    const categoryItem = categories.map((item, index) => {
         return (
-            <Link to={`${mainCategory}/${index}`} key={index} className="category-item">
-                {item}
-            </Link>
-        )
-    })
-    return (
-        <div >
-            <p className="category-title">Category</p>
-            <p className="all-dresses">{`All ${mainCategory}`}</p>
-            <div className="hr-setting1" />
+            <div >
+                <p className="category-title">Category</p>
+                <p className="all-dresses">{`All ${mainCategory}`}</p>
+                <div className="hr-setting1" />
 
-            <div className="list-category-item">
-                {categoryItem}
-            </div>
+                <div className="list-category-item">
+                    {categoryItem}
+                </div>
 
-            <div className="hr-setting2" />
+                <div className="hr-setting2" />
 
-            <p className="filter">Filter</p>
-            <Accordion>
-                <ul>
-                    <li className="filter-ttem">
-                        <span>Size</span>
-                        <img src="img/arrow.svg"
-                            className="arrow float-right" />
-                        <div className="size-category">
-                            <SizeCategory sizes={sizes} />
-                        </div>
+                <p className="filter">Filter</p>
+                <ul className="filter-items">
+                    <li className="filter-item">
+                        <span
+                            onClick={() => {
+                                this.setState({
+                                    sizeCollapsed: !sizeCollapsed
+                                })
+                            }}
+                        >Size</span>
+                        <img src="img/arrow.svg" alt="arrow"
+                            onClick={() => {
+                                this.setState({
+                                    sizeCollapsed: !sizeCollapsed
+                                })
+                            }}
+                            className={`arrow float-right ${sizeCollapsed ? "rotate90" : ""}`} />
+                        <SizeCategory sizes={sizes} isOpen={sizeCollapsed} />
+
                         <hr />
                     </li>
 
 
-                    <li className="filterItem">
-                        <span>Color</span>
-                        <img src="img/arrow.svg"
-                            className="arrow float-right" />
+                    <li className="filter-item">
+                        <span
+                            onClick={() => {
+                                this.setState({
+                                    colorCollapsed: !colorCollapsed
+                                })
+                            }}
+                        >Color</span>
+                        <img src="img/arrow.svg" alt="arrow"
+                            onClick={() => {
+                                this.setState({
+                                    colorCollapsed: !colorCollapsed
+                                })
+                            }}
+                            className={`arrow float-right ${colorCollapsed ? "rotate90" : ""}`} />
+                        <ColorCategory colors={colors} isOpen={colorCollapsed} />
                         <hr />
                     </li>
-                    <li className="filterItem">
-                        <span>Brand</span>
-                        <img src="img/arrow.svg"
-                            className="arrow float-right" />
+
+
+                    <li className="filter-item">
+                        <span
+                            onClick={() => {
+                                this.setState({
+                                    brandCollapsed: !brandCollapsed
+                                })
+                            }}
+                        >Brand</span>
+                        <img src="img/arrow.svg" alt="arrow"
+                            onClick={() => {
+                                this.setState({
+                                    brandCollapsed: !brandCollapsed
+                                })
+                            }}
+                            className={`arrow float-right ${brandCollapsed ? "rotate90" : ""}`} />
+                        <BrandCategory brands={brands} isOpen={brandCollapsed} />
                         <hr />
                     </li>
-                    <li className="filterItem">
-                        <span>Price</span>
-                        <img src="img/arrow.svg"
-                            className="arrow float-right" />
+
+
+                    <li className="filter-item">
+                        <span
+                            onClick={() => {
+                                this.setState({
+                                    priceCollapsed: !priceCollapsed
+                                })
+                            }}
+                        >Price</span>
+                        <img src="img/arrow.svg" alt="arrow" className="arrow float-right"
+                            onClick={() => {
+                                this.setState({
+                                    priceCollapsed: !priceCollapsed
+                                })
+                            }}
+                        />
+                        <PriceCategory isOpen={priceCollapsed} />
                         <hr />
                     </li>
-                    <li className="filterItem">
-                        <span>Available</span>
-                        <img src="img/arrow.svg"
-                            className="arrow float-right" />
+                    <li className="filter-item">
+                        <span onClick={() => {
+                            this.setState({
+                                availCollapsed: !availCollapsed
+                            })
+                        }}
+                        >Available</span>
+                        <img src="img/arrow.svg" alt="arrow"
+                            className="arrow float-right"
+                            onClick={() => {
+                                this.setState({
+                                    availCollapsed: !availCollapsed
+                                })
+                            }}
+                        />
+
+                        <BrandCategory brands={availables} isOpen={availCollapsed} />
+
                         <hr />
                     </li>
 
                 </ul>
-            </Accordion>
 
-        </div >
-    )
+            </div >
+        )
+    }
 }
+
+
+
 
 export default Categories

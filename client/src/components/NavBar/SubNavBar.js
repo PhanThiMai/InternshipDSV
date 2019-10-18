@@ -1,11 +1,8 @@
 import React from 'react';
 import './SubNavBar.scss'
 import {
-    BrowserRouter as Router,
-    Route, Link
+    Link
 } from "react-router-dom";
-
-import Content from '../Products/Content/Content'
 
 
 

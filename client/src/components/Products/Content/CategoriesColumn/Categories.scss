@@ -60,13 +60,14 @@
   margin-bottom: 30px;
 }
 
-ul {
+.filter-items {
   list-style-type: none;
   padding: 0px;
   margin: 0px;
   padding-right: 28%;
 
-  .filterItem {
+
+  .filter-item {
 
     @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
     color: $dark-grey;
@@ -92,6 +93,14 @@ ul {
       height: 24px;
       object-fit: contain;
       opacity: 0.6;
+    }
+
+    .rotate90 {
+      // -webkit-transform: rotate(180deg);
+      // -moz-transform: rotate(180deg);
+      // -o-transform: rotate(180deg);
+      // -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
     }
 
     .size-category {

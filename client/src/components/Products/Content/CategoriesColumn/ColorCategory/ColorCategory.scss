@@ -1,0 +1,48 @@
+@import '../../../../Helper/Color.scss';
+@import '../../../../Helper/Font.scss';
+
+@mixin color($color) {
+    width: 30px;
+    height: 30px;
+    background-color: $color;
+    border-radius: 50%;
+    border: none;
+    margin-right: 15px;
+    margin-top: 10px;
+
+}
+
+.colors {
+
+    border-top: dashed 1px $greyish-brown;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+
+    .color0 {
+        @include color(#ff5f6d);
+    }
+
+    .color1 {
+        @include color(rgba(255, 213, 67, 0.4));
+    }
+
+    .color2 {
+        @include color(rgba(95, 109, 255, 0.4));
+    }
+
+    .color3 {
+        @include color(rgba(255, 161, 95, 0.4));
+    }
+
+    .color4 {
+        @include color(rgba(61, 61, 63, 0.4));
+
+    }
+
+    .color5 {
+        @include color(rgba(237, 237, 237, 0.4));
+
+    }
+
+}
