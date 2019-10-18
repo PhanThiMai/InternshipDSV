@@ -12,7 +12,7 @@ import {
   Route, Switch
 } from "react-router-dom";
 
-function App() {
+function App({ match }) {
   return (
     <Router>
       <Header />
@@ -21,10 +21,10 @@ function App() {
       <hr className="mt-0"></hr>
 
       <Switch>
-        <Route exact path="/">
-          <HomePage />
+        <Route exact path="/" component={HomePage}>
+
         </Route>
-        <Route exact path="/:id" children={<Products />} />
+        <Route path="/:id" component={Products} />
       </Switch>
 
       <Footer className="footer"></Footer>

@@ -19,8 +19,9 @@ class NavBar extends React.Component {
     };
 
     render() {
-        const subCategories = ["Tops", "Bottoms", "Dresses", "Jackets", "Shoes", "Accessories", "Sale"];
 
+
+        const subCategories = ["Tops", "Bottoms", "Dresses", "Jackets", "Shoes", "Accessories", "Sale"];
         return (
             <ul className="d-flex justify-content-center nav-bar">
                 <li>

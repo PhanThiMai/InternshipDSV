@@ -4,12 +4,13 @@ import Categories from './CategoriesColumn/Categories'
 import ProductsColumn from './ProductsColumn/ProductsColumn'
 
 function Content(props) {
-    const { mainCategory } = props
+    const { mainCategory, match } = props
+
     return (
-        <div className=" content row">
-            <div className="categories-column"><Categories mainCategory={mainCategory} /></div>
+        <div className=" content row container-fluid">
+            <div className="categories-column"><Categories mainCategory={mainCategory} match={match} /></div>
             <div className=" product-list">
-                <ProductsColumn mainCategory={mainCategory} />
+                <ProductsColumn mainCategory={mainCategory} match={match} />
             </div>
         </div>
     )

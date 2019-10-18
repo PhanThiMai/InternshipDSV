@@ -7,14 +7,13 @@ import {
     useParams
 } from "react-router-dom";
 
-function Products() {
+function Products({ match }) {
     let { id } = useParams();
-
 
     return (
         <div >
-            <ChildCategory categoryName={id} />
-            <Content mainCategory={id} />
+            <ChildCategory categoryName={id} match={match} />
+            <Content mainCategory={id} match={match} />
         </div>
     )
 }

@@ -49,11 +49,14 @@ class Categories extends React.Component {
 
 
     render() {
-        const { mainCategory } = this.props
+        const { mainCategory, match } = this.props
         const { colorCollapsed, sizeCollapsed, brandCollapsed, priceCollapsed, availCollapsed } = this.state
+
+
         const categoryItem = categories.map((item, index) => {
+            let newUrl = item.replace(/\s/g, '');
             return (
-                <Link to={`${mainCategory}/${index}`} key={index} className="category-item">
+                <Link to={`${match.url}/${newUrl}`} key={index} className="category-item">
                     {item}
                 </Link>
             )
