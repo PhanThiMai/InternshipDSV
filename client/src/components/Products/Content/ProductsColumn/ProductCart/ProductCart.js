@@ -16,7 +16,7 @@ class ProductCart extends React.Component {
 
         const soldOutItem = <div className="sold-out">Sold out</div>;
         return (
-            <Link to={`/${newUrl}`}>
+            <Link to={`/products/${newUrl}`}>
                 <div className="cart-product">
                     <img src={product.img} alt="product" className="product-img" />
                     {soldOutItem}

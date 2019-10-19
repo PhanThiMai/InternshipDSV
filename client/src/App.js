@@ -31,16 +31,13 @@ function App({ match }) {
       <NavBar />
       <hr className="mt-0"></hr>
 
-      {/* <Switch>
-        <Route exact path="/" component={HomePage}>
-
-        </Route>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/:id" component={Products} />
-        <Route exact path="/:id" component={Products} />
-      </Switch> */}
-      <Product categoryName="categoryName" product={product} />
+        <Route exact path="/products/:id" component={Product} />
+      </Switch>
 
-      {/* <Footer className="footer"></Footer> */}
+      <Footer className="footer"></Footer>
     </Router>
 
 

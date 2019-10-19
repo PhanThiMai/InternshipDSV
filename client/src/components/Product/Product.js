@@ -21,7 +21,7 @@ class Product extends React.Component {
         const { categoryName, product } = this.props;
         return (
             <div>
-                <ChildCategory categoryName={categoryName} />
+                {/* <ChildCategory categoryName={categoryName} />
                 <div className="row">
                     <div className="col-5 d-flex ">
                         <div className="d-flex flex-column list-small-img">
@@ -40,7 +40,8 @@ class Product extends React.Component {
 
                     </div>
 
-                </div>
+                </div> */}
+                <h1>This is product detail</h1>
 
             </div>
 
