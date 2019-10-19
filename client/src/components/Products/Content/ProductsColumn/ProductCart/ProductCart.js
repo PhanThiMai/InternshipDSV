@@ -11,12 +11,12 @@ class ProductCart extends React.Component {
     }
 
     render() {
-        const { product, match } = this.props;
+        const { product } = this.props;
         const newUrl = product.name.replace(/\s/g, '');
 
         const soldOutItem = <div className="sold-out">Sold out</div>;
         return (
-            <Link to={`${match.url}/${newUrl}`}>
+            <Link to={`/${newUrl}`}>
                 <div className="cart-product">
                     <img src={product.img} alt="product" className="product-img" />
                     {soldOutItem}

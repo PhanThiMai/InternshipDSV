@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from './components/HomePage/HomePage';
 import Products from './components/Products/Products';
+import Product from './components/Product/Product';
 import Header from './containers/Header';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer'
@@ -12,7 +13,17 @@ import {
   Route, Switch
 } from "react-router-dom";
 
+
 function App({ match }) {
+
+  const product = {
+    img: 'img/product.jpg',
+    name: 'Button-Down Denim ',
+    brand: 'Mini Dress',
+    price: '$69.00',
+    soldOut: true
+  }
+
   return (
     <Router>
       <Header />
@@ -20,14 +31,16 @@ function App({ match }) {
       <NavBar />
       <hr className="mt-0"></hr>
 
-      <Switch>
+      {/* <Switch>
         <Route exact path="/" component={HomePage}>
 
         </Route>
-        <Route path="/:id" component={Products} />
-      </Switch>
+        <Route exact path="/:id" component={Products} />
+        <Route exact path="/:id" component={Products} />
+      </Switch> */}
+      <Product categoryName="categoryName" product={product} />
 
-      <Footer className="footer"></Footer>
+      {/* <Footer className="footer"></Footer> */}
     </Router>
 
 

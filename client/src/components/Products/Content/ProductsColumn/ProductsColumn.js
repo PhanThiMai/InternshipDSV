@@ -46,7 +46,7 @@ class ProductsColumn extends React.Component {
     render() {
         const { mainCategory, match } = this.props
         // console.log(match)
-        const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
+        //const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
 
         return (
             <div>

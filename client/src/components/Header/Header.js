@@ -56,7 +56,6 @@ function Header(props) {
 
         ></Register>
         <div className="d-flex justify-content-around">
-
             <div className="rectangle-2" >
                 <input type="text" className="search" placeholder="Search" />
                 <img src={img.search} alt="search" className="searchIcon"></img>
