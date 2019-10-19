@@ -2,7 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePage from './components/HomePage/HomePage';
-import Products from './components/Products/Products';
+// import Products from './components/Products/Products';
+import Products from './containers/Products'
 import Product from './components/Product/Product';
 import Header from './containers/Header';
 import NavBar from './components/NavBar/NavBar';

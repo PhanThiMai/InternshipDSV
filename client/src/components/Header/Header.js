@@ -17,7 +17,6 @@ const numOfProductInCart = 4;
 
 
 function Header(props) {
-
     const { loginModal, registerModal, isLogin,
     } = props.headerState
     const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin,
