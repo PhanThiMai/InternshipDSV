@@ -7,13 +7,13 @@ const mapStateToProps = state => ({
     productsState: state.productsReducer
 })
 
-const mapDispatchToProps = (dispatch, productDetail, childCategory) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        viewProductDetail: () => {
-            dispatch(actions.viewProductDetail(productDetail))
+        viewProductDetail: (product) => {
+            dispatch(actions.viewProductDetail(product))
         },
 
-        viewProductsOfCategory: () => {
+        viewProductsOfCategory: (childCategory) => {
             dispatch(actions.viewProductsOfCategory(childCategory))
         }
     }

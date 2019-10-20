@@ -1,3 +1,4 @@
+
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -15,15 +16,10 @@ import {
 } from "react-router-dom";
 
 
+import './api/axios.config'
+
 function App() {
 
-  // const product = {
-  //   img: 'img/product.jpg',
-  //   name: 'Button-Down Denim ',
-  //   brand: 'Mini Dress',
-  //   price: '$69.00',
-  //   soldOut: true
-  // }
 
   return (
     <Router>
