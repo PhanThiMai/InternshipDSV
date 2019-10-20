@@ -7,21 +7,21 @@ import ProductCart from './ProductCart/ProductCart'
 
 
 const products = [{
-    img: './../..//img/product.jpg',
+    img: './../../../../img/product.jpg',
     name: 'Surplice Gingham',
     brand: 'Jumpsuit',
     price: '$69.00',
     soldOut: false
 },
 {
-    img: './../..//img/product.jpg',
+    img: './../../../../img/product.jpg',
     name: 'Button-Down Denim ',
     brand: 'Mini Dress',
     price: '$69.00',
     soldOut: true
 },
 {
-    img: './../..//img/product.jpg',
+    img: './../../../../img/product.jpg',
     name: 'Plunge V-neck Denim  ',
     brand: 'Mini Dress',
     price: '$69.00',

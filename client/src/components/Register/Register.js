@@ -3,6 +3,7 @@ import { Modal } from 'reactstrap';
 import './Register.scss'
 import { register } from '../../api/userAction';
 
+const img = "./../../../../img/cross.svg"
 
 class Register extends React.Component {
     constructor(props) {
@@ -60,7 +61,7 @@ class Register extends React.Component {
             <div>
                 <Modal isOpen={open} >
                     <div className="registerModal">
-                        <img src="./../../../img/cross.svg" alt="cross"
+                        <img src={img} alt="cross"
                             className="cross mt-2"
                             onClick={handleRegisterModal}
                         />
