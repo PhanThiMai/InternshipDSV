@@ -8,6 +8,7 @@ let initialState = {
 let productsReducer = (state = initialState, action) => {
 
     let { childCategory, productDetail } = state;
+
     switch (action.type) {
         case types.VIEW_PRODUCT_DETAIL:
             return {

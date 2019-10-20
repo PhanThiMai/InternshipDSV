@@ -35,6 +35,7 @@ const colors = ["Red", "Yellow", "Blue", "Orange", "Brown", "Gray"]
 
 const availables = ["In-store", "Out of stock"];
 
+const img = "./../../../../img/arrow.svg";
 class Categories extends React.Component {
 
     constructor(props) {
@@ -48,17 +49,23 @@ class Categories extends React.Component {
         }
     }
 
+    handleClickChildCategory = (e) => {
+        let childCategory = e.target.name;
+        this.props.viewProductsOfCategory(childCategory);
+    }
+
+
 
     render() {
-        const { mainCategory, match } = this.props
-        //viewProductDetail, viewProductsOfCategory
+        const { mainCategory, match, viewProductDetail, viewProductsOfCategory } = this.props
+
         const { childCategory, productDetail } = this.props.productsState;
         const { colorCollapsed, sizeCollapsed,
             brandCollapsed, priceCollapsed, availCollapsed
 
         } = this.state;
 
-        // console.log(childCategory, productDetail)
+        console.log(childCategory, productDetail)
 
         const categoryItem = categories.map((item, index) => {
             let newUrl = item.replace(/\s/g, '');
@@ -68,7 +75,8 @@ class Categories extends React.Component {
                     key={index}
                     className="category-item"
                     activeClassName="all-dresses"
-                //  onClick={viewProductsOfCategory}
+                    onClick={this.handleClickChildCategory}
+                    name={item}
                 >
                     {item}
                 </NavLink>
@@ -104,7 +112,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Size</span>
-                        <img src="./../..//img/arrow.svg" alt="arrow"
+                        <img src={img} alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     sizeCollapsed: !sizeCollapsed
@@ -125,7 +133,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Color</span>
-                        <img src="./../..//img/arrow.svg" alt="arrow"
+                        <img src={img} alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     colorCollapsed: !colorCollapsed
@@ -145,7 +153,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Brand</span>
-                        <img src="./../..//img/arrow.svg" alt="arrow"
+                        <img src={img} alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     brandCollapsed: !brandCollapsed
@@ -165,13 +173,15 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Price</span>
-                        <img src="./../..//img/arrow.svg" alt="arrow" className="arrow float-right"
+                        <img src={img} alt="arrow" className="arrow float-right"
                             onClick={() => {
                                 this.setState({
                                     priceCollapsed: !priceCollapsed
                                 })
                             }}
-                        />
+                            className={`arrow float-right ${priceCollapsed ? "rotate90" : ""}`} />
+
+
                         <PriceCategory isOpen={priceCollapsed} />
                         <hr />
                     </li>
@@ -182,14 +192,16 @@ class Categories extends React.Component {
                             })
                         }}
                         >Available</span>
-                        <img src="./../..//img/arrow.svg" alt="arrow"
+                        <img src={img} alt="arrow"
                             className="arrow float-right"
                             onClick={() => {
                                 this.setState({
                                     availCollapsed: !availCollapsed
                                 })
                             }}
-                        />
+                            className={`arrow float-right ${availCollapsed ? "rotate90" : ""}`} />
+
+
 
                         <BrandCategory brands={availables} isOpen={availCollapsed} />
 

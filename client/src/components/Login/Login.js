@@ -3,6 +3,12 @@ import { Modal } from 'reactstrap';
 import './Login.scss'
 import { login } from '../../api/userAction';
 
+
+const img = {
+    cross: "./../../../../img/cross.svg",
+    checkbox: "./../../../../img/check-box.svg"
+}
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -14,12 +20,14 @@ class Login extends React.Component {
     }
 
     handleFocus = e => {
+
         this.setState({
             [e.target.name]: '',
             errors: false
         })
     }
     onChange = e => {
+
         this.setState({
             [e.target.name]: e.target.value,
         })
@@ -57,7 +65,7 @@ class Login extends React.Component {
             <div>
                 <Modal isOpen={open}>
                     <div className="loginModal ">
-                        <img src="./../../../img/cross.svg" alt="cross" className="cross mt-2"
+                        <img src={img.cross} alt="cross" className="cross mt-2"
                             onClick={handleLoginModal} />
                         <div className="loginT" >Login</div>
                         <div className="errorNotification mt-2 mb-2">{errorText}</div>
@@ -84,7 +92,7 @@ class Login extends React.Component {
                         </div>
 
                         <div className="subInfor d-flex float-left ">
-                            <img src="./../../img/check-box.svg" alt="checkBox"
+                            <img src={img.checkbox} alt="checkBox"
                                 className="checkBox" />
                             <p className="rememberPsw">Remember password</p>
                         </div>

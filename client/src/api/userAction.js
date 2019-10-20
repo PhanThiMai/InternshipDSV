@@ -1,4 +1,4 @@
-import axios from 'axios'
+import API from './axios.config'
 const emailRegEx = /^[a-z][a-z0-9_\.]{1,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/;
 
 export const register = (fullname, email, password) => {
@@ -9,8 +9,8 @@ export const register = (fullname, email, password) => {
         return false;
     }
 
-    return axios
-        .post('http://localhost:4000/user/register', {
+    return API
+        .post(`/user/register`, {
             fullname,
             email,
             password,
@@ -29,8 +29,8 @@ export const login = (email, password) => {
     if (email.length < 6 || password.length < 6) {
         return false;
     }
-    return axios
-        .post('http://localhost:4000/user/login', {
+    return API
+        .post(`/user/login`, {
             email,
             password,
         })
