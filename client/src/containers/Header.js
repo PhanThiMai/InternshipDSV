@@ -4,11 +4,12 @@ import Header from '../components/Header/Header'
 
 
 const token = localStorage.getItem("usertoken");
+
 const mapStateToProps = state => ({
     headerState: state.headerReducer
 })
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         handleLoginModal: () => {
             dispatch(actions.handleLoginModal(token))

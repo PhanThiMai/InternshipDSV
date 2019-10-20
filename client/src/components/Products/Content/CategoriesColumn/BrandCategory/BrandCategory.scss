@@ -1,0 +1,42 @@
+@import '../../../../Helper/Color.scss';
+@import '../../../../Helper/Font.scss';
+
+.brands {
+    border-top: dashed 1px $greyish-brown;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+
+    .brand {
+        margin-bottom: 6px;
+
+        height: 35px;
+        background-color: #fafafa;
+        padding-right: 5px;
+
+        .brand-name {
+            height: 22px;
+            @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+            color: $greyish-brown;
+            padding-left: 10 px;
+
+            &:focus {
+                height: 22px;
+                @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
+                color: $greyish-brown !important;
+                padding-left: 10 px;
+            }
+
+
+
+        }
+
+
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+    }
+}

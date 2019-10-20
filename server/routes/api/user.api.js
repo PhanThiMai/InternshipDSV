@@ -112,14 +112,11 @@ router.post('/login', (req, res, next) => {
                     let token = jwt.sign({
                         ...user
                     }, process.env.SECRET_KEY, {
-                        expiresIn: 1440
+                        expiresIn: process.env.EXPIRESIN
                     })
-                    console.log(token);
                     res.send(token)
                 }
                 else {
-                    console.log("TCL LOGIN : password not match")
-
                     res.json({
                         error: 'Password not match',
                         type: 0

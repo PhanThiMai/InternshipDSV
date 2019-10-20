@@ -27,15 +27,18 @@
 }
 
 .registerModal {
-  @include heightAndWidth(703px, 555px);
-  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.03);
   background-color: $white;
+  height: 703px;
+  width: 520px;
+  box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.03);
+  padding-left: 20px;
 
-  padding-left: 40px;
+
+
   .cross {
     @include heightAndWidth(24px, 24px);
     object-fit: contain;
-    margin-left: 94%;
+    margin-left: 92%;
 
     &:hover {
       cursor: pointer;
@@ -79,8 +82,7 @@
       padding-left: 5px;
     }
 
-    @include placeholder(
-      "input",
+    @include placeholder("input",
       $greyish-brown,
       22px,
       129px,
@@ -91,8 +93,7 @@
       normal,
       normal,
       1.57,
-      normal
-    );
+      normal);
 
     .errorText {
       @include font(Montserrat, 10px, 500, normal, normal, 2.2, normal);

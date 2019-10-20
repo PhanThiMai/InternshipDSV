@@ -1,21 +1,22 @@
 import React from 'react';
 import './Header.scss'
 import { Badge } from 'reactstrap'
+import { Link } from 'react-router-dom'
+
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
 
 const img = {
-    cart: './img/cart.png',
-    logo: './img/logo.png',
-    search: './img/search.png',
-    userImg: './img/user.svg'
+    cart: './../../img/cart.png',
+    logo: './../../img/logo.png',
+    search: './../../img/search.png',
+    userImg: './../../img/user.svg'
 }
 const numOfProductInCart = 4;
 
 
 function Header(props) {
-
     const { loginModal, registerModal, isLogin,
     } = props.headerState
     const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin,
@@ -27,7 +28,7 @@ function Header(props) {
     if (isLogin) {
         loginAuthen =
             <div className="userpic mr-3 " >
-                <img src={img.userImg} />
+                <img src={img.userImg} alt="avartar" />
                 <div className="user-setting-dropdown">
                     <UserSetting logOut={logOut} />
                 </div>
@@ -54,15 +55,15 @@ function Header(props) {
 
         ></Register>
         <div className="d-flex justify-content-around">
-
             <div className="rectangle-2" >
                 <input type="text" className="search" placeholder="Search" />
                 <img src={img.search} alt="search" className="searchIcon"></img>
             </div>
-            <img src={img.logo}
-                className="logo" alt="logo">
-            </img>
-
+            <Link to="/">
+                <img src={img.logo}
+                    className="logo" alt="logo">
+                </img>
+            </Link>
             <div className="d-flex ">
                 {loginAuthen}
                 <img src={img.cart} alt="cart"

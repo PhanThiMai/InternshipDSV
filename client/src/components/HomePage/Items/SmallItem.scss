@@ -1,5 +1,5 @@
-@import "../Helper/Color.scss";
-@import "../Helper/Font.scss";
+@import "../../Helper/Font.scss";
+@import "../../Helper/Color.scss";
 
 .smallItem {
   @include heightAndWidth(405px, 280px);

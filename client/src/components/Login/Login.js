@@ -56,8 +56,8 @@ class Login extends React.Component {
         return (
             <div>
                 <Modal isOpen={open}>
-                    <div className="loginModal container container-fluid">
-                        <img src="img/cross.svg" alt="cross" className="cross mt-2"
+                    <div className="loginModal ">
+                        <img src="./../../../img/cross.svg" alt="cross" className="cross mt-2"
                             onClick={handleLoginModal} />
                         <div className="loginT" >Login</div>
                         <div className="errorNotification mt-2 mb-2">{errorText}</div>
@@ -84,7 +84,7 @@ class Login extends React.Component {
                         </div>
 
                         <div className="subInfor d-flex float-left ">
-                            <img src="img/check-box.svg" alt="checkBox"
+                            <img src="./../../img/check-box.svg" alt="checkBox"
                                 className="checkBox" />
                             <p className="rememberPsw">Remember password</p>
                         </div>

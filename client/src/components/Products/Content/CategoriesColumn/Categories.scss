@@ -1,0 +1,122 @@
+@import "../../../Helper/Font.scss";
+@import "../../../Helper/Color.scss";
+
+@mixin hr-setting($width) {
+  width: $width;
+  height: 1px;
+  margin-bottom: 5%;
+  border: solid 0.5px #979797;
+}
+
+.category-title {
+  width: 77px;
+  height: 24px;
+  @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+  color: $dark-grey;
+  margin-bottom: 20%;
+}
+
+.all-dresses {
+  height: 22px;
+  //margin-top: 20%;
+  @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+  color: $bright-orange !important;
+  font-weight: 500 !important;
+  cursor: pointer;
+}
+
+.category-item {
+  height: 22px;
+  @include font(Montserrat, 14px, normal, normal, normal, 1.57, -0.1px);
+  color: $greyish-brown;
+  margin-bottom: 18px;
+  //margin-top: 20%;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: $greyish-brown;
+  }
+}
+
+.hr-setting1 {
+  @include hr-setting(20px);
+}
+
+.hr-setting2 {
+  @include hr-setting(100px);
+  margin-top: 54px;
+  margin-bottom: 48px;
+}
+
+.list-category-item {
+  display: flex;
+  flex-direction: column;
+
+  .category-item {
+    height: 22px;
+    @include font(Montserrat, 14px, normal, normal, normal, 1.57, -0.1px);
+    color: $greyish-brown;
+    margin-bottom: 18px;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+      color: $greyish-brown;
+    }
+  }
+}
+
+.filter {
+  width: 44px;
+  height: 24px;
+  @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+  color: $dark-grey;
+  margin-bottom: 30px;
+}
+
+.filter-items {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+  padding-right: 28%;
+
+  .filter-item {
+    @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+    color: $dark-grey;
+    cursor: pointer;
+
+    &:active {
+      .size-category {
+        display: block;
+        // position: relative;
+      }
+    }
+
+    &:hover {
+      .size-category {
+        display: block;
+        //position: relative;
+      }
+    }
+
+    .arrow {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      opacity: 0.6;
+    }
+
+    .rotate90 {
+      // -webkit-transform: rotate(180deg);
+      // -moz-transform: rotate(180deg);
+      // -o-transform: rotate(180deg);
+      // -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+
+    .size-category {
+      display: none;
+    }
+  }
+}
