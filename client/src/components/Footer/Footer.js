@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 
 const infor = ["Home", "Products", "Services", "About Us", "Help", "Contacts"]
-const socialImg = ["./img/facebook-icon.svg", "./img/instagram-6-icon.svg", "./img/twitter-icon.svg"]
+const socialImg = ["./../../img/facebook-icon.svg", "./../../img/instagram-6-icon.svg", "./../../img/twitter-icon.svg"]
 const infoItem = infor.map((item, index) =>
     <NavLink key={index} className="mx-1 inforItem"> {item}</NavLink>
 );
@@ -24,7 +24,7 @@ function Footer() {
             <hr></hr>
             <div className="d-flex justify-content-around mt-5 ">
                 <Link to="/">
-                    <img src="img/logo.png"
+                    <img src="./../../img/logo.png"
                         className="logo" alt="logo">
                     </img>
                 </Link>

@@ -59,8 +59,8 @@ class Register extends React.Component {
         return (
             <div>
                 <Modal isOpen={open} >
-                    <div className="registerModal container container-fluid">
-                        <img src="img/cross.svg" alt="cross"
+                    <div className="registerModal">
+                        <img src="./../../../img/cross.svg" alt="cross"
                             className="cross mt-2"
                             onClick={handleRegisterModal}
                         />

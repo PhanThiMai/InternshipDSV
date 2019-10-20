@@ -10,9 +10,9 @@ const categoryName = [
     "Boy"
 ]
 const imgOfCategory = {
-    large: "./img/bally1.jpg",
-    sub: "./img/subBally1.jpg",
-    small: "./img/smallItem.jpg"
+    large: "./../../img/bally1.jpg",
+    sub: "./../../img/subBally1.jpg",
+    small: "./../../img/smallItem.jpg"
 }
 
 const category = categoryName.map((item, index) =>

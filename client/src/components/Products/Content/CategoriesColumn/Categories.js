@@ -58,7 +58,7 @@ class Categories extends React.Component {
 
         } = this.state;
 
-        console.log(childCategory, productDetail)
+        // console.log(childCategory, productDetail)
 
         const categoryItem = categories.map((item, index) => {
             let newUrl = item.replace(/\s/g, '');
@@ -104,7 +104,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Size</span>
-                        <img src="/img/arrow.svg" alt="arrow"
+                        <img src="./../..//img/arrow.svg" alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     sizeCollapsed: !sizeCollapsed
@@ -125,7 +125,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Color</span>
-                        <img src="/img/arrow.svg" alt="arrow"
+                        <img src="./../..//img/arrow.svg" alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     colorCollapsed: !colorCollapsed
@@ -145,7 +145,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Brand</span>
-                        <img src="/img/arrow.svg" alt="arrow"
+                        <img src="./../..//img/arrow.svg" alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     brandCollapsed: !brandCollapsed
@@ -165,7 +165,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Price</span>
-                        <img src="/img/arrow.svg" alt="arrow" className="arrow float-right"
+                        <img src="./../..//img/arrow.svg" alt="arrow" className="arrow float-right"
                             onClick={() => {
                                 this.setState({
                                     priceCollapsed: !priceCollapsed
@@ -182,7 +182,7 @@ class Categories extends React.Component {
                             })
                         }}
                         >Available</span>
-                        <img src="/img/arrow.svg" alt="arrow"
+                        <img src="./../..//img/arrow.svg" alt="arrow"
                             className="arrow float-right"
                             onClick={() => {
                                 this.setState({

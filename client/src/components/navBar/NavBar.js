@@ -26,7 +26,7 @@ class NavBar extends React.Component {
             <ul className="d-flex justify-content-center nav-bar">
                 <li>
                     <span className="men">Men</span>
-                    <img src="img/arrow.svg" alt="arrow"
+                    <img src="./../../img/arrow.svg" alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
                         <SubNavBar value={subCategories} />
@@ -34,7 +34,7 @@ class NavBar extends React.Component {
                 </li>
                 <li>
                     <span className="ladies">Ladies</span>
-                    <img src="img/arrow.svg" alt="arrow"
+                    <img src="./../../img/arrow.svg" alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
                         <SubNavBar value={subCategories} />
@@ -43,7 +43,7 @@ class NavBar extends React.Component {
                 </li>
                 <li>
                     <span className="girls">Girls</span>
-                    <img src="img/arrow.svg" alt="arrow"
+                    <img src="./../../img/arrow.svg" alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
                         <SubNavBar value={subCategories} />
@@ -51,7 +51,7 @@ class NavBar extends React.Component {
                 </li>
                 <li>
                     <span className="boys">Boys</span>
-                    <img src="img/arrow.svg" alt="arrow"
+                    <img src="./../../img/arrow.svg" alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
                         <SubNavBar value={subCategories} />
