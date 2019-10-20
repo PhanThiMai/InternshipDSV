@@ -51,7 +51,8 @@ class Categories extends React.Component {
 
     handleClickChildCategory = (e) => {
         let childCategory = e.target.name;
-        this.props.viewProductsOfCategory(childCategory);
+        //item.replace(/\s/g, '');
+        this.props.viewProductsOfCategory(childCategory.replace(/\s/g, ''));
     }
 
 

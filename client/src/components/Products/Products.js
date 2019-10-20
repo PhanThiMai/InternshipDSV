@@ -5,20 +5,35 @@ import {
     useParams
 } from "react-router-dom";
 
-function Products(props) {
+import { getProducts } from '../../api/products'
 
-    // const { productsState, viewProductDetail, viewProductsOfCategory } = props;
+class Products extends React.Component {
 
-    //console.log(productsState, viewProductDetail, viewProductsOfCategory);
-    let { id } = useParams();
-    const { match } = props
+    constructor(props) {
+        super(props);
+        this.state = {
 
-    return (
-        <div >
-            <ChildCategory categoryName={id} match={match} />
-            <Content mainCategory={id} match={match} />
-        </div>
-    )
+        }
+    }
+
+    componentDidMount = () => {
+        getProducts().then(res => {
+            console.log(res);
+        })
+    }
+
+    render() {
+        let { id } = useParams();
+        const { match } = this.props
+
+        return (
+            <div >
+                <ChildCategory categoryName={id} match={match} />
+                <Content mainCategory={id} match={match} />
+            </div>
+        )
+    }
 }
+
 
 export default Products

@@ -5,8 +5,8 @@ var categories = require('../routes/api/category.api');
 
 module.exports = app => {
     app.use('/user', users)
-    app.use('/products', products);
-    app.use('/categories', categories);
+    app.use('/product', products);
+    app.use('/category', categories);
 
     app.use((req, res, next) => {
         const err = new Error('Not Found');
