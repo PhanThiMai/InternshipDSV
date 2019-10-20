@@ -7,7 +7,7 @@ import {
 
 function Products(props) {
 
-    const { productsState, viewProductDetail, viewProductsOfCategory } = props;
+    // const { productsState, viewProductDetail, viewProductsOfCategory } = props;
 
     //console.log(productsState, viewProductDetail, viewProductsOfCategory);
     let { id } = useParams();

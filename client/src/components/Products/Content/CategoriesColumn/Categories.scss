@@ -13,15 +13,30 @@
   height: 24px;
   @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
   color: $dark-grey;
+  margin-bottom: 20%;
 }
 
 .all-dresses {
   height: 22px;
-  margin-top: 20%;
+  //margin-top: 20%;
   @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
-  color: $bright-orange;
+  color: $bright-orange !important;
+  font-weight: 500 !important;
   cursor: pointer;
+}
 
+.category-item {
+  height: 22px;
+  @include font(Montserrat, 14px, normal, normal, normal, 1.57, -0.1px);
+  color: $greyish-brown;
+  margin-bottom: 18px;
+  //margin-top: 20%;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: $greyish-brown;
+  }
 }
 
 .hr-setting1 {
@@ -66,9 +81,7 @@
   margin: 0px;
   padding-right: 28%;
 
-
   .filter-item {
-
     @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
     color: $dark-grey;
     cursor: pointer;
@@ -79,7 +92,6 @@
         // position: relative;
       }
     }
-
 
     &:hover {
       .size-category {
@@ -107,6 +119,4 @@
       display: none;
     }
   }
-
-
 }

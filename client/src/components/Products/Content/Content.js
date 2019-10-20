@@ -1,6 +1,7 @@
 import React from 'react';
 import './Content.scss'
-import Categories from './CategoriesColumn/Categories'
+// import Categories from './CategoriesColumn/Categories'
+import Categories from '../../../containers/Category'
 import ProductsColumn from './ProductsColumn/ProductsColumn'
 
 function Content(props) {

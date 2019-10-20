@@ -9,7 +9,7 @@ import {
 function SubNavBar(props) {
     const { value } = props;
     const sunCategoriesTag = value.map((item, index) =>
-        <Link to={'/' + item} key={index} className={`category${item}`}> {item}</Link >);
+        <Link to={'/category/' + item} key={index} className={`category${item}`}> {item}</Link >);
 
     return (
         <div className="d-flex justify-content-around align-items-center mt-3  subNavBar"  >

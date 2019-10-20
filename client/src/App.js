@@ -15,15 +15,15 @@ import {
 } from "react-router-dom";
 
 
-function App({ match }) {
+function App() {
 
-  const product = {
-    img: 'img/product.jpg',
-    name: 'Button-Down Denim ',
-    brand: 'Mini Dress',
-    price: '$69.00',
-    soldOut: true
-  }
+  // const product = {
+  //   img: 'img/product.jpg',
+  //   name: 'Button-Down Denim ',
+  //   brand: 'Mini Dress',
+  //   price: '$69.00',
+  //   soldOut: true
+  // }
 
   return (
     <Router>
@@ -34,7 +34,7 @@ function App({ match }) {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/:id" component={Products} />
+        <Route path="/category/:id" component={Products} />
         <Route exact path="/products/:id" component={Product} />
       </Switch>
 

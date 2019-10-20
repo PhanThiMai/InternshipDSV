@@ -2,16 +2,17 @@
 @import "../../Helper/Color.scss";
 
 .balli {
-  @include heightAndWidth(500px, 1000px);
-  margin: 10%;
+  height: 513px;
+  width: 1145px;
+  margin-left: 6%;
   margin-bottom: 2%;
   margin-top: 2%;
 }
 
 .imgText {
   position: absolute;
-  top: 40%;
-  right: 20%;
+  top: 42%;
+  right: 15%;
   color: $white;
   width: auto;
   text-align: right;
@@ -24,12 +25,17 @@
   background-color: $pale-orange;
 
   position: absolute;
-  bottom: 1%;
-  right: 20%;
+  bottom: -12%;
+  right: 12%;
 
   @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
   text-align: center;
   color: $white;
   margin-left: 17%;
   margin-top: 5%;
+}
+
+.small-item {
+  margin-left: 9%;
+  margin-right: 7%;
 }

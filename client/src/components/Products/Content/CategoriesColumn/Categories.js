@@ -1,11 +1,12 @@
 import React from 'react';
 import './Categories.scss'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import SizeCategory from './SizeCategory/SizeCategory'
 import ColorCategory from './ColorCategory/ColorCategory'
 import BrandCategory from './BrandCategory/BrandCategory'
 import PriceCategory from './PriceCategory/PriceCategory'
 const categories = [
+
     "Rompers / Jumpsuits",
     "Casual dresses", "Going out dresses",
     "Party / Ocassion dresses",
@@ -50,22 +51,41 @@ class Categories extends React.Component {
 
     render() {
         const { mainCategory, match } = this.props
-        const { colorCollapsed, sizeCollapsed, brandCollapsed, priceCollapsed, availCollapsed } = this.state
+        //viewProductDetail, viewProductsOfCategory
+        const { childCategory, productDetail } = this.props.productsState;
+        const { colorCollapsed, sizeCollapsed,
+            brandCollapsed, priceCollapsed, availCollapsed
 
+        } = this.state;
+
+        console.log(childCategory, productDetail)
 
         const categoryItem = categories.map((item, index) => {
             let newUrl = item.replace(/\s/g, '');
             return (
-                <Link to={`${match.url}/${newUrl}`} key={index} className="category-item">
+                <NavLink
+                    to={`${match.url}/${newUrl}`}
+                    key={index}
+                    className="category-item"
+                    activeClassName="all-dresses"
+                //  onClick={viewProductsOfCategory}
+                >
                     {item}
-                </Link>
+                </NavLink>
             )
         })
 
         return (
             <div >
                 <p className="category-title">Category</p>
-                <p className="all-dresses">{`All ${mainCategory}`}</p>
+                <NavLink
+                    to={`${match.url}`}
+                    className="category-item"
+                    activeClassName="all-dresses"
+                    exact
+                >
+                    {`All ${mainCategory}`}
+                </NavLink>
                 <div className="hr-setting1" />
 
                 <div className="list-category-item">
@@ -84,7 +104,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Size</span>
-                        <img src="img/arrow.svg" alt="arrow"
+                        <img src="/img/arrow.svg" alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     sizeCollapsed: !sizeCollapsed
@@ -105,7 +125,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Color</span>
-                        <img src="img/arrow.svg" alt="arrow"
+                        <img src="/img/arrow.svg" alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     colorCollapsed: !colorCollapsed
@@ -125,7 +145,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Brand</span>
-                        <img src="img/arrow.svg" alt="arrow"
+                        <img src="/img/arrow.svg" alt="arrow"
                             onClick={() => {
                                 this.setState({
                                     brandCollapsed: !brandCollapsed
@@ -145,7 +165,7 @@ class Categories extends React.Component {
                                 })
                             }}
                         >Price</span>
-                        <img src="img/arrow.svg" alt="arrow" className="arrow float-right"
+                        <img src="/img/arrow.svg" alt="arrow" className="arrow float-right"
                             onClick={() => {
                                 this.setState({
                                     priceCollapsed: !priceCollapsed
@@ -162,7 +182,7 @@ class Categories extends React.Component {
                             })
                         }}
                         >Available</span>
-                        <img src="img/arrow.svg" alt="arrow"
+                        <img src="/img/arrow.svg" alt="arrow"
                             className="arrow float-right"
                             onClick={() => {
                                 this.setState({

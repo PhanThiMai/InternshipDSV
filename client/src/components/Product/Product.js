@@ -1,13 +1,13 @@
 import React from 'react'
 import './Product.scss'
-import ChildCategory from '../Products/ChildCategory/ChildCategory'
+//import ChildCategory from '../Products/ChildCategory/ChildCategory'
 
 
-const img = {
-    small: "img/product.jpg",
-    medium: "img/product1.jpg",
-    large: "img/product2.jpg"
-}
+// const img = {
+//     small: "img/product.jpg",
+//     medium: "img/product1.jpg",
+//     large: "img/product2.jpg"
+// }
 
 class Product extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Product extends React.Component {
     }
 
     render() {
-        const { categoryName, product } = this.props;
+        //  const { categoryName, product } = this.props;
         return (
             <div>
                 {/* <ChildCategory categoryName={categoryName} />
