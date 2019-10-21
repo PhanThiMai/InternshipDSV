@@ -22,7 +22,7 @@ function Header(props) {
     const { loginModal, registerModal, isLogin,
     } = props.headerState
     const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin,
-        logOut, show
+        logOut
     } = props
 
     let loginAuthen;

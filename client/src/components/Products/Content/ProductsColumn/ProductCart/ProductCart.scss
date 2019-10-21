@@ -3,6 +3,7 @@
 
 a {
   text-decoration: none;
+
   &:hover {
     text-decoration: none;
   }
@@ -12,6 +13,7 @@ a {
   width: 154px;
   height: 345px;
   margin-right: 14px;
+
   &:hover {
     cursor: pointer;
     text-decoration: none;
@@ -23,10 +25,11 @@ a {
     background-color: #808080;
     @include font(Montserrat, 12px, bold, normal, normal, 1.5, normal);
     color: $white;
-    position: absolute;
-    top: 69%;
     margin-left: -5px;
-    // right: 67%;
+    margin-bottom: 20px;
+    margin-top: -42px;
+    position: relative;
+    z-index: 1000;
   }
 
   .product-img {

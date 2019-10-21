@@ -52,22 +52,16 @@ class Categories extends React.Component {
 
     handleClickChildCategory = (e) => {
         let childCategory = e.target.name;
-        //item.replace(/\s/g, '');
         this.props.viewProductsOfCategory(childCategory.replace(/\s/g, ''));
     }
 
-
-
     render() {
-        const { mainCategory, match, viewProductDetail, viewProductsOfCategory } = this.props
+        const { mainCategory, match } = this.props
 
-        const { childCategory, productDetail } = this.props.productsState;
         const { colorCollapsed, sizeCollapsed,
             brandCollapsed, priceCollapsed, availCollapsed
-
         } = this.state;
 
-        //console.log(childCategory, productDetail)
 
         const categoryItem = categories.map((item, index) => {
             let newUrl = item.replace(/\s/g, '');
@@ -182,8 +176,6 @@ class Categories extends React.Component {
                                 })
                             }}
                             className={`arrow float-right ${priceCollapsed ? "rotate90" : ""}`} />
-
-
                         <PriceCategory isOpen={priceCollapsed} />
                         <hr />
                     </li>

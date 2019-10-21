@@ -5,7 +5,6 @@ import { Collapse, Nav } from 'reactstrap';
 import 'react-input-range/lib/css/index.css'
 
 
-const checks = ["./../../../../img/check-box.svg", "./../../../../img/check-box1.svg"]
 
 class BrandCategory extends React.Component {
 
