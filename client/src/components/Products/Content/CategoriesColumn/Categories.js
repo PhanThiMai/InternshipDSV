@@ -35,7 +35,7 @@ const colors = ["Red", "Yellow", "Blue", "Orange", "Brown", "Gray"]
 
 const availables = ["In-store", "Out of stock"];
 
-const img = "./../../../../img/arrow.svg";
+const img = "/img/arrow.svg";
 
 class Categories extends React.Component {
 
@@ -61,6 +61,7 @@ class Categories extends React.Component {
         const { colorCollapsed, sizeCollapsed,
             brandCollapsed, priceCollapsed, availCollapsed
         } = this.state;
+        // console.log(this.props.productsState)
 
 
         const categoryItem = categories.map((item, index) => {

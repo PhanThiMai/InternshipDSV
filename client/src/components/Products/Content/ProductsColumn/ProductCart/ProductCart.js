@@ -23,13 +23,12 @@ class ProductCart extends React.Component {
             <NavLink
                 to={`/products/${newUrl}`}
                 onClick={this.handleClickProductCart}
-
             >
                 <div className="cart-product" >
                     <img src={product.image} alt="product" className="product-img" />
                     {soldOutItem}
-                    <p className="product-name">{product.name}</p>
-                    <p className="product-brand">{product.brand}</p>
+                    <p className="product-name">{product.name + ' ' + product.brand}</p>
+                    {/* <p className="product-brand">{product.brand}</p> */}
                     <p className="product-price">{product.price}</p>
                 </div>
             </NavLink>

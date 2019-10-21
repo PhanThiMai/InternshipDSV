@@ -5,8 +5,8 @@ import { login } from '../../api/userAction';
 
 
 const img = {
-    cross: "./../../../../img/cross.svg",
-    checkbox: "./../../../../img/check-box.svg"
+    cross: "/img/cross.svg",
+    checkbox: "/img/check-box.svg"
 }
 
 class Login extends React.Component {

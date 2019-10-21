@@ -11,7 +11,8 @@ class ProductsColumn extends React.Component {
         super(props);
         this.state = {
             openSort: false,
-            products: []
+            products: [],
+            productList: []
         }
     }
 
@@ -23,15 +24,19 @@ class ProductsColumn extends React.Component {
 
     componentDidMount = () => {
         getProducts().then(res => {
-            if (res.data) {
+            const productList = res.data;
+            if (productList) {
                 this.setState({
-                    products: res.data
+                    productList: productList,
+                    products: productList
                 })
             }
         })
     }
 
+
     render() {
+        console.log("render")
         const { match } = this.props
         const { products } = this.state
         let productsItem;
@@ -58,7 +63,7 @@ class ProductsColumn extends React.Component {
                     <span className="sort-by-selected">Populariry
                     </span>
                     </p>
-                    <img src="./../../../../img/arrow.svg"
+                    <img src="/img/arrow.svg"
                         className="arrow " alt="arrow" />
 
 

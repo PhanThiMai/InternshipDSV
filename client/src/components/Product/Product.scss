@@ -1,45 +1,44 @@
-@import '../Helper/Color.scss';
-@import '../Helper/Font.scss';
-
+@import "../Helper/Color.scss";
+@import "../Helper/Font.scss";
 
 .list-small-img {
-    padding-left: 20%;
-    margin-right: 20px;
+  position: relative;
+  padding-left: 20%;
+  margin-right: 20px;
 
-    .small-img {
-        width: 72px;
-        height: 106px;
-        margin-top: 22px;
-    }
-
+  .small-img {
+    width: 72px;
+    height: 106px;
+    margin-top: 22px;
+  }
 }
 
-
 .large-img {
-    width: 320px;
-    height: 491px;
-    margin-left: 20px;
-    margin-top: 22px;
+  position: relative;
+  width: 320px;
+  height: 491px;
+  margin-left: 121px;
+  margin-top: 22px;
 }
 
 .product-info {
-    margin-top: 22px;
+  margin-top: 22px;
 
-    .product-name {
-        @include font(Montserrat, 24px, 500, normal, normal, 1.33, normal);
-        color: $dark-grey;
-    }
+  .product-name {
+    @include font(Montserrat, 24px, 500, normal, normal, 1.33, normal);
+    color: $dark-grey;
+  }
 
-    .product-price {
-        @include font(Montserrat, 24px, 300, normal, normal, 1.33, normal);
-        color: $dark-grey;
-        margin-top: 0px;
-    }
+  .product-price {
+    @include font(Montserrat, 24px, 300, normal, normal, 1.33, normal);
+    color: $dark-grey;
+    margin-top: 0px;
+  }
 }
 
 .error {
-    position: relative;
-    margin-bottom: 26%;
-    margin-left: 42%;
-    margin-top: 8%;
+  position: relative;
+  margin-bottom: 26%;
+  margin-left: 42%;
+  margin-top: 8%;
 }

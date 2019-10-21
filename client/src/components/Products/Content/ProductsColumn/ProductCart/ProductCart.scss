@@ -3,7 +3,6 @@
 
 a {
   text-decoration: none;
-
   &:hover {
     text-decoration: none;
   }
@@ -29,6 +28,9 @@ a {
     margin-bottom: 20px;
     margin-top: -42px;
     position: relative;
+    text-align: center;
+    padding-top: 2px;
+    // align-items: center;
     z-index: 1000;
   }
 

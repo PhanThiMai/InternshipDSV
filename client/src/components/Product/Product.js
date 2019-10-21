@@ -28,7 +28,7 @@ class Product extends React.Component {
     }
 
     render() {
-        const img = ["./../../../../../img/product.jpg", "./../../../../../img/product1.jpg"]
+        const img = ["/img/product.jpg", "/img/product1.jpg"]
         const { product } = this.state;
         const { categoryName } = this.props;
         const productDetail = product ?
