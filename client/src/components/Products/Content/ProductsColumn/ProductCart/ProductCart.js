@@ -12,18 +12,18 @@ class ProductCart extends React.Component {
 
     render() {
         const { product } = this.props;
+
         const newUrl = product.name.replace(/\s/g, '');
 
-        const soldOutItem = <div className="sold-out">Sold out</div>;
+        const soldOutItem = product.amount === 0 ? <div className="sold-out">Sold out</div> : <></>;
         return (
             <Link to={`/products/${newUrl}`}>
                 <div className="cart-product">
-                    <img src={product.img} alt="product" className="product-img" />
-                    {soldOutItem}
+                    <img src={product.image} alt="product" className="product-img" />
+                    {/* {soldOutItem} */}
                     <p className="product-name">{product.name}</p>
                     <p className="product-brand">{product.brand}</p>
                     <p className="product-price">{product.price}</p>
-
                 </div>
             </Link>
 

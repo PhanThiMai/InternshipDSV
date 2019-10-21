@@ -36,6 +36,7 @@ const colors = ["Red", "Yellow", "Blue", "Orange", "Brown", "Gray"]
 const availables = ["In-store", "Out of stock"];
 
 const img = "./../../../../img/arrow.svg";
+
 class Categories extends React.Component {
 
     constructor(props) {
@@ -66,7 +67,7 @@ class Categories extends React.Component {
 
         } = this.state;
 
-        console.log(childCategory, productDetail)
+        //console.log(childCategory, productDetail)
 
         const categoryItem = categories.map((item, index) => {
             let newUrl = item.replace(/\s/g, '');

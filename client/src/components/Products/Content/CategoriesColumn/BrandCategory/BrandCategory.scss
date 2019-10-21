@@ -1,42 +1,69 @@
-@import '../../../../Helper/Color.scss';
-@import '../../../../Helper/Font.scss';
+@import "../../../../Helper/Color.scss";
+@import "../../../../Helper/Font.scss";
 
 .brands {
-    border-top: dashed 1px $greyish-brown;
-    padding-top: 15px;
-    padding-bottom: 5px;
-    margin-top: 10px;
+  border-top: dashed 1px $greyish-brown;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  margin-top: 10px;
 
-    .brand {
-        margin-bottom: 6px;
+  .brand-name {
+    background-color: #fafafa;
+    height: 35px;
+    display: block;
+    position: relative;
+    padding-left: 10px;
+    padding-top: 5px;
+    cursor: pointer;
 
-        height: 35px;
-        background-color: #fafafa;
-        padding-right: 5px;
+    @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+    color: $greyish-brown;
+    padding-left: 10px;
 
-        .brand-name {
-            height: 22px;
-            @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
-            color: $greyish-brown;
-            padding-left: 10 px;
-
-            &:focus {
-                height: 22px;
-                @include font(Montserrat, 14px, 600, normal, normal, 1.57, normal);
-                color: $greyish-brown !important;
-                padding-left: 10 px;
-            }
-
-
-
-        }
-
-
-
-        .check-box {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
-        }
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
     }
+
+    .checkmark {
+      position: absolute;
+      top: 15%;
+      left: 85%;
+      height: 23px;
+      width: 23px;
+      opacity: 0.8;
+      border: solid 1px #c8c8c8;
+      border-radius: 2px;
+    }
+
+    input:checked ~ .checkmark {
+      background-color: $pale-orange;
+      border: none;
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    .checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  }
 }

@@ -8,14 +8,11 @@ class SizeCategory extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
         }
     }
 
     render() {
         const { sizes, isOpen } = this.props;
-
-
         const sizeItem = sizes.map((item, index) => {
             return (
                 <button
