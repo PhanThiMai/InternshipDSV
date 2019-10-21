@@ -1,39 +1,18 @@
 import React from 'react';
 import './ProductsColumn.scss'
-// import { Dropdown } from 'react-bootstrap'
-// import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import ProductCart from './ProductCart/ProductCart'
+//import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+//import ProductCart from './ProductCart/ProductCart'
+import ProductCart from '../../../../containers/ProductCart'
+import { getProducts } from '../../../../api/products'
 
-
-
-const products = [{
-    img: './../../../../img/product.jpg',
-    name: 'Surplice Gingham',
-    brand: 'Jumpsuit',
-    price: '$69.00',
-    soldOut: false
-},
-{
-    img: './../../../../img/product.jpg',
-    name: 'Button-Down Denim ',
-    brand: 'Mini Dress',
-    price: '$69.00',
-    soldOut: true
-},
-{
-    img: './../../../../img/product.jpg',
-    name: 'Plunge V-neck Denim  ',
-    brand: 'Mini Dress',
-    price: '$69.00',
-    soldOut: false
-}
-]
 
 class ProductsColumn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            openSort: false
+            openSort: false,
+            products: [],
+            productList: []
         }
     }
 
@@ -43,44 +22,71 @@ class ProductsColumn extends React.Component {
         }));
     }
 
+    componentDidMount = () => {
+        getProducts().then(res => {
+            const productList = res.data;
+            if (productList) {
+                this.setState({
+                    productList: productList,
+                    products: productList
+                })
+            }
+        })
+    }
+
+
     render() {
+        console.log("render")
         const { match } = this.props
-        // console.log(match)
-        //const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
+        const { products } = this.state
+        let productsItem;
+        if (products !== null && products !== undefined) {
+            productsItem = < div className="products d-flex flex-wrap" >
+                {
+                    products.map((item, index) =>
+                        <ProductCart product={item} key={index} match={match} />
+                    )
+                }</ div>
+        }
+        else {
+            productsItem = <p className="no-result-found">No result found</p>
+        }
+
+        const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
 
         return (
-            <div>
-                {/* <div className="drop-down  d-flex justify-content-between " >
-                    <p className="sort-by">Sort By: <span className="sort-by-selected">Populariry</span> </p>
+            < div >
+                <div className="drop-down  d-flex justify-content-between "
+                    onClick={this.toggle}
+                >
+                    <p className="sort-by">Sort By:
+                    <span className="sort-by-selected">Populariry
+                    </span>
+                    </p>
                     <img src="/img/arrow.svg"
                         className="arrow " alt="arrow" />
-                </div>
-                <div className="sort-by-items">
-                    {sortItems.map((item, index) => {
-                        return (
-                            <p key={index} className="sort-by-item" > {item}</p>
-                        )
-                    }
-                    )}
 
 
-                </div>
-               */}
-
-                <div className="products d-flex flex-wrap">
                     {
-                        products.map((item, index) =>
-                            <ProductCart product={item} key={index} match={match} />
-                        )
+                        this.state.openSort === true ? <div className="sort-by-items">
+                            {sortItems.map((item, index) => {
+                                return (
+                                    <p key={index} className="sort-by-item" > {item}</p>
+                                )
+                            }
+                            )}
+                        </div> : <div className="sort-by-items">
+                                {sortItems.map((item, index) => {
+                                    return (
+                                        <p key={index} className="sort-by-item" > {item}</p>
+                                    )
+                                }
+                                )}
+                            </div>
                     }
-
-
                 </div>
-
-
-
-
-            </div>
+                {productsItem}
+            </div >
         )
     }
 }

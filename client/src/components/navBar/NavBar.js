@@ -2,7 +2,7 @@ import React from 'react';
 import './NavBar.scss'
 import SubNavBar from './SubNavBar'
 
-const img = "./../../../../img/arrow.svg"
+const img = "/img/arrow.svg"
 class NavBar extends React.Component {
     constructor(props) {
         super(props);

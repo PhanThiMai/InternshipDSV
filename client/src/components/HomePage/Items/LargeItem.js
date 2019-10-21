@@ -10,9 +10,9 @@ const categoryName = [
     "Boy"
 ]
 const imgOfCategory = {
-    large: "./../../../../img/bally1.jpg",
-    sub: "./../../../../img/subBally1.jpg",
-    small: "./../../../../img/smallItem.jpg"
+    large: "/img/bally1.jpg",
+    sub: "/img/subBally1.jpg",
+    small: "/img/smallItem.jpg"
 }
 
 const category = categoryName.map((item, index) =>
@@ -23,7 +23,7 @@ function LargeItem() {
     return (
         <div className="container-fluid">
             <img className="balli" src={imgOfCategory.sub} alt="balli" />
-            <h1 className="imgText">OUT FIT OF THE WEEK</h1>
+            <h1 className="imgText">OUTFIT OF THE WEEK</h1>
             <button className="btnshopNow align-self-center">
                 Shop Now
             </button>

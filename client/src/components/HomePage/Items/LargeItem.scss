@@ -1,6 +1,10 @@
 @import "../../Helper/Font.scss";
 @import "../../Helper/Color.scss";
 
+button {
+  border: none;
+}
+
 .balli {
   height: 513px;
   width: 1145px;
@@ -25,7 +29,7 @@
   background-color: $pale-orange;
 
   position: absolute;
-  bottom: -12%;
+  bottom: -4%;
   right: 12%;
 
   @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);

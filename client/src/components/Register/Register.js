@@ -3,7 +3,7 @@ import { Modal } from 'reactstrap';
 import './Register.scss'
 import { register } from '../../api/userAction';
 
-const img = "./../../../../img/cross.svg"
+const img = "/img/cross.svg"
 
 class Register extends React.Component {
     constructor(props) {

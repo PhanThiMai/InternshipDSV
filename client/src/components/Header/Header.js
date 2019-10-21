@@ -8,10 +8,10 @@ import Register from '../Register/Register'
 import UserSetting from './UserSetting'
 
 const img = {
-    cart: './../../../../img/cart.png',
-    logo: './../../../../img/logo.png',
-    search: './../../../../img/search.png',
-    userImg: './../../../../img/user.svg'
+    cart: '/img/cart.png',
+    logo: '/img/logo.png',
+    search: '/img/search.png',
+    userImg: '/img/user.svg'
 }
 const numOfProductInCart = 4;
 
@@ -22,7 +22,7 @@ function Header(props) {
     const { loginModal, registerModal, isLogin,
     } = props.headerState
     const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin,
-        logOut, show
+        logOut
     } = props
 
     let loginAuthen;

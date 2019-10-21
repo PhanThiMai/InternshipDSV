@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePage from './components/HomePage/HomePage';
 // import Products from './components/Products/Products';
 import Products from './containers/Products'
-import Product from './components/Product/Product';
+import Product from './containers/Product'
+//import Product from './components/Product/Product';
 import Header from './containers/Header';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer'

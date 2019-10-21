@@ -35,7 +35,8 @@ const colors = ["Red", "Yellow", "Blue", "Orange", "Brown", "Gray"]
 
 const availables = ["In-store", "Out of stock"];
 
-const img = "./../../../../img/arrow.svg";
+const img = "/img/arrow.svg";
+
 class Categories extends React.Component {
 
     constructor(props) {
@@ -51,21 +52,17 @@ class Categories extends React.Component {
 
     handleClickChildCategory = (e) => {
         let childCategory = e.target.name;
-        this.props.viewProductsOfCategory(childCategory);
+        this.props.viewProductsOfCategory(childCategory.replace(/\s/g, ''));
     }
 
-
-
     render() {
-        const { mainCategory, match, viewProductDetail, viewProductsOfCategory } = this.props
+        const { mainCategory, match } = this.props
 
-        const { childCategory, productDetail } = this.props.productsState;
         const { colorCollapsed, sizeCollapsed,
             brandCollapsed, priceCollapsed, availCollapsed
-
         } = this.state;
+        // console.log(this.props.productsState)
 
-        console.log(childCategory, productDetail)
 
         const categoryItem = categories.map((item, index) => {
             let newUrl = item.replace(/\s/g, '');
@@ -180,8 +177,6 @@ class Categories extends React.Component {
                                 })
                             }}
                             className={`arrow float-right ${priceCollapsed ? "rotate90" : ""}`} />
-
-
                         <PriceCategory isOpen={priceCollapsed} />
                         <hr />
                     </li>

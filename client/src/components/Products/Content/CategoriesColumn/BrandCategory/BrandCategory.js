@@ -5,20 +5,35 @@ import { Collapse, Nav } from 'reactstrap';
 import 'react-input-range/lib/css/index.css'
 
 
-const checks = ["./../../../../img/check-box.svg", "./../../../../img/check-box1.svg"]
 
 class BrandCategory extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+
+        };
+    }
+
+    handleInputChange = (event) => {
+        const target = event.target;
+        this.setState({
+            [target.name]: target.checked
+        });
+    }
 
     render() {
-        const { brands, isOpen, clicked } = this.props;
+        const { brands, isOpen } = this.props;
         const brandItem = brands.map((item, index) => {
             return (
-                <div className="brand d-flex justify-content-between" key={index}>
-                    <span className="brand-name  align-self-center ">{item}</span>
-                    <img src={clicked ? checks[0] : checks[1]} alt="checkbox"
-                        className="check-box  align-self-center" />
-                </div>
+                <label key={index} className="brand-name" id="checked">{item}
+                    <input
+                        name={item}
+                        type="checkbox"
+                        className="check-box  float-right   "
+                        onChange={this.handleInputChange} />
+                    <span className="checkmark"></span>
+                </label>
             )
         })
 

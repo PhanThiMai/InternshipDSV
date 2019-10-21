@@ -1,9 +1,9 @@
 import API from './axios.config'
 
 
-export const getProducts = () => {
+export const getCategories = () => {
     return API
-        .get(`/product`)
+        .get(`/category`)
         .then(res => {
             return res.data
         }).catch(error => console.log(error));
