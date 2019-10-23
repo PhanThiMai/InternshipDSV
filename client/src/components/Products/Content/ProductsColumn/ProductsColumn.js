@@ -36,7 +36,6 @@ class ProductsColumn extends React.Component {
 
 
     render() {
-        console.log("render")
         const { match } = this.props
         const { products } = this.state
         let productsItem;

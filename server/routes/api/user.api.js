@@ -103,32 +103,47 @@ router.post('/login', (req, res, next) => {
         });
     }
 
-    users.findOne({
-        email: body.email
-    })
-        .then(user => {
-            if (user) {
-                if (hashPassword(body.email, body.password) === user.password) {
-                    let token = jwt.sign({
-                        ...user
-                    }, process.env.SECRET_KEY, {
-                        expiresIn: 1440
-                    })
-                    res.send(token)
-                }
-                else {
-                    res.json({
-                        error: 'Password not match',
-                        type: 0
-                    })
-                }
-            } else {
-                res.json({ error: 'User does not exist', type: 0 })
-            }
+    if (body.email === 'admin@mail.com' && body.password === 'adminne') {
+        let token = jwt.sign({
+            email: body.email,
+            role: 'admin'
+        }, process.env.SECRET_KEY, {
+            expiresIn: 1440
         })
-        .catch(err => {
-            res.json({ type: 0 })
+        res.send(token)
+    }
+    else {
+
+        users.findOne({
+            email: body.email
         })
+            .then(user => {
+                if (user) {
+
+                    if (hashPassword(body.email, body.password) === user.password) {
+                        let token = jwt.sign({
+                            email: body.email,
+                            role: 'user'
+                        }, process.env.SECRET_KEY, {
+                            expiresIn: 1440
+                        })
+                        res.send(token)
+                    }
+                    else {
+                        res.json({
+                            error: 'Password not match',
+                            type: 0
+                        })
+                    }
+                } else {
+                    res.json({ error: 'User does not exist', type: 0 })
+                }
+            })
+            .catch(err => {
+                res.json({ type: 0 })
+            })
+    }
+
 });
 
 router.get('/', (req, res, next) => {

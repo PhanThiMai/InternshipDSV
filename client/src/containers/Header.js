@@ -4,7 +4,6 @@ import Header from '../components/Header/Header'
 
 
 const token = localStorage.getItem("usertoken");
-
 const mapStateToProps = state => ({
     headerState: state.headerReducer
 })
