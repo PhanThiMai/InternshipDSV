@@ -9,4 +9,15 @@ export const getProducts = () => {
         }).catch(error => console.log(error));
 }
 
+export const addProduct = (product, token) => {
+    return API
+        .post(`/product`, {
+            product, token
+        })
+        .then(res => {
+            console.log(res.data)
+        }).catch(error => console.log(error));
+}
+
+
 

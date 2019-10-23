@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
 const router = require('express').Router();
 const products = require('../../models/product.model')
-
+var atob = require('atob');
 
 router.get('/', (req, res, next) => {
     return products.find()
@@ -10,6 +9,37 @@ router.get('/', (req, res, next) => {
             data: products
         }))
         .catch(next);
+})
+
+router.post('/', (req, res, next) => {
+    const { body } = req;
+    let token = body.token;
+    if (token) {
+        let base64Url = token.split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        let decode = JSON.parse(jsonPayload);
+        if (decode.role !== 'admin') {
+            res.json({
+                type: 0,
+                msg: 'You are not admin'
+            })
+        } else {
+            res.json({
+                type: 1,
+                msg: 'Admin neeee'
+            })
+        }
+    }
+    else {
+        res.json({
+            type: 0,
+            msg: 'some thing wrong!'
+        })
+    }
+
 })
 
 
