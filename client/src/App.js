@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      {/* <Header />
       <hr></hr>
       <NavBar />
       <hr className="mt-0"></hr>
@@ -48,9 +48,9 @@ function App() {
 
       </Switch >
 
-      <Footer className="footer"></Footer>
+      <Footer className="footer"></Footer> */}
 
-      {/* <AddingProduct /> */}
+      <AddingProduct />
     </Router >
   )
 }

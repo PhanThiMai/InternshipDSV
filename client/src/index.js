@@ -9,6 +9,7 @@ import rootReducer from './reducers/index'
 import { Provider } from 'react-redux'
 require('dotenv').config()
 
+
 const store = createStore(rootReducer);
 
 ReactDOM.render(
