@@ -9,6 +9,7 @@ import Header from './containers/Header';
 import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer'
 import AddingProduct from './components/AddingProduct/AddingProduct'
+import AddProduct from './containers/AddProduct'
 
 import {
   BrowserRouter as Router,
@@ -33,6 +34,7 @@ function App() {
 
   return (
     <Router>
+
       {/* <Header />
       <hr></hr>
       <NavBar />
@@ -50,7 +52,7 @@ function App() {
 
       <Footer className="footer"></Footer> */}
 
-      <AddingProduct />
+      <AddProduct />
     </Router >
   )
 }
