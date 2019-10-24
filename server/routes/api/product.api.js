@@ -27,10 +27,30 @@ router.post('/', (req, res, next) => {
                 msg: 'You are not admin'
             })
         } else {
-            res.json({
-                type: 1,
-                msg: 'Admin neeee'
+            let product = new products({
+                category: body.category,
+                brand: body.brand,
+                size: body.size,
+                color: body.color,
+                name: body.name,
+                price: body.price,
+                amount: body.amount,
+                description: body.description,
+                rating: body.rating,
+                image: body.image
             })
+            console.log("product : api ", product)
+            return product.save().then(() =>
+                res.json({
+                    type: 1,
+                    msg: "add product successful"
+                }))
+                .catch(err =>
+                    res.json({
+                        type: 0,
+                        err
+                    })
+                )
         }
     }
     else {

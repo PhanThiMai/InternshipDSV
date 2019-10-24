@@ -58,18 +58,12 @@ router.post('/register', (req, res, next) => {
                     email: body.email,
                     password: hashPassword(body.email, body.password)
                 });
-                // let token = jwt.sign(finalUser, process.env.SECRET_KEY, {
-                //     expiresIn: 1440
-                // })
 
                 return finalUser.save()
                     .then(() => res.json({
                         data: finalUser,
                         type: 1
                     }))
-                    // .then(() => {
-                    //     res.send(token)
-                    // })
                     .catch(err => {
                         res.json({ type: 0 })
                     });

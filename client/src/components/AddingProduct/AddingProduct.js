@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './AddingProduct.scss'
 import { FormControl } from 'react-bootstrap'
 import SelectedInput from './SelectedInput/SelectedInput'
+import { addProduct } from '../../api/products'
 
 const optionsCategory = [
     { value: 'Casual dresses', label: 'Casual dresses' },
@@ -51,7 +52,8 @@ class AddingProduct extends React.Component {
             nameProduct: '',
             priceProduct: 0,
             quantityProduct: 0,
-            descriptionProduct: ''
+            descriptionProduct: '',
+            error: false
         }
     }
 
@@ -66,13 +68,58 @@ class AddingProduct extends React.Component {
             nameProduct: '',
             priceProduct: 0,
             quantityProduct: 0,
-            descriptionProduct: ''
+            descriptionProduct: '',
+            error: false
         })
         this.props.handleCancelProduct();
     }
 
 
-    handleComplete = () => {
+    handleComplete = e => {
+        e.preventDefault()
+        // const token = localStorage.getItem("userToken")
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTcxOTEzODQwLCJleHAiOjE1NzE5MTUyODB9.GM5MHaiQv2idHgNKdUZw7Mll1lWJWaxeP2zQlZjJVDs"
+        if (!token) {
+            this.setState({
+                error: true
+            })
+        }
+        else {
+            const { selectedCategory, selectedBrand, selectedSize, selectedColor } = this.props.addProductState;
+            const { nameProduct, priceProduct, quantityProduct, descriptionProduct } = this.state;
+            const categogies = selectedCategory.map((item, key) =>
+                item.value
+            )
+            const brand = selectedBrand.value;
+            const size = selectedSize.map((item, key) =>
+                item.value
+            )
+            const color = selectedColor.map((item, index) => item.value)
+            const product = {
+                category: categogies,
+                brand: brand,
+                size: size,
+                color: color,
+                name: nameProduct,
+                price: parseInt(priceProduct),
+                amount: parseInt(quantityProduct),
+                description: descriptionProduct,
+                rating: 0,
+                image: '/img/product.jpg'
+            }
+            console.log(product)
+            if (addProduct(product, token) === false) {
+                this.setState({ errors: true })
+
+            } else {
+                addProduct(product, token).then(res => {
+                    if (res) {
+                        console.log("add product done")
+                    }
+                })
+
+            }
+        }
 
     }
 
