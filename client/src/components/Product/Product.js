@@ -47,6 +47,7 @@ class Product extends React.Component {
                 <div className="col-7 product-info">
                     <p className="product-name">{product.name}</p>
                     <p className="product-price">{product.price}</p>
+                    <button className="add-to-cart">Add to cart </button>
 
                 </div>
 

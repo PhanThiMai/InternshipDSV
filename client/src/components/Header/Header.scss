@@ -106,31 +106,66 @@
   }
 }
 
+.product-cart {
+  .cart {
+    @include heightAndWidth(24px, 24px);
+    object-fit: contain;
+    margin-top: 5px;
+    margin-bottom: -10px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .badge-warning {
+    background-color: $pale-orange;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: $white;
+    @include heightAndWidth(18px, 18px);
+    margin-left: -13px;
+    margin-top: -4px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .cart-dropdown {
+    display: none;
+  }
+
+  .badge-pill {
+    padding-right: 0.1rem;
+  }
+
+  .badge {
+    padding: 0px;
+  }
+
+  &:hover {
+    .cart-dropdown {
+      display: block;
+      position: absolute;
+      margin-top: 20px;
+      right: 8%;
+    }
+  }
+}
+
 .cart {
   @include heightAndWidth(24px, 24px);
   object-fit: contain;
-  margin-top: 2px;
-}
+  margin-top: 5px;
+  margin-bottom: -10px;
 
-.badge-warning {
-  background-color: $pale-orange;
-  font-family: Montserrat;
-  font-size: 12px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.83;
-  letter-spacing: normal;
-  color: $white;
-  @include heightAndWidth(18px, 18px);
-  margin-left: -13px;
-  margin-top: -4px;
-}
-
-.badge-pill {
-  padding-right: 0.1rem;
-}
-
-.badge {
-  padding: 0px;
+  &:hover {
+    cursor: pointer;
+  }
 }
