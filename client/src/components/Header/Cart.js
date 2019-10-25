@@ -23,18 +23,22 @@ class Cart extends React.Component {
     }
 
     render() {
-        const productItems = productsInCart.map((item, index) => {
+
+        const { productList } = this.props;
+
+
+        const productItems = productList.map((item, index) => {
             return (
                 <div key={index}>
                     <div className="cart-item d-flex">
-                        <img src={item.img} alt="img" className="cart-item-img" />
+                        <img src='/img/product.jpg' alt="img" className="cart-item-img" />
                         <div>
-                            <p className="cart-item-name">{item.name}</p>
+                            <p className="cart-item-name">{item.product.name}</p>
                             <div className="cart-item-info d-flex justify-content-between">
-                                <p className="cart-item-price">{`$${item.price}`}</p>
+                                <p className="cart-item-price">{`$${item.product.price}`}</p>
                                 <div className="  cart-item-subinfo">
                                     {
-                                        `${item.size}.${item.color}.${item.amount}`
+                                        `${item.product.size}.${item.product.color}.${item.product.amount}`
                                     }
                                 </div>
                             </div>
