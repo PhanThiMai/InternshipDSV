@@ -4,7 +4,7 @@ import './User.scss'
 import HomePage from './components/HomePage/HomePage';
 import Products from './containers/Products'
 import Product from './containers/Product'
-// import Product from './components/Product/Product'
+import MyCart from './components/MyCart/MyCart'
 
 import Header from './containers/Header';
 import NavBar from './components/NavBar/NavBar';
@@ -27,6 +27,7 @@ function User() {
                 <Route exact path="/" component={HomePage} />
                 <Route path="/category/:id" component={Products} />
                 <Route exact path="/products/:id" component={Product} />
+                <Route exact path="/cart" component={MyCart} />
             </Switch >
             <Footer className="footer"></Footer>
         </div >

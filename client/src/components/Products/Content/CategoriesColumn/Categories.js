@@ -176,7 +176,7 @@ class Categories extends React.Component {
                                     priceCollapsed: !priceCollapsed
                                 })
                             }}
-                            className={`arrow float-right ${priceCollapsed ? "rotate90" : ""}`} />
+                            className={`arrow float-right ${priceCollapsed ? "rotate90" : " "}`} />
                         <PriceCategory isOpen={priceCollapsed} />
                         <hr />
                     </li>

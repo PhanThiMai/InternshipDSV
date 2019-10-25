@@ -45,6 +45,108 @@
     color: $white;
     border: none;
   }
+
+  .size-title {
+    height: 22px;
+    @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+    color: $dark-grey;
+  }
+
+  .sizes {
+    // padding-top: 15px;
+    //padding-bottom: 5px;
+
+    .square {
+      width: 40px;
+      height: 40px;
+      border: solid 1px #808080;
+      @include font(Montserrat, 14px, normal, normal, normal, 1.57, normal);
+      color: $dark-grey;
+      cursor: pointer;
+      background: $white;
+      border-radius: 2px;
+
+      &:focus {
+        background-color: $pale-orange !important;
+        @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+        color: $white;
+        text-align: center;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border: none;
+      }
+    }
+
+    button {
+      &:focus {
+        outline: solid 1px $white-four;
+      }
+    }
+
+    .unenable {
+      width: 40px;
+      height: 40px;
+      @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+      border: solid 1px $white-four;
+      opacity: 0.4;
+      color: $greyish-brown;
+      cursor: no-drop;
+    }
+  }
+
+  @mixin color($color) {
+    width: 30px;
+    height: 30px;
+    background-color: $color;
+    border-radius: 50%;
+    border: none;
+    margin-right: 15px;
+    margin-top: 10px;
+  }
+
+  .colors {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+
+    .color0 {
+      @include color(#ff5f6d);
+    }
+
+    .color1 {
+      @include color(rgba(255, 213, 67, 0.4));
+    }
+
+    .color2 {
+      @include color(rgba(95, 109, 255, 0.4));
+    }
+
+    .color3 {
+      @include color(rgba(255, 161, 95, 0.4));
+    }
+
+    .color4 {
+      @include color(rgba(61, 61, 63, 0.4));
+    }
+
+    .color5 {
+      @include color(rgba(237, 237, 237, 0.4));
+    }
+  }
+
+  .handle-quantity {
+    width: 108px;
+    height: 42px;
+    border: solid 1px $white-four;
+
+    p {
+      width: 9px;
+      @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+      text-align: center;
+      color: $dark-grey;
+    }
+  }
 }
 
 .error {
