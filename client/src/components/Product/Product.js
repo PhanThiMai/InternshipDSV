@@ -46,8 +46,16 @@ class Product extends React.Component {
                 </div>
                 <div className="col-7 product-info">
                     <p className="product-name">{product.name}</p>
+<<<<<<< Updated upstream
                     <p className="product-price">{product.price}</p>
                     <button className="add-to-cart">Add to cart </button>
+=======
+                    <p className="product-price">{`$${product.price}`}</p>
+                    <button
+                        className="add-to-cart"
+                        onClick={this.handleAddToCart}
+                    >Add to cart </button>
+>>>>>>> Stashed changes
 
                 </div>
 

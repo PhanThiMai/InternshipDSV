@@ -9,7 +9,7 @@ import NavBar from './components/NavBar/NavBar';
 import Footer from './components/Footer/Footer'
 
 import {
-    BrowserRouter as Router,
+
     Route, Switch
 } from "react-router-dom";
 

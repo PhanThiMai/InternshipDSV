@@ -75,11 +75,15 @@ class AddingProduct extends React.Component {
         this.props.handleCancelProduct();
     }
 
+    validateProdut = (product) => {
+
+    }
 
     handleComplete = e => {
         e.preventDefault()
-        // const token = localStorage.getItem("userToken")
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTcxOTEzODQwLCJleHAiOjE1NzE5MTUyODB9.GM5MHaiQv2idHgNKdUZw7Mll1lWJWaxeP2zQlZjJVDs"
+        const token = localStorage.getItem("usertoken");
+        console.log(token)
+        //const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTcxOTEzODQwLCJleHAiOjE1NzE5MTUyODB9.GM5MHaiQv2idHgNKdUZw7Mll1lWJWaxeP2zQlZjJVDs"
         if (!token) {
             this.setState({
                 error: true
@@ -88,7 +92,10 @@ class AddingProduct extends React.Component {
         else {
             const { selectedCategory, selectedBrand, selectedSize, selectedColor } = this.props.addProductState;
             const { nameProduct, priceProduct, quantityProduct, descriptionProduct } = this.state;
-            if (selectedCategory === null || selectedSize === null || selectedColor === null) {
+            if (selectedCategory === null
+                || selectedSize === null
+                || selectedColor === null
+                || nameProduct.trim() === '') {
                 this.setState({
                     error: true
                 })
@@ -115,17 +122,17 @@ class AddingProduct extends React.Component {
                     image: '/img/product.jpg'
                 }
                 console.log(product)
-                if (addProduct(product, token) === false) {
-                    this.setState({ errors: true })
+                // if (addProduct(product, token) === false) {
+                //     this.setState({ errors: true })
 
-                } else {
-                    addProduct(product, token).then(res => {
-                        if (res) {
-                            this.handleCancel();
-                        }
-                    })
+                // } else {
+                addProduct(product, token).then(res => {
+                    if (res) {
+                        this.handleCancel();
+                    }
+                })
 
-                }
+
             }
 
 

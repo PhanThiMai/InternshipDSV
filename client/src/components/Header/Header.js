@@ -28,6 +28,12 @@ function Header(props) {
         logOut
     } = props
 
+<<<<<<< Updated upstream
+=======
+    //console.log(props.cart)
+    let numOfProductInCart = props.cart.length;
+
+>>>>>>> Stashed changes
     let loginAuthen;
     let cart;
 

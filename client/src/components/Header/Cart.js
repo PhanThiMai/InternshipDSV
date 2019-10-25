@@ -3,27 +3,33 @@ import './Cart.scss'
 import { Link } from 'react-router-dom'
 
 
-const productsInCart =
-    [{
-        img: '/img/product.jpg',
-        name: "New Balance Men's Street Backpack",
-        size: 'S',
-        price: 69,
-        amount: 5,
-        color: 'Black'
-    }
-    ]
+// const productsInCart =
+//     [{
+//         img: '/img/product.jpg',
+//         name: "New Balance Men's Street Backpack",
+//         size: 'S',
+//         price: 69,
+//         amount: 5,
+//         color: 'Black'
+//     }
+//     ]
+
+
 
 class Cart extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-
         }
     }
 
     render() {
+<<<<<<< Updated upstream
         const productItems = productsInCart.map((item, index) => {
+=======
+        const { productList } = this.props;
+        const productItems = productList.map((item, index) => {
+>>>>>>> Stashed changes
             return (
                 <div key={index}>
                     <div className="cart-item d-flex">

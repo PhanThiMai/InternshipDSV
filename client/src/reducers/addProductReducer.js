@@ -8,10 +8,7 @@ let initialState = {
 }
 
 let addProductReducer = (state = initialState, action) => {
-    const { selectedCategory,
-        selectedBrand,
-        selectedSize,
-        selectedColor } = state;
+
     switch (action.type) {
         case types.HANDLE_SELECTED_CATEGOGY:
             return {
