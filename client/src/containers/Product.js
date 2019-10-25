@@ -15,6 +15,10 @@ const mapDispatchToProps = (dispatch) => {
 
         viewProductsOfCategory: (childCategory) => {
             dispatch(actions.viewProductsOfCategory(childCategory))
+        },
+
+        addToCart: (product) => {
+            dispatch(actions.addToCart(product));
         }
     }
 }
