@@ -1,0 +1,13 @@
+@import "../Helper/Color.scss";
+@import "../Helper/font.scss";
+
+.cart-page {
+  margin-left: 7%;
+
+  .my-bag {
+    width: 92px;
+    height: 32px;
+    @include font(Montserrat, 24px, 500, normal, normal, 1.33, normal);
+    color: $dark-grey;
+  }
+}
