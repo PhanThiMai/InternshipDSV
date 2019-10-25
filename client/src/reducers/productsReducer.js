@@ -2,11 +2,11 @@ import * as types from '../constants/ActionType'
 
 let initialState = {
     childCategory: null,
-    productDetail: null
+    productDetail: null,
+    cart: []
 }
 
-let productsReducer = (state = initialState, action) => {
-
+export let productsReducer = (state = initialState, action) => {
     let { childCategory, productDetail } = state;
 
     switch (action.type) {
@@ -20,9 +20,21 @@ let productsReducer = (state = initialState, action) => {
                 productDetail,
                 childCategory: action.childCategory
             }
+
         default:
             return state
     }
 }
 
-export default productsReducer;
+export let cart = (state = initialState.cart, action) => {
+
+    switch (action.type) {
+        case types.ADD_TO_CART:
+            return [...state, {
+                product: action.product
+            }]
+
+        default:
+            return state
+    }
+}

@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
-import Cart from './Cart'
+//import Cart from './Cart'
+import Cart from '../../containers/Cart'
 
 const img = {
     cart: '/img/cart.png',
@@ -15,11 +16,7 @@ const img = {
     userImg: '/img/user.svg'
 }
 
-
-const numOfProductInCart = 1;
-
-
-
+//const numOfProductInCart = 0;
 
 function Header(props) {
     const { loginModal, registerModal, isLogin,
@@ -28,12 +25,10 @@ function Header(props) {
         logOut
     } = props
 
-<<<<<<< Updated upstream
-=======
-    //console.log(props.cart)
+
     let numOfProductInCart = props.cart.length;
 
->>>>>>> Stashed changes
+
     let loginAuthen;
     let cart;
 
@@ -62,7 +57,7 @@ function Header(props) {
             <Badge color="warning" className=" badge badge-pill badge-warning" >
                 {numOfProductInCart}</Badge>
             <div className="cart-dropdown">
-                <Cart />
+                <Cart productList={props.cart} />
             </div>
         </div>
 
@@ -100,12 +95,6 @@ function Header(props) {
             <div className="d-flex ">
                 {loginAuthen}
                 {cart}
-
-                {/* <img src={img.cart} alt="cart"
-                    className="cart">
-                </img>
-                <Badge color="warning" className=" badge badge-pill badge-warning" >
-                    {numOfProductInCart}</Badge> */}
             </div>
 
         </div>

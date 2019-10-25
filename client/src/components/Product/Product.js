@@ -2,7 +2,6 @@ import React from 'react'
 import './Product.scss'
 import { getProducts } from '../../api/products'
 import ChildCategory from '../Products/ChildCategory/ChildCategory'
-//import SizeCategory from '../Products/Content/CategoriesColumn/SizeCategory/SizeCategory'
 
 class Product extends React.Component {
     constructor(props) {
@@ -27,6 +26,10 @@ class Product extends React.Component {
         })
     }
 
+    handleAddToCart = () => {
+        this.props.addToCart(this.state.product);
+    }
+
     render() {
         const img = ["/img/product.jpg", "/img/product1.jpg"]
         const { product } = this.state;
@@ -46,16 +49,14 @@ class Product extends React.Component {
                 </div>
                 <div className="col-7 product-info">
                     <p className="product-name">{product.name}</p>
-<<<<<<< Updated upstream
-                    <p className="product-price">{product.price}</p>
-                    <button className="add-to-cart">Add to cart </button>
-=======
+
                     <p className="product-price">{`$${product.price}`}</p>
+
                     <button
                         className="add-to-cart"
                         onClick={this.handleAddToCart}
                     >Add to cart </button>
->>>>>>> Stashed changes
+
 
                 </div>
 
