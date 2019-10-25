@@ -29,7 +29,7 @@ class ProductCart extends React.Component {
                     {soldOutItem}
                     <p className="product-name">{product.name + ' ' + product.brand}</p>
                     {/* <p className="product-brand">{product.brand}</p> */}
-                    <p className="product-price">{product.price}</p>
+                    <p className="product-price">{`$${product.price}.00`}</p>
                 </div>
             </NavLink>
 

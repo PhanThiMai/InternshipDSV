@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProductsColumn.scss'
-//import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-//import ProductCart from './ProductCart/ProductCart'
+
+
 import ProductCart from '../../../../containers/ProductCart'
 import { getProducts } from '../../../../api/products'
 
@@ -36,7 +36,6 @@ class ProductsColumn extends React.Component {
 
 
     render() {
-        console.log("render")
         const { match } = this.props
         const { products } = this.state
         let productsItem;

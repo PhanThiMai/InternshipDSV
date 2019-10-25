@@ -1,0 +1,59 @@
+@import "../Helper/Color.scss";
+@import "../Helper/Font.scss";
+
+.cart-component {
+  width: 270px;
+  //height: 310px;
+  box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
+  border: solid 0.5px #eaeaea;
+  background-color: #fbfbfb;
+  padding: 10px;
+
+  .cart-item {
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    .cart-item-name {
+      width: 161px;
+      height: 32px;
+      @include font(Montserrat, 12px, 600, normal, normal, 1.33, normal);
+      color: $greyish-brown;
+    }
+
+    .cart-item-info {
+      .cart-item-price {
+        width: 31px;
+        height: 22px;
+        @include font(Montserrat, 12px, normal, normal, normal, 1.83, normal);
+        color: $greyish-brown;
+      }
+
+      .cart-item-subinfo {
+        width: 95px;
+        height: 22px;
+        opacity: 0.4;
+        @include font(Montserrat, 12px, normal, normal, normal, 1.83, normal);
+        text-align: right;
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .cart-item-hr {
+    width: 270px;
+    height: 1px;
+    background-color: #ececec;
+  }
+
+  .view-cart {
+    height: 22px;
+    margin-left: 38%;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+    color: $pale-orange;
+  }
+}

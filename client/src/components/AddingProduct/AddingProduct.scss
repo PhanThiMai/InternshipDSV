@@ -1,0 +1,151 @@
+@import "../Helper/Color.scss";
+@import "../Helper/Font.scss";
+
+.add-product {
+  background-color: $white-two;
+  padding-top: 20px;
+  padding-left: 16px;
+
+  .menu-colum {
+    .logo {
+      width: 117px;
+      height: 25.5px;
+      object-fit: contain;
+      margin-bottom: 47px;
+    }
+
+    .menu-item {
+      width: 220px;
+      height: 48px;
+      margin-bottom: 10px;
+
+      img {
+        margin-left: 10px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .menu-text {
+        width: 67px;
+        height: 20px;
+        @include font(Montserrat, 14px, 500, normal, normal, 1.43, normal);
+        color: $charcoal-grey;
+        margin-top: 13px;
+        margin-left: 15px;
+      }
+    }
+
+    .active-item {
+      &:before {
+        content: "";
+        width: 5.9px;
+        height: 48px;
+
+        background-color: $pale-orange;
+      }
+    }
+  }
+
+  .add-product-column {
+    .add-product-logo {
+      width: 186px;
+      height: 36px;
+      @include font(Montserrat, 28px, bold, normal, normal, 1.29, normal);
+      color: $dark-grey;
+    }
+
+    .admin-info {
+      .admin {
+        width: 85px;
+        height: 24px;
+        @include font(Montserrat, 14px, bold, normal, normal, 1.71, normal);
+        color: $dark-grey;
+      }
+
+      .dropdown {
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+      }
+
+      .mail {
+        @extend .dropdown;
+        margin-left: 30px;
+      }
+
+      .notification {
+        @extend .dropdown;
+        margin-left: 15px;
+        margin-right: 40px;
+      }
+    }
+
+    .sub-title {
+      width: 175px;
+      height: 20px;
+      @include font(Montserrat, 14px, 500, normal, normal, 1.43, normal);
+      color: $charcoal-grey;
+    }
+
+    .product-info {
+      .name-info {
+        width: 88px;
+        height: 14px;
+        @include font(Montserrat, 12px, bold, normal, normal, 1.17, normal);
+        text-align: right;
+        color: $dark-grey;
+      }
+
+      .sub-infor-img {
+        width: 532px;
+        height: 20px;
+        @include font(Montserrat, 14px, 500, normal, normal, 1.43, normal);
+        color: $greyish;
+      }
+
+      .input-name {
+        margin-left: 34px;
+        width: 780px;
+        border-radius: 2px;
+        border: solid 1px $white-three;
+        background-color: $white;
+        @include font(Montserrat, 14px, 500, normal, normal, 1.43, normal);
+        color: $charcoal-grey;
+      }
+
+      .input-error {
+        @extend .input-name;
+        border: solid 1px $strawberry;
+      }
+
+      .input-description {
+        @extend .input-name;
+        height: 112px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .button-group {
+      margin-right: 70px;
+
+      .cancel-button {
+        width: 180px;
+        height: 48px;
+        border-radius: 2px;
+        border: solid 1px $white-three;
+        background-color: $white;
+        @include font(Montserrat, 14px, 600, normal, normal, 1.71, normal);
+        color: $pale-orange;
+      }
+
+      .complete-button {
+        @extend .cancel-button;
+        background-color: $pale-orange;
+        color: $white;
+        margin-left: 15px;
+      }
+    }
+  }
+}

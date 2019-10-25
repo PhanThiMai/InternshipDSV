@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
+import Cart from './Cart'
 
 const img = {
     cart: '/img/cart.png',
@@ -13,7 +14,9 @@ const img = {
     search: '/img/search.png',
     userImg: '/img/user.svg'
 }
-const numOfProductInCart = 4;
+
+
+const numOfProductInCart = 1;
 
 
 
@@ -26,10 +29,11 @@ function Header(props) {
     } = props
 
     let loginAuthen;
+    let cart;
 
     if (isLogin) {
         loginAuthen =
-            <div className="userpic mr-3 " >
+            <div className="userpic mr-3  " >
                 <img src={img.userImg} alt="avartar" />
                 <div className="user-setting-dropdown">
                     <UserSetting logOut={logOut} />
@@ -44,6 +48,24 @@ function Header(props) {
         </div>
     }
 
+    if (numOfProductInCart > 0) {
+        cart = <div className="product-cart">
+            <img src={img.cart} alt="cart"
+                className="cart">
+            </img>
+            <Badge color="warning" className=" badge badge-pill badge-warning" >
+                {numOfProductInCart}</Badge>
+            <div className="cart-dropdown">
+                <Cart />
+            </div>
+        </div>
+
+    }
+    else {
+        cart = <img src={img.cart} alt="cart"
+            className="cart">
+        </img>
+    }
 
 
     return (<div>
@@ -71,11 +93,13 @@ function Header(props) {
             </Link>
             <div className="d-flex ">
                 {loginAuthen}
-                <img src={img.cart} alt="cart"
+                {cart}
+
+                {/* <img src={img.cart} alt="cart"
                     className="cart">
                 </img>
                 <Badge color="warning" className=" badge badge-pill badge-warning" >
-                    {numOfProductInCart}</Badge>
+                    {numOfProductInCart}</Badge> */}
             </div>
 
         </div>

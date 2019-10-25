@@ -8,7 +8,7 @@
   border: solid 1px $greyish-two;
   background-color: $white-two;
   border-radius: 2px;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
   margin-top: 15px;
 
   &:hover {
@@ -47,7 +47,7 @@
     z-index: 1000;
 
     position: absolute;
-    top: 33%;
+    top: 35%;
 
     .sort-by-item {
       height: 22px;

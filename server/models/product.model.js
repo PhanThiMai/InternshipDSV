@@ -6,7 +6,7 @@ var productSchema = new Schema({
     name: { type: String, required: true, max: 60, min: 2 },
     category: [{ type: String, required: true, max: 10 }],
     brand: { type: String, required: true, max: 60, min: 2 },
-    price: { type: String, required: true, min: 0 },
+    price: { type: Number, required: true, min: 0 },
     size: [{ type: String, require: true }],
     color: [{ type: String, require: true }],
     image: [{ type: String, require: true }],
