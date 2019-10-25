@@ -3,6 +3,8 @@
 
 .add-product {
   background-color: $white-two;
+  padding-top: 20px;
+  padding-left: 16px;
 
   .menu-colum {
     .logo {
@@ -37,7 +39,7 @@
 
     .active-item {
       &:before {
-        content: '';
+        content: "";
         width: 5.9px;
         height: 48px;
 
@@ -113,12 +115,16 @@
         color: $charcoal-grey;
       }
 
+      .input-error {
+        @extend .input-name;
+        border: solid 1px $strawberry;
+      }
+
       .input-description {
         @extend .input-name;
         height: 112px;
         margin-bottom: 20px;
       }
-
     }
 
     .button-group {

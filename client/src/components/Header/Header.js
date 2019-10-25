@@ -29,7 +29,7 @@ function Header(props) {
 
     if (isLogin) {
         loginAuthen =
-            <div className="userpic mr-3 " >
+            <div className="userpic mr-3  " >
                 <img src={img.userImg} alt="avartar" />
                 <div className="user-setting-dropdown">
                     <UserSetting logOut={logOut} />

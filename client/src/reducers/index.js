@@ -7,7 +7,7 @@ import addProductReducer from './addProductReducer'
 const rootReducer = combineReducers({
     headerReducer,
     productsReducer,
-    addProductReducer
+    addProductReducer,
 
 })
 

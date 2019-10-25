@@ -27,19 +27,19 @@ router.post('/', (req, res, next) => {
                 msg: 'You are not admin'
             })
         } else {
+            const productInfo = body.product;
             let product = new products({
-                category: body.category,
-                brand: body.brand,
-                size: body.size,
-                color: body.color,
-                name: body.name,
-                price: body.price,
-                amount: body.amount,
-                description: body.description,
-                rating: body.rating,
-                image: body.image
+                category: productInfo.category,
+                brand: productInfo.brand,
+                size: productInfo.size,
+                color: productInfo.color,
+                name: productInfo.name,
+                price: productInfo.price,
+                amount: productInfo.amount,
+                description: productInfo.description,
+                rating: productInfo.rating,
+                image: productInfo.image
             })
-            console.log("product : api ", product)
             return product.save().then(() =>
                 res.json({
                     type: 1,

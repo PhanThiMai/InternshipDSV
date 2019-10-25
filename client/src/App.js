@@ -2,14 +2,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import HomePage from './components/HomePage/HomePage';
-import Products from './containers/Products'
-import Product from './containers/Product'
-import Header from './containers/Header';
-import NavBar from './components/NavBar/NavBar';
-import Footer from './components/Footer/Footer'
-import AddingProduct from './components/AddingProduct/AddingProduct'
 import AddProduct from './containers/AddProduct'
+import User from './User'
 
 import {
   BrowserRouter as Router,
@@ -33,26 +27,18 @@ function App() {
   }
 
   return (
+
+
     <Router>
 
-      {/* <Header />
-      <hr></hr>
-      <NavBar />
-      <hr className="mt-0"></hr>
-
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/category/:id" component={Products} />
-        <Route exact path="/products/:id" component={Product} />
+
         <Route exact path="/admin">
-          {!admin ? <Redirect to="/" /> : <AddingProduct />}
+          {!admin ? <Redirect to="/" /> : <AddProduct />}
         </Route>
+        <Route exact path="" component={User} />
+      </Switch>
 
-      </Switch >
-
-      <Footer className="footer"></Footer> */}
-
-      <AddProduct />
     </Router >
   )
 }

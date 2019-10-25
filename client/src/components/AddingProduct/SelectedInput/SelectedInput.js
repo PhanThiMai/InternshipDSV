@@ -18,10 +18,10 @@ class SelectedInput extends React.Component {
     }
 
     render() {
-        const { isMulti, options, value, handleSelect } = this.props;
+        const { isMulti, options, value, handleSelect, error } = this.props;
         return (
             <Select
-                className="selected-input"
+                className={error ? "selected-error" : "selected-input"}
                 value={value}
                 isMulti={isMulti}
                 onChange={handleSelect}

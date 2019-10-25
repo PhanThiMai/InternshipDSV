@@ -60,6 +60,7 @@ class AddingProduct extends React.Component {
     handleOnchange = e => {
         this.setState({
             [e.target.name]: e.target.value,
+            error: false
         })
     }
 
@@ -87,44 +88,53 @@ class AddingProduct extends React.Component {
         else {
             const { selectedCategory, selectedBrand, selectedSize, selectedColor } = this.props.addProductState;
             const { nameProduct, priceProduct, quantityProduct, descriptionProduct } = this.state;
-            const categogies = selectedCategory.map((item, key) =>
-                item.value
-            )
-            const brand = selectedBrand.value;
-            const size = selectedSize.map((item, key) =>
-                item.value
-            )
-            const color = selectedColor.map((item, index) => item.value)
-            const product = {
-                category: categogies,
-                brand: brand,
-                size: size,
-                color: color,
-                name: nameProduct,
-                price: parseInt(priceProduct),
-                amount: parseInt(quantityProduct),
-                description: descriptionProduct,
-                rating: 0,
-                image: '/img/product.jpg'
-            }
-            console.log(product)
-            if (addProduct(product, token) === false) {
-                this.setState({ errors: true })
-
-            } else {
-                addProduct(product, token).then(res => {
-                    if (res) {
-                        console.log("add product done")
-                    }
+            if (selectedCategory === null || selectedSize === null || selectedColor === null) {
+                this.setState({
+                    error: true
                 })
-
             }
+            else {
+                const categogies = selectedCategory.map((item, key) =>
+                    item.value
+                )
+                const brand = selectedBrand.value;
+                const size = selectedSize.map((item, key) =>
+                    item.value
+                )
+                const color = selectedColor.map((item, index) => item.value)
+                const product = {
+                    category: categogies,
+                    brand: brand,
+                    size: size,
+                    color: color,
+                    name: nameProduct,
+                    price: parseInt(priceProduct),
+                    amount: parseInt(quantityProduct),
+                    description: descriptionProduct,
+                    rating: 0,
+                    image: '/img/product.jpg'
+                }
+                console.log(product)
+                if (addProduct(product, token) === false) {
+                    this.setState({ errors: true })
+
+                } else {
+                    addProduct(product, token).then(res => {
+                        if (res) {
+                            this.handleCancel();
+                        }
+                    })
+
+                }
+            }
+
+
         }
 
     }
 
     render() {
-        const { nameProduct, priceProduct, quantityProduct, descriptionProduct } = this.state;
+        const { nameProduct, priceProduct, quantityProduct, descriptionProduct, error } = this.state;
         const { selectedCategory, selectedBrand, selectedSize, selectedColor } = this.props.addProductState;
         const { handleSelectedCategory, handleSelectedColor, handleSelectedBrand, handleSelectedSize } = this.props;
         return (
@@ -177,9 +187,7 @@ class AddingProduct extends React.Component {
                     <div className="d-flex justify-content-between">
                         <p className="add-product-logo">Add product</p>
                         <div className="admin-info d-flex">
-
                             <img src="/img/user.svg" className="userpic mr-3 " alt="avartar" />
-
                             <p className="admin">Lucile Bush</p>
                             <img src="/img/dropdown.svg" alt="icon"
                                 className="dropdown" />
@@ -209,7 +217,7 @@ class AddingProduct extends React.Component {
                             name="nameProduct"
                             onChange={this.handleOnchange}
 
-                            className="input-name "
+                            className={error ? "input-error" : "input-name "}
                             placeholder="Enter product name" />
 
                     </div>
@@ -219,7 +227,9 @@ class AddingProduct extends React.Component {
                             isMulti={true}
                             value={selectedCategory}
                             handleSelect={handleSelectedCategory}
-                            options={optionsCategory} />
+                            options={optionsCategory}
+                            error={error}
+                        />
 
                     </div>
                     <div className="product-info d-flex align-items-center">
@@ -228,6 +238,8 @@ class AddingProduct extends React.Component {
                             isMulti={false}
                             value={selectedBrand}
                             handleSelect={handleSelectedBrand}
+                            error={error}
+
                             options={optionsBrand} />
 
                     </div>
@@ -238,7 +250,7 @@ class AddingProduct extends React.Component {
                             value={priceProduct}
                             name="priceProduct"
                             onChange={this.handleOnchange}
-                            className="input-name "
+                            className={error ? "input-error" : "input-name "}
                             min="0"
                             max="1000000000"
                             placeholder="Enter product price" />
@@ -250,6 +262,8 @@ class AddingProduct extends React.Component {
                             isMulti={true}
                             value={selectedSize}
                             handleSelect={handleSelectedSize}
+                            error={error}
+
                             options={optionsSize} />
                     </div>
                     <div className="product-info d-flex align-items-center">
@@ -257,6 +271,8 @@ class AddingProduct extends React.Component {
                         <SelectedInput
                             isMulti={true}
                             value={selectedColor}
+                            error={error}
+
                             handleSelect={handleSelectedColor}
                             options={optionsColors} />
                     </div>
@@ -267,7 +283,7 @@ class AddingProduct extends React.Component {
                             value={quantityProduct}
                             name="quantityProduct"
                             onChange={this.handleOnchange}
-                            className="input-name "
+                            className={error ? "input-error" : "input-name "}
                             min="0"
                             max="1000000000"
                             placeholder="Enter product quantity" />
