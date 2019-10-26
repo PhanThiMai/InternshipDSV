@@ -67,6 +67,8 @@
   @include heightAndWidth(28px, 28px);
   border: solid 2px $pale-orange;
   border-radius: 50%;
+  margin-top: 6px;
+  margin-left: 179px;
 
   &:hover {
     cursor: pointer;
@@ -97,7 +99,6 @@
 
   .user-setting-dropdown {
     display: none;
-    // margin-top: px;
     padding: 10px;
   }
 
@@ -155,6 +156,27 @@
       position: absolute;
       margin-top: 20px;
       right: 8%;
+      z-index: 1000;
+    }
+  }
+
+  &:active {
+    .cart-dropdown {
+      display: block;
+      position: absolute;
+      margin-top: 20px;
+      right: 8%;
+      z-index: 1000;
+    }
+  }
+
+  &:focus {
+    .cart-dropdown {
+      display: block;
+      position: absolute;
+      margin-top: 20px;
+      right: 8%;
+      z-index: 1000;
     }
   }
 }

@@ -64,8 +64,6 @@ class ProductsColumn extends React.Component {
                     </p>
                     <img src="/img/arrow.svg"
                         className="arrow " alt="arrow" />
-
-
                     {
                         this.state.openSort === true ? <div className="sort-by-items">
                             {sortItems.map((item, index) => {

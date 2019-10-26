@@ -6,7 +6,7 @@ let initialState = {
     cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 }
 
-export let productsReducer = (state = initialState, action) => {
+let productsReducer = (state = initialState, action) => {
     let { childCategory, productDetail } = state;
 
     switch (action.type) {
@@ -20,23 +20,14 @@ export let productsReducer = (state = initialState, action) => {
                 productDetail,
                 childCategory: action.childCategory
             }
-
-        default:
-            return state
-    }
-}
-
-// update cart after change localStorege
-
-export let cart = (state = initialState.cart, action) => {
-
-    switch (action.type) {
         case types.ADD_TO_CART:
-            return [...state, {
-                product: action.product
-            }]
+            return {
+                cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 
+            }
         default:
             return state
     }
 }
+
+export default productsReducer;

@@ -26,6 +26,10 @@ function App() {
     if (decode.role === 'admin') admin = true;
   }
 
+  //localStorage.removeItem('cart');
+
+
+
   return (
 
 

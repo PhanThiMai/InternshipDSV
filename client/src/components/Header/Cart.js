@@ -12,11 +12,7 @@ class Cart extends React.Component {
     }
 
     render() {
-        // const productList = productInCart ? JSON.parse(localStorage.getItem("cart"))? 
-
         const { productList } = this.props;
-
-
         const productItems = productList.map((item, index) => {
             return (
                 <div key={index}>
@@ -28,7 +24,7 @@ class Cart extends React.Component {
                                 <p className="cart-item-price">{`$${item.price}`}</p>
                                 <div className="  cart-item-subinfo">
                                     {
-                                        `${item.size}.${item.color}.${item.amount}`
+                                        `${item.size} . ${item.color} . ${item.quantity}pcs`
                                     }
                                 </div>
                             </div>

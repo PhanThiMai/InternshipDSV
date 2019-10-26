@@ -22,34 +22,20 @@ class Header extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            numOfProductInCart: 0,
-            productInCart: null
-        }
+        this.state = {}
     }
 
-    componentDidMount = () => {
-        let productInCart = localStorage.getItem("cart");
-        const numOfProductInCart = productInCart ? JSON.parse(productInCart).length : 0;
-        this.setState({
-            numOfProductInCart,
-            productInCart: JSON.parse(productInCart)
-        })
-    }
 
 
     render() {
-
         const { loginModal, registerModal, isLogin,
         } = this.props.headerState
         const { handleLoginModal, handleRegisterModal, showAnotherModal, checkLogin,
             logOut
         } = this.props
 
-        const { numOfProductInCart, productInCart } = this.state;
-
-
-
+        const productList = this.props.cart ? this.props.cart : []
+        const numOfProductInCart = productList.length
         let loginAuthen;
         let cart;
 
@@ -78,7 +64,7 @@ class Header extends React.Component {
                 <Badge color="warning" className=" badge badge-pill badge-warning" >
                     {numOfProductInCart}</Badge>
                 <div className="cart-dropdown">
-                    <Cart productList={productInCart} />
+                    <Cart productList={productList} />
                 </div>
             </div>
 
