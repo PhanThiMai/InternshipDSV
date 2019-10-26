@@ -12,11 +12,11 @@ class Product extends React.Component {
     }
 
     componentDidMount = () => {
+        const id = this.props.match.params.id;
         getProducts().then(res => {
             const products = res.data;
             if (products) {
-                const { productDetail } = this.props.productsState
-                let result = products.find((item) => item.name === productDetail)
+                let result = products.find((item) => item._id === id)
                 if (result) {
                     this.setState({
                         product: result
@@ -27,7 +27,24 @@ class Product extends React.Component {
     }
 
     handleAddToCart = () => {
-        this.props.addToCart(this.state.product);
+
+        const { product } = this.state;
+        let productInCart = localStorage.getItem("cart");
+
+        if (productInCart) {
+            productInCart = JSON.parse(productInCart);
+            console.log(productInCart)
+            const findInCart = productInCart.find((item) => item._id === product._id)
+            if (!findInCart) {
+                productInCart.push(product);
+                localStorage.setItem("cart", JSON.stringify(productInCart));
+            }
+        } else {
+            productInCart = [];
+            productInCart.push(product);
+            localStorage.setItem("cart", JSON.stringify(productInCart));
+        }
+
     }
 
     render() {

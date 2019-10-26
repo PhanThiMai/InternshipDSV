@@ -3,18 +3,6 @@ import './Cart.scss'
 import { Link } from 'react-router-dom'
 
 
-// const productsInCart =
-//     [{
-//         img: '/img/product.jpg',
-//         name: "New Balance Men's Street Backpack",
-//         size: 'S',
-//         price: 69,
-//         amount: 5,
-//         color: 'Black'
-//     }
-//     ]
-
-
 
 class Cart extends React.Component {
     constructor(props) {
@@ -24,6 +12,7 @@ class Cart extends React.Component {
     }
 
     render() {
+        // const productList = productInCart ? JSON.parse(localStorage.getItem("cart"))? 
 
         const { productList } = this.props;
 
@@ -34,12 +23,12 @@ class Cart extends React.Component {
                     <div className="cart-item d-flex">
                         <img src='/img/product.jpg' alt="img" className="cart-item-img" />
                         <div>
-                            <p className="cart-item-name">{item.product.name}</p>
+                            <p className="cart-item-name">{item.name}</p>
                             <div className="cart-item-info d-flex justify-content-between">
-                                <p className="cart-item-price">{`$${item.product.price}`}</p>
+                                <p className="cart-item-price">{`$${item.price}`}</p>
                                 <div className="  cart-item-subinfo">
                                     {
-                                        `${item.product.size}.${item.product.color}.${item.product.amount}`
+                                        `${item.size}.${item.color}.${item.amount}`
                                     }
                                 </div>
                             </div>

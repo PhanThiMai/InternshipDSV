@@ -3,7 +3,7 @@ import * as types from '../constants/ActionType'
 let initialState = {
     childCategory: null,
     productDetail: null,
-    cart: []
+    cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 }
 
 export let productsReducer = (state = initialState, action) => {
@@ -25,6 +25,8 @@ export let productsReducer = (state = initialState, action) => {
             return state
     }
 }
+
+// update cart after change localStorege
 
 export let cart = (state = initialState.cart, action) => {
 
