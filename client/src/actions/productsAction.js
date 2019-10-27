@@ -27,3 +27,9 @@ export const removeFromCart = () => {
         type: types.REMOVE_FROM_CART
     }
 }
+
+export const checkout = () => {
+    return {
+        type: types.CHECK_OUT
+    }
+}

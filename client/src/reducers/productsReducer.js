@@ -30,6 +30,11 @@ let productsReducer = (state = initialState, action) => {
                 cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 
             }
+        case types.CHECK_OUT:
+            return {
+                cart: []
+
+            }
         default:
             return state
     }

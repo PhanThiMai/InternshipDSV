@@ -11,6 +11,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
         removeFromCart: () => {
             dispatch(actions.removeFromCart());
+        },
+        checkout: () => {
+            dispatch(actions.checkout());
         }
     }
 }

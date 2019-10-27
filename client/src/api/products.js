@@ -22,4 +22,17 @@ export const addProduct = (product, token) => {
 }
 
 
+export const editProduct = (product) => {
+    return API
+        .post(`/product/edit`, {
+            product
+        })
+        .then(res => {
+            return res.data
+        }).catch(error => console.log(error));
+}
+
+
+
+
 

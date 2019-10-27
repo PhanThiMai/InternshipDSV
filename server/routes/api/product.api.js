@@ -62,5 +62,42 @@ router.post('/', (req, res, next) => {
 
 })
 
+router.post('/edit', (req, res, next) => {
+    const { body } = req;
+    products.findOne({
+        id: body.id
+    })
+        .then(product => {
+            if (product) {
+                product.amount = body.amount;
+                return product.save()
+                    .then(() => {
+                        res.json({
+                            type: 1
+                        })
+                    })
+                    .catch(err => {
+                        res.json({
+                            type: 0,
+                            err
+                        })
+                    })
+            } else {
+                res.json({
+                    type: 0,
+                    msg: "can not find this product"
+                })
+            }
+        })
+        .catch(err => {
+            res.json({
+                type: 0,
+                msg: "something wrong"
+
+            })
+        })
+
+})
+
 
 module.exports = router
