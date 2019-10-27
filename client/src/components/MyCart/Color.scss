@@ -1,0 +1,34 @@
+@mixin color($color) {
+    width: 30px;
+    height: 30px;
+    background-color: $color;
+    border-radius: 50%;
+    border: none;
+}
+
+.color-Red {
+    @include color(#ff5f6d);
+}
+
+.color-Yellow {
+    @include color(rgba(255, 195, 113, 0.5));
+
+}
+
+.color-Blue {
+    @include color(rgba(95, 109, 255, 0.4));
+}
+
+.color-Orange {
+    @include color(rgba(255, 161, 95, 0.4));
+
+}
+
+.color-Brown {
+    @include color(rgba(61, 61, 63, 0.4));
+
+}
+
+.color-Gray {
+    @include color(rgba(237, 237, 237, 0.4));
+}

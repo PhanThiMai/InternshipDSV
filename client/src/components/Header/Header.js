@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import Login from '../Login/Login'
 import Register from '../Register/Register'
 import UserSetting from './UserSetting'
-//import Cart from './Cart'
 import Cart from '../../containers/Cart'
 
 const img = {
@@ -16,16 +15,12 @@ const img = {
     userImg: '/img/user.svg'
 }
 
-//const numOfProductInCart = 0;
 
 class Header extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {}
     }
-
-
 
     render() {
         const { loginModal, registerModal, isLogin,
@@ -46,7 +41,6 @@ class Header extends React.Component {
                     <div className="user-setting-dropdown">
                         <UserSetting logOut={logOut} />
                     </div>
-
                 </div>
 
         } else {
@@ -67,7 +61,6 @@ class Header extends React.Component {
                     <Cart productList={productList} />
                 </div>
             </div>
-
         }
         else {
             cart = <img src={img.cart} alt="cart"

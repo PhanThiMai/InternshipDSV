@@ -10,4 +10,125 @@
     @include font(Montserrat, 24px, 500, normal, normal, 1.33, normal);
     color: $dark-grey;
   }
+
+  .cart-item {
+    .cart-item-img {
+      width: 80px;
+      height: 113px;
+      margin-right: 10px;
+    }
+
+    .cart-item-name {
+      width: 96px;
+      height: 60px;
+      @include font(Montserrat, 14px, 500, normal, normal, 1.43, normal);
+      color: $dark-grey;
+    }
+
+    .cart-item-edit {
+      &:hover {
+        cursor: pointer;
+      }
+
+      margin-top: 30px;
+
+      .change {
+        @include font(Montserrat, 12px, normal, normal, normal, 1.83, normal);
+        color: $dark-grey;
+      }
+
+      .remove {
+        @extend .change;
+
+        margin-left: 5px;
+        padding-left: 5px;
+        border-left: solid 0.5px #979797;
+      }
+    }
+  }
+
+  .cart-item-price {
+    width: 55px;
+    height: 24px;
+    @include font(Montserrat, 16px, 500, normal, normal, 1.5, normal);
+    text-align: right;
+    color: $dark-grey;
+  }
+
+  .cart-item-size {
+    width: 12px;
+    height: 26px;
+    @include font(Montserrat, 18px, 500, normal, normal, 1.44, normal);
+    color: $dark-grey;
+  }
+
+  .cart-item-quantity {
+    width: 108px;
+    height: 42px;
+    padding-left: 15px;
+    padding-right: 20px;
+    padding-top: 9px;
+    border: solid 1px $white-four;
+
+    p {
+      width: 9px;
+      height: 22px;
+      @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+      color: $dark-grey;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+}
+
+.check-out {
+  .total {
+    width: 36px;
+    height: 22px;
+    @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+    color: $dark-grey;
+  }
+
+  margin-left: 7%;
+
+  .check-out-info {
+
+    width: 330px;
+    height: 148px;
+    background-color: #f9f9f9;
+    padding: 15px;
+
+    .ship-info {
+      height: 22px;
+      @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
+      text-align: right;
+      color: $dark-grey;
+    }
+
+    .total-product {
+      height: 22px;
+      @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
+      color: $dark-grey;
+    }
+  }
+
+  .check-out-button {
+    width: 330px;
+    height: 49px;
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ff5f6d;
+    @include font(Montserrat, 16px, bold, normal, normal, 1.5, normal);
+    text-align: center;
+    color: $white;
+    border: none;
+  }
+
 }

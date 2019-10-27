@@ -57,4 +57,9 @@
     @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
     color: $pale-orange;
   }
+
+
+  &:hover{
+    cursor: pointer;
+  }
 }

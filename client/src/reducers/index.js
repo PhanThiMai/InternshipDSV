@@ -8,7 +8,6 @@ const rootReducer = combineReducers({
     headerReducer,
     productsReducer,
     addProductReducer
-
 })
 
 export default rootReducer;

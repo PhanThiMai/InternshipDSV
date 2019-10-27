@@ -4,7 +4,7 @@ import './User.scss'
 import HomePage from './components/HomePage/HomePage';
 import Products from './containers/Products'
 import Product from './containers/Product'
-import MyCart from './components/MyCart/MyCart'
+import MyCart from './containers/MyCart'
 
 import Header from './containers/Header';
 import NavBar from './components/NavBar/NavBar';
