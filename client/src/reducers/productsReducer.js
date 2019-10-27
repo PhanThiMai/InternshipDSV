@@ -25,6 +25,11 @@ let productsReducer = (state = initialState, action) => {
                 cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 
             }
+        case types.REMOVE_FROM_CART:
+            return {
+                cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+
+            }
         default:
             return state
     }

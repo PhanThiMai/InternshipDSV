@@ -7,15 +7,39 @@ class MyCart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            products: []
         }
     }
 
+    componentDidMount = () => {
+
+    }
+
+    handleChange = event => {
+        const id = event.target.getAttribute('name')
+
+    }
+
+    handleRemove = event => {
+        const id = event.target.getAttribute('name');
+        const cart = this.props.cart;
+        const product = cart.find((item) => {
+            if (item._id === id)
+                return item
+            return null
+        })
+        if (product) {
+            let index = cart.indexOf(product);
+            let newcart = [...cart.slice(0, index), ...cart.slice(index + 1, cart.length)]
+            localStorage.setItem('cart', JSON.stringify(newcart));
+            this.props.removeFromCart();
+        }
+    }
 
 
     render() {
 
         const productList = this.props.cart ? this.props.cart : []
-        console.log(productList)
         const cartInfor = productList.map((item, index) => {
             return (
                 <tr key={index} valign="middle">
@@ -25,8 +49,14 @@ class MyCart extends React.Component {
                             <div>
                                 <p className="cart-item-name">{item.name}</p>
                                 <div className="cart-item-edit d-flex">
-                                    <p className="change">Change</p>
-                                    <p className="remove">Remove</p>
+                                    <p className="change"
+                                        name={item._id}
+                                        onClick={this.handleChange}
+                                    >Change</p>
+                                    <p className="remove"
+                                        name={item._id}
+                                        onClick={this.handleRemove}
+                                    >Remove</p>
                                 </div>
                             </div>
                         </div>
@@ -44,8 +74,6 @@ class MyCart extends React.Component {
                     <td className="cart-item-price">{`$${item.price}`}</td>
                 </tr>
             )
-
-
         })
 
         return (
