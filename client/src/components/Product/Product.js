@@ -148,6 +148,14 @@ class Product extends React.Component {
             addToCart = < button className="mt-5 do-not-add"> Add to cart </button >
         }
 
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8]
+        const alsoLike = arr.map(item => {
+            return (<div className="also-like-product ">
+                <img alt="product" src={img[0]} className="also-like-product-img" />
+                <p className="also-like-product-name mt-2">Collete Stretch Linen Minidress</p>
+            </div>)
+        })
+
         const productDetail = product ?
             <div className="row">
                 <div className="col-5 d-flex ">
@@ -211,10 +219,23 @@ class Product extends React.Component {
             <div>
                 {categoryName}
                 {productDetail}
-                <div className=" row reviews">
+                <div className=" d-flex reviews mt-5">
+                    <div className="before-review"></div>
                     <div className="review ">Reviews</div>
-
+                    <div className="after-review"></div>
                 </div>
+                <p className="no-review">No reviews</p>
+
+                <div className=" d-flex also-likes mt-5">
+                    <div className="before-also-like"></div>
+                    <div className="also-like ">You may also like</div>
+                    <div className="after-also-like"></div>
+                </div>
+
+                <div className="d-flex also-like-products mt-5">
+                    {alsoLike}
+                </div>
+
             </div>
 
         )
