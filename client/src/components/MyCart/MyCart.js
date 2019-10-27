@@ -14,7 +14,20 @@ class MyCart extends React.Component {
 
 
     handleChange = e => {
-        const id = e.target.getAttribute('name')
+        const id = e.target.getAttribute('name');
+        const cart = this.props.cart;
+        const product = cart.find((item) => {
+            if (item._id === id)
+                return item
+            return null
+        })
+        if (product) {
+            let index = cart.indexOf(product);
+            let newcart = [...cart.slice(0, index), product, ...cart.slice(index + 1, cart.length)]
+            localStorage.setItem('cart', JSON.stringify(newcart));
+        }
+
+
 
     }
 
@@ -97,7 +110,6 @@ class MyCart extends React.Component {
                             editProduct(element).then(res => {
                                 console.log(res)
                             })
-                            // goi api cap nhat product
                         }
                     });
                 })
