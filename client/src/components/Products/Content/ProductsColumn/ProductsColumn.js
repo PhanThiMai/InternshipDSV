@@ -2,6 +2,7 @@ import React from 'react';
 import './ProductsColumn.scss'
 import ProductCart from '../../../../containers/ProductCart'
 import { getProducts } from '../../../../api/products'
+import { getCategories } from '../../../../api/category'
 
 const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
 
@@ -14,7 +15,7 @@ class ProductsColumn extends React.Component {
             sort: "Populariry",
             products: [],
             productList: [],
-            category: ""
+            categories: []
         }
     }
 
@@ -31,6 +32,14 @@ class ProductsColumn extends React.Component {
                 this.setState({
                     productList: productList,
                     products: productList
+                })
+            }
+        })
+
+        getCategories().then(res => {
+            if (res) {
+                this.setState({
+                    categories: res.data
                 })
             }
         })
@@ -71,9 +80,28 @@ class ProductsColumn extends React.Component {
 
     render() {
         const { match } = this.props
-        const { products, sort } = this.state
+        let { sort, products, productList, categories } = this.state
+        const { productsState } = this.props
+        const id = this.props.match.params.id
+
+        if (productsState) {
+            if (productsState.childCategory) {
+                categories.forEach(item => {
+                    if (item._id === id) {
+                        products = [];
+                        productList.forEach(element => {
+                            if (element.category.indexOf(item.name) !== -1) {
+                                products.push(element);
+                            }
+                        });
+                    }
+                });
+            }
+        }
+
+
         let productsItem;
-        if (products !== null && products !== undefined) {
+        if (products !== null && products !== undefined && products.length !== 0) {
             productsItem = < div className="products d-flex flex-wrap" >
                 {
                     products.map((item, index) =>
