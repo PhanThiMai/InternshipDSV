@@ -4,8 +4,7 @@ const token = localStorage.getItem("usertoken");
 let initialState = {
     loginModal: false,
     registerModal: false,
-    isLogin: token ? true : false,
-
+    isLogin: token ? true : false
 }
 
 let headerReducer = (state = initialState, action) => {

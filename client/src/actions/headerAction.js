@@ -35,4 +35,3 @@ export const isAdmin = () => {
     return { type: types.HANDLE_ADMIN_LOGIN }
 }
 
-

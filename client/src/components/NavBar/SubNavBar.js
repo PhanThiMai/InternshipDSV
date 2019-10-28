@@ -5,17 +5,30 @@ import {
 } from "react-router-dom";
 
 
+class SubNavBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
 
-function SubNavBar(props) {
-    const { value } = props;
-    const sunCategoriesTag = value.map((item, index) =>
-        <Link to={'/category/' + item} key={index} className={`category${item}`}> {item}</Link >);
+        }
+    }
 
-    return (
-        <div className="d-flex justify-content-around align-items-center mt-3  subNavBar"  >
-            {sunCategoriesTag}
-        </div>
-    )
+    render() {
+        const { value } = this.props;
+        const sunCategoriesTag = value.map((item, index) =>
+            <Link to={'/category/' + item._id}
+                key={index}
+                className={`category${item.name}`}
+                name={item.name}
+            > {item.name}</Link >);
+
+        return (
+            <div className="d-flex justify-content-around align-items-center mt-3  subNavBar"  >
+                {sunCategoriesTag}
+            </div>
+        )
+    }
+
 }
 
 

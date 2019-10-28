@@ -5,13 +5,8 @@ import SizeCategory from './SizeCategory/SizeCategory'
 import ColorCategory from './ColorCategory/ColorCategory'
 import BrandCategory from './BrandCategory/BrandCategory'
 import PriceCategory from './PriceCategory/PriceCategory'
-const categories = [
+import { getCategories } from '../../../../api/category'
 
-    "Rompers / Jumpsuits",
-    "Casual dresses", "Going out dresses",
-    "Party / Ocassion dresses",
-    "Mini dresses", "Maxi / Midi dresses", "Sets"
-]
 
 const sizes = [
     {
@@ -42,12 +37,28 @@ class Categories extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            categories: [],
             sizeCollapsed: false,
             colorCollapsed: false,
             brandCollapsed: false,
             priceCollapsed: false,
             availCollapsed: false
         }
+    }
+
+    componentDidMount = () => {
+        let categories = []
+        getCategories().then(res => {
+            if (res.data) {
+                res.data.map(item => {
+                    if (item.leaf)
+                        categories.push(item)
+                })
+                this.setState({
+                    categories
+                })
+            }
+        })
     }
 
     handleClickChildCategory = (e) => {
@@ -59,13 +70,15 @@ class Categories extends React.Component {
         const { mainCategory, match } = this.props
 
         const { colorCollapsed, sizeCollapsed,
-            brandCollapsed, priceCollapsed, availCollapsed
+            brandCollapsed, priceCollapsed, availCollapsed, categories
         } = this.state;
         // console.log(this.props.productsState)
 
 
         const categoryItem = categories.map((item, index) => {
-            let newUrl = item.replace(/\s/g, '');
+            // let newUrl = item.replace(/\s/g, '');
+            let newUrl = item._id
+
             return (
                 <NavLink
                     to={`${match.url}/${newUrl}`}
@@ -73,9 +86,9 @@ class Categories extends React.Component {
                     className="category-item"
                     activeClassName="all-dresses"
                     onClick={this.handleClickChildCategory}
-                    name={item}
+                    name={item.name}
                 >
-                    {item}
+                    {item.name}
                 </NavLink>
             )
         })

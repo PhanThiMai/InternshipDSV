@@ -1,28 +1,36 @@
 import React from 'react';
 import './NavBar.scss'
 import SubNavBar from './SubNavBar'
+import { getCategories } from '../../api/category'
 
 const img = "/img/arrow.svg"
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showSubMenu: false
+            rootCategories: []
         };
-
     }
-    handleHover = (event) => {
-        this.setState({ showSubMenu: true });
-    };
 
-    handleLeave = (event) => {
-        this.setState({ showSubMenu: false });
-    };
+    componentDidMount = () => {
+        getCategories().then(res => {
+            const data = res.data;
+            let rootCategories = [];
+            if (data) {
+                data.map(item => {
+                    if (item.root)
+                        rootCategories.push(item)
+                })
+            }
+            this.setState({
+                rootCategories
+            })
+        })
+    }
+
 
     render() {
-
-
-        const subCategories = ["Tops", "Bottoms", "Dresses", "Jackets", "Shoes", "Accessories", "Sale"];
+        const { rootCategories } = this.state;
         return (
             <ul className="d-flex justify-content-center nav-bar">
                 <li>
@@ -30,7 +38,7 @@ class NavBar extends React.Component {
                     <img src={img} alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
-                        <SubNavBar value={subCategories} />
+                        <SubNavBar value={rootCategories} />
                     </div>
                 </li>
                 <li>
@@ -38,7 +46,7 @@ class NavBar extends React.Component {
                     <img src={img} alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
-                        <SubNavBar value={subCategories} />
+                        <SubNavBar value={rootCategories} />
                     </div>
 
                 </li>
@@ -47,7 +55,7 @@ class NavBar extends React.Component {
                     <img src={img} alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
-                        <SubNavBar value={subCategories} />
+                        <SubNavBar value={rootCategories} />
                     </div>
                 </li>
                 <li>
@@ -55,7 +63,7 @@ class NavBar extends React.Component {
                     <img src={img} alt="arrow"
                         className="arrow mr-4" />
                     <div className="sub-nav-bar-container">
-                        <SubNavBar value={subCategories} />
+                        <SubNavBar value={rootCategories} />
                     </div>
                 </li>
 
