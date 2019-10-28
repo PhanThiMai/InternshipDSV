@@ -3,6 +3,7 @@ import './Content.scss'
 import Categories from '../../../containers/Category'
 import ProductsColumn from '../../../containers/ProductsColumn'
 
+
 function Content(props) {
     const { mainCategory, match } = props
     return (

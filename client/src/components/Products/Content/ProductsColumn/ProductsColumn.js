@@ -3,14 +3,18 @@ import './ProductsColumn.scss'
 import ProductCart from '../../../../containers/ProductCart'
 import { getProducts } from '../../../../api/products'
 
+const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
+
 
 class ProductsColumn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             openSort: false,
+            sort: "Populariry",
             products: [],
-            productList: []
+            productList: [],
+            category: ""
         }
     }
 
@@ -30,13 +34,44 @@ class ProductsColumn extends React.Component {
                 })
             }
         })
+    }
+
+    compareName = (a, b) => {
+        return a.name < b.name ? 1 : -1
+    }
+
+    comparePrice = (a, b) => {
+        return a.price < b.price ? 1 : -1
+    }
+    comparePrice1 = (a, b) => {
+        return a.price > b.price ? 1 : -1
+
+    }
+
+    handleClickSort = e => {
+        const sortItem = e.target.getAttribute('name');
+        const { productList } = this.state;
+        let products = [...productList]
+        if (sortItem === sortItems[1]) {
+            products.sort(this.compareName)
+        }
+        else if (sortItem === sortItems[2]) {
+            products.sort(this.comparePrice1)
+        }
+        else {
+            products.sort(this.comparePrice2)
+        }
+
+        this.setState({
+            products: products
+        })
 
     }
 
 
     render() {
         const { match } = this.props
-        const { products } = this.state
+        const { products, sort } = this.state
         let productsItem;
         if (products !== null && products !== undefined) {
             productsItem = < div className="products d-flex flex-wrap" >
@@ -50,16 +85,15 @@ class ProductsColumn extends React.Component {
             productsItem = <p className="no-result-found">No result found</p>
         }
 
-        const sortItems = ["Populariry", "Name: A - Z", "Price: lowest to highest", "Price: highest to lowest"]
 
         return (
             < div >
-                <div className="drop-down  d-flex justify-content-between "
-                    onClick={this.toggle}
-                >
-                    <p className="sort-by">Sort By:
-                    <span className="sort-by-selected">Populariry
-                    </span>
+                <div className="drop-down  d-flex justify-content-between " >
+                    <p className="sort-by"
+                        onClick={this.toggle}
+                    >Sort By:
+                    <span className="sort-by-selected">{sort}
+                        </span>
                     </p>
                     <img src="/img/arrow.svg"
                         className="arrow " alt="arrow" />
@@ -67,7 +101,11 @@ class ProductsColumn extends React.Component {
                         this.state.openSort === true ? <div className="sort-by-items">
                             {sortItems.map((item, index) => {
                                 return (
-                                    <p key={index} className="sort-by-item" > {item}</p>
+                                    <p key={index}
+                                        className="sort-by-item"
+                                        name={item}
+                                        onClick={this.handleClickSort}
+                                    > {item}</p>
                                 )
                             }
                             )}
