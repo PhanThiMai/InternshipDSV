@@ -3,10 +3,10 @@ import * as types from '../constants/ActionType'
 let initialState = {
     childCategory: null,
     productDetail: null,
-    cart: []
+    cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 }
 
-export let productsReducer = (state = initialState, action) => {
+let productsReducer = (state = initialState, action) => {
     let { childCategory, productDetail } = state;
 
     switch (action.type) {
@@ -20,21 +20,24 @@ export let productsReducer = (state = initialState, action) => {
                 productDetail,
                 childCategory: action.childCategory
             }
-
-        default:
-            return state
-    }
-}
-
-export let cart = (state = initialState.cart, action) => {
-
-    switch (action.type) {
         case types.ADD_TO_CART:
-            return [...state, {
-                product: action.product
-            }]
+            return {
+                cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 
+            }
+        case types.REMOVE_FROM_CART:
+            return {
+                cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+
+            }
+        case types.CHECK_OUT:
+            return {
+                cart: []
+
+            }
         default:
             return state
     }
 }
+
+export default productsReducer;

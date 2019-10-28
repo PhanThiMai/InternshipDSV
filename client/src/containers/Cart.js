@@ -3,7 +3,6 @@ import Cart from '../components/Header/Cart'
 
 
 const mapStateToProps = state => ({
-
     cart: state.cart
 })
 

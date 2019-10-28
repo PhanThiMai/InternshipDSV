@@ -1,7 +1,5 @@
 import React from 'react';
 import './ProductsColumn.scss'
-
-
 import ProductCart from '../../../../containers/ProductCart'
 import { getProducts } from '../../../../api/products'
 
@@ -32,6 +30,7 @@ class ProductsColumn extends React.Component {
                 })
             }
         })
+
     }
 
 
@@ -64,8 +63,6 @@ class ProductsColumn extends React.Component {
                     </p>
                     <img src="/img/arrow.svg"
                         className="arrow " alt="arrow" />
-
-
                     {
                         this.state.openSort === true ? <div className="sort-by-items">
                             {sortItems.map((item, index) => {
@@ -74,14 +71,7 @@ class ProductsColumn extends React.Component {
                                 )
                             }
                             )}
-                        </div> : <div className="sort-by-items">
-                                {sortItems.map((item, index) => {
-                                    return (
-                                        <p key={index} className="sort-by-item" > {item}</p>
-                                    )
-                                }
-                                )}
-                            </div>
+                        </div> : <></>
                     }
                 </div>
                 {productsItem}

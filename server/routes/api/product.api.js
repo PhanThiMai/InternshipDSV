@@ -62,5 +62,21 @@ router.post('/', (req, res, next) => {
 
 })
 
+router.post('/edit', (req, res, next) => {
+    const { body } = req;
+
+    products.findByIdAndUpdate(body.id, { amount: body.amount }, err => {
+        if (err) {
+            res.json({
+                type: 0
+            })
+        }
+        res.json({
+            type: 1
+        })
+    })
+
+})
+
 
 module.exports = router

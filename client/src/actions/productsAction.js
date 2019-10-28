@@ -21,3 +21,15 @@ export const addToCart = (product) => {
         product
     }
 }
+
+export const removeFromCart = () => {
+    return {
+        type: types.REMOVE_FROM_CART
+    }
+}
+
+export const checkout = () => {
+    return {
+        type: types.CHECK_OUT
+    }
+}

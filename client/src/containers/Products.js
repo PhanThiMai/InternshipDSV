@@ -4,7 +4,8 @@ import Products from '../components/Products/Products'
 
 
 const mapStateToProps = state => ({
-    productsState: state.productsReducer
+    productsState: state.productsReducer,
+    category: state.subNavBarReducer
 })
 
 const mapDispatchToProps = (dispatch) => {

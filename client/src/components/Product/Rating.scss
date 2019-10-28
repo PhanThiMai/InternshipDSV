@@ -1,0 +1,20 @@
+@import "../Helper/Color.scss";
+@import "../Helper/Font.scss";
+
+.rating {
+  margin-bottom: 0px;
+  height: 27px;
+
+  .line {
+    width: 1px;
+    height: 18px;
+    border: solid 0.5px #979797;
+    margin-top: 8px;
+    margin-left: 14px;
+  }
+
+  .number-of-review {
+    @include font(Montserrat, 12px, normal, normal, normal, 1.83, normal);
+    color: $dark-grey;
+  }
+}

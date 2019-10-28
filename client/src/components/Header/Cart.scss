@@ -3,7 +3,9 @@
 
 .cart-component {
   width: 270px;
-  //height: 310px;
+  height: 310px;
+  overflow-y: auto;
+  overflow-x: hidden;
   box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
   border: solid 0.5px #eaeaea;
   background-color: #fbfbfb;
@@ -46,14 +48,21 @@
     width: 270px;
     height: 1px;
     background-color: #ececec;
+    margin-bottom: 13px;
   }
 
   .view-cart {
-    height: 22px;
+    // height: 22px;
     margin-left: 38%;
     margin-top: 7%;
+
     margin-bottom: 5%;
     @include font(Montserrat, 14px, bold, normal, normal, 1.57, normal);
     color: $pale-orange;
+  }
+
+
+  &:hover {
+    cursor: pointer;
   }
 }
