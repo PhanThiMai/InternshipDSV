@@ -108,7 +108,6 @@ class MyCart extends React.Component {
                             const restAmount = element.amount - item.quantity;
                             element.amount = restAmount
                             editProduct(element).then(res => {
-                                console.log(res)
                             })
                         }
                     });

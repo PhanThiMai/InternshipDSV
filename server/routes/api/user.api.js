@@ -52,7 +52,6 @@ router.post('/register', (req, res, next) => {
     })
         .then(user => {
             if (!user) {
-                console.log("TCL REGISTER : user not exists")
                 let finalUser = new users({
                     fullname: body.fullname,
                     email: body.email,

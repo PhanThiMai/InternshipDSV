@@ -78,7 +78,6 @@ class AddingProduct extends React.Component {
     handleComplete = e => {
         e.preventDefault()
         const token = localStorage.getItem("usertoken");
-        console.log(token)
         if (!token) {
             this.setState({
                 error: true

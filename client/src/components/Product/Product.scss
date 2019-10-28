@@ -198,7 +198,7 @@
 }
 
 .more-from {
-  width: 80px;
+  //width: 80px;
   height: 22px;
   @include font(Montserrat, 14px, 500, normal, normal, 1.57, normal);
   color: $dark-grey;
@@ -310,6 +310,5 @@
       @include font(Montserrat, 12px, 500, normal, normal, 1.33, normal);
       color: $greyish-brown;
     }
-
   }
 }

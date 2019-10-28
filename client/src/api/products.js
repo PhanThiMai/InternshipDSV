@@ -16,7 +16,6 @@ export const addProduct = (product, token) => {
             product, token
         })
         .then(res => {
-            console.log(res.data)
             return res.data
         }).catch(error => console.log(error));
 }
