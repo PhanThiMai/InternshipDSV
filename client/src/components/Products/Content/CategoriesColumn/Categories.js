@@ -47,6 +47,7 @@ class Categories extends React.Component {
     }
 
     componentDidMount = () => {
+
         let categories = []
         getCategories().then(res => {
             if (res.data) {
@@ -63,22 +64,17 @@ class Categories extends React.Component {
 
     handleClickChildCategory = (e) => {
         let childCategory = e.target.name;
-        this.props.viewProductsOfCategory(childCategory.replace(/\s/g, ''));
+        this.props.viewProductsOfCategory(childCategory);
     }
 
     render() {
         const { mainCategory, match } = this.props
-
         const { colorCollapsed, sizeCollapsed,
             brandCollapsed, priceCollapsed, availCollapsed, categories
         } = this.state;
-        // console.log(this.props.productsState)
-
 
         const categoryItem = categories.map((item, index) => {
-            // let newUrl = item.replace(/\s/g, '');
             let newUrl = item._id
-
             return (
                 <NavLink
                     to={`${match.url}/${newUrl}`}
@@ -86,7 +82,7 @@ class Categories extends React.Component {
                     className="category-item"
                     activeClassName="all-dresses"
                     onClick={this.handleClickChildCategory}
-                    name={item.name}
+                    name={item._id}
                 >
                     {item.name}
                 </NavLink>

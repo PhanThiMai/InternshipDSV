@@ -26,19 +26,9 @@ function App() {
     if (decode.role === 'admin') admin = true;
   }
 
-  //localStorage.removeItem('cart');
-  //localStorage.removeItem('token');
-
-
-
-
   return (
-
-
     <Router>
-
       <Switch>
-
         <Route exact path="/admin">
           {!admin ? <Redirect to="/" /> : <AddProduct />}
         </Route>

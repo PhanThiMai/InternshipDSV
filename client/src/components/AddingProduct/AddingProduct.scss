@@ -57,17 +57,29 @@
     }
 
     .admin-info {
+      .userpic {
+        margin-top: 0px;
+      }
+
       .admin {
         width: 85px;
         height: 24px;
         @include font(Montserrat, 14px, bold, normal, normal, 1.71, normal);
         color: $dark-grey;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       .dropdown {
         width: 24px;
         height: 24px;
         object-fit: contain;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       .mail {

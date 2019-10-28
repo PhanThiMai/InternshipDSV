@@ -1,10 +1,12 @@
 import * as types from '../constants/ActionType'
+const token = localStorage.getItem("usertoken");
 
 let initialState = {
     selectedCategory: null,
     selectedBrand: null,
     selectedSize: null,
-    selectedColor: null
+    selectedColor: null,
+    isLogin: token ? true : false
 }
 
 let addProductReducer = (state = initialState, action) => {
@@ -37,7 +39,11 @@ let addProductReducer = (state = initialState, action) => {
                 selectedSize: null,
                 selectedColor: null
             }
-
+        case types.LOG_OUT:
+            localStorage.removeItem("usertoken")
+            return {
+                isLogin: false
+            }
         default:
             return state
     }

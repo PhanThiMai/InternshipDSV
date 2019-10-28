@@ -75,15 +75,10 @@ class AddingProduct extends React.Component {
         this.props.handleCancelProduct();
     }
 
-    validateProdut = (product) => {
-
-    }
-
     handleComplete = e => {
         e.preventDefault()
         const token = localStorage.getItem("usertoken");
         console.log(token)
-        //const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQG1haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNTcxOTEzODQwLCJleHAiOjE1NzE5MTUyODB9.GM5MHaiQv2idHgNKdUZw7Mll1lWJWaxeP2zQlZjJVDs"
         if (!token) {
             this.setState({
                 error: true
@@ -101,14 +96,14 @@ class AddingProduct extends React.Component {
                 })
             }
             else {
-                const categogies = selectedCategory.map((item, key) =>
+                const categogies = selectedCategory.map((item) =>
                     item.value
                 )
                 const brand = selectedBrand.value;
-                const size = selectedSize.map((item, key) =>
+                const size = selectedSize.map((item) =>
                     item.value
                 )
-                const color = selectedColor.map((item, index) => item.value)
+                const color = selectedColor.map((item) => item.value)
                 const product = {
                     category: categogies,
                     brand: brand,
@@ -121,23 +116,18 @@ class AddingProduct extends React.Component {
                     rating: 0,
                     image: '/img/product.jpg'
                 }
-                console.log(product)
-                // if (addProduct(product, token) === false) {
-                //     this.setState({ errors: true })
 
-                // } else {
                 addProduct(product, token).then(res => {
                     if (res) {
                         this.handleCancel();
                     }
                 })
-
-
             }
-
-
         }
+    }
 
+    handleLogout = () => {
+        this.props.handleLogout()
     }
 
     render() {
@@ -195,8 +185,12 @@ class AddingProduct extends React.Component {
                         <p className="add-product-logo">Add product</p>
                         <div className="admin-info d-flex">
                             <img src="/img/user.svg" className="userpic mr-3 " alt="avartar" />
-                            <p className="admin">Lucile Bush</p>
-                            <img src="/img/dropdown.svg" alt="icon"
+                            <p className="admin"
+                                onClick={this.handleLogout}
+                            >Lucile Bush</p>
+                            <img src="/img/dropdown.svg"
+                                onClick={this.handleLogout}
+                                alt="icon"
                                 className="dropdown" />
                             <img src="/img/mail.svg" alt="icon"
                                 className="mail" />
