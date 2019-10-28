@@ -35,3 +35,9 @@ export const handleCancelProduct = () => {
 }
 
 
+export const handleLogout = () => {
+    return {
+        type: types.LOG_OUT
+    }
+}
+

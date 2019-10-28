@@ -24,10 +24,14 @@ const mapDispatchToProps = (dispatch) => {
         },
         handleCancelProduct: () => {
             dispatch(actions.handleCancelProduct())
-        }
+        },
 
+        handleLogout: () => {
+            dispatch(actions.handleLogout())
+        }
     }
 }
+
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddingProduct);
