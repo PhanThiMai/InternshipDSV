@@ -64,7 +64,6 @@ router.post('/', (req, res, next) => {
 
 router.post('/edit', (req, res, next) => {
     const { body } = req;
-    console.log(body.product)
 
     products.findByIdAndUpdate(body.product._id, { $set: { amount: body.product.amount } }, err => {
         if (err) {

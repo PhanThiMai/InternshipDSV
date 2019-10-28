@@ -1,6 +1,4 @@
 import * as types from '../constants/ActionType'
-import { getCategories } from '../api/category'
-import { getProducts } from '../api/products'
 
 let initialState = {
     childCategory: null,
